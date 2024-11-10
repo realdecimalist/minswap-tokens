@@ -1,0 +1,77 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "vcs": {
+    "defaultBranch": "main",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": ["node_modules/**", ".vscode/**"]
+  },
+  "formatter": {
+    "bracketSpacing": true,
+    "enabled": true,
+    "lineWidth": 120,
+    "useEditorconfig": true
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "complexity": {
+        "noUselessFragments": "error",
+        "noUselessStringConcat": "error",
+        "useArrowFunction": "off",
+        "useLiteralKeys": "off",
+        "useOptionalChain": "warn"
+      },
+      "correctness": {
+        "all": true,
+        "noUndeclaredDependencies": "off",
+        "useImportExtensions": "off",
+        "noNodejsModules": "off"
+      },
+      "nursery": {
+        "noDescendingSpecificity": "error",
+        "noNestedTernary": "off",
+        "noOctalEscape": "error",
+        "noTemplateCurlyInString": "error",
+        "noUselessEscapeInRegex": "error",
+        "noEnum": "error"
+      },
+      "performance": {
+        "all": true
+      },
+      "recommended": true,
+      "style": {
+        "noArguments": "error",
+        "noParameterAssign": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "useLiteralEnumMembers": "error",
+        "useTemplate": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "error",
+        "noAssignInExpressions": "error",
+        "noPrototypeBuiltins": "error"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "all"
+    }
+  },
+  "json": {
+    "parser": {
+      "allowComments": true,
+      "allowTrailingCommas": true
+    }
+  }
+}
