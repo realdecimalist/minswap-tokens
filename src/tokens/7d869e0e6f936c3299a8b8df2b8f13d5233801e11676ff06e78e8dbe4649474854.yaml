@@ -1,0 +1,20 @@
+project: FIGHT
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://x.com/fightcoinada
+
+verified: true
+
+maxSupply: 450000000000
+
+decimals: 0
+
+treasury:
+  - stake1uygzdup55m354t6nx9nlj9eqhquh5rfue4tzm3yppaxr6vgz6cspc
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

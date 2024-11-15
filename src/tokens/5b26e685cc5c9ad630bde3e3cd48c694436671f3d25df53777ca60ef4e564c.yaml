@@ -1,0 +1,20 @@
+project: Nuvola
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://www.nuvoladigital.io/
+  twitter: https://twitter.com/NuvolaDigital_
+  discord: https://discord.gg/nuvola
+
+verified: true
+
+maxSupply: 21000000
+
+decimals: 6
+
+treasury:
+  - stake179qxx9fyg59ad4x7vpnksxlkc93nsj5zc2v3hy8up2kangc7qzvzh
+  - stake179kx2h763naj8nm8uujxe9q0xksnu8t05p5rzgxnmez9nsc8kpzhd
+

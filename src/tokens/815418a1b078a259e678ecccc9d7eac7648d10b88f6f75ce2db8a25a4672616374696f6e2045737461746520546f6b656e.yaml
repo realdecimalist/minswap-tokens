@@ -1,0 +1,28 @@
+project: Fraction Estate
+
+categories:
+  - RealFi
+  - NFT
+
+socialLinks:
+  website: https://www.fraction.estate/
+  twitter: https://twitter.com/FractionEstate
+  discord: https://discord.gg/CPTmRnjukt
+  telegram: https://t.me/FractionEstate
+
+verified: true
+
+maxSupply: 100000000
+
+decimals: 10
+
+treasury:
+  - stake1uyedlzmcwtn63sjmvau4rgr5jwwd98jzqv8lc5fe7v36c2gy7y3mq
+  - stake1u9j7m6yrzw6ue0g2wyesqppf9qkkk86ac5x6gqy6axmx9xqtcv3n5
+  - stake1uxs45y65rgrq9kzk4wjqf9wannky3vn3unhpy40jykg8fscnqdz2j
+  - stake1uxa33njpprvxrjwtgpwechlf7y3kcxw6ddj2hf5s8e4z77snr6znd
+  - stake1uytl9a6eup867pd4ljz9q5y968qpd0j9hg3e9luhh0dm9sqw2grpe
+  - addr1wy08wwdmpp6wtkzzjnghpxn0wtm9zyp69s4fxe675yv06cs70pjxk
+  - stake1uxmyhzdqv6e57xwkz3z93v996v3ktdctlda44jv76ese5pqwwg7ue
+  - stake1uyuxqkvqwngv86g9m804kjnhmvunc52kk4kl8cm8fck5kwcjmx8sg
+

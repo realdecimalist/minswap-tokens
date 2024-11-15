@@ -1,0 +1,20 @@
+project: Cardano Proxies
+
+categories:
+  - NFT
+  - DAO
+
+socialLinks:
+  website: https://cardanoproxies.io
+  twitter: https://twitter.com/cardanoproxies
+  discord: https://discord.com/invite/theproxies
+
+verified: true
+
+maxSupply: 21000000
+
+decimals: 6
+
+treasury:
+  - stake1uxrtzq4epgjxz7xulm97ups30rml843trc5x8zulxxzf2rq7effsj
+

@@ -1,0 +1,21 @@
+project: BPT
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://twitter.com/DegenPantsAda
+  discord: https://discord.gg/8vJxFtvXnG
+
+verified: true
+
+maxSupply: 155000000000000000
+
+decimals: 0
+
+treasury:
+  - stake1uypqrgwhdktwdc0735wvtclvttu5nxp48fvq6mv742gmmhcjh0xu8
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

@@ -1,0 +1,22 @@
+project: VYFI
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://vyfi.io
+  twitter: https://www.twitter.com/VyFiOfficial
+  discord: https://discord.gg/xGAD3hSXbu
+  telegram: https://t.me/vyfinance
+  coinMarketCap: https://coinmarketcap.com/currencies/vyfinance/
+  coinGecko: https://www.coingecko.com/en/coins/vyfinance
+
+verified: true
+
+maxSupply: 450000000
+
+decimals: 6
+
+treasury:
+  - stake1u9rs4usucfu2ymfeeem2dnvfsdxl9sm7vpvd8pkc4cym8rsge78sh
+

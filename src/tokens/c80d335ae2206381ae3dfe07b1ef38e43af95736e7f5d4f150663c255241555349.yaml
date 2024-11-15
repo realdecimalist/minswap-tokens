@@ -1,0 +1,22 @@
+project: RAUSI
+
+categories:
+  - Other
+
+socialLinks:
+  website: https://rausi.fi/
+  twitter: https://x.com/RausiFi
+
+verified: true
+
+maxSupply: 8000000000
+
+decimals: 0
+
+treasury:
+  - addr1wy3vkt9xxc98rllr3urvx8cy2ws02fr4rf88n7cdeyzw8wqaqtffw
+  - addr1w9szsx54qadp2yqe2xqrh6fmta6vuvqwtd5zsk7ec6j9sasmxhv3w
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

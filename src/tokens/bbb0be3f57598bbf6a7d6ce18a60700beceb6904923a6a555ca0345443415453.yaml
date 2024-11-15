@@ -1,0 +1,14 @@
+verified: false
+
+maxSupply: 88888888888888900
+
+decimals: 0
+
+treasury:
+  - stake1u923hpvm0kurh8mrav0rcrwfd0qfyguxq3wt9qjlynpqcjgrn8yu8
+  - stake1u8fpm0l9wq6ukw7932vwkhlpthhwlk7hx4vx6xe35dzplaq6ckdj5
+  - stake1u9a7k0k2t0amdsyyvuyvr6wfdk96egxculjs7ydmehc5ueqljenvv
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

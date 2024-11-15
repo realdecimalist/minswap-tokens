@@ -1,0 +1,22 @@
+project: AdaPunks
+
+categories:
+  - NFT
+
+socialLinks:
+  website: https://adapunks.net/
+  twitter: https://twitter.com/PunksAda
+  discord: https://discord.com/invite/amWcKv2DC3
+
+verified: true
+
+maxSupply: 100000000000000
+
+decimals: 0
+
+treasury:
+  - addr1q8hnlxtw0gsxy53n3wcdepnal9fu5zm02zu2uvtgg6mg64ls455xwpcsxhh8fzpdmfpwsy6ugja9crtnsnmrhxwr9dps9x7wzc
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

@@ -1,0 +1,22 @@
+project: Yamfore
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://yamfore.com/
+  discord: https://discord.com/invite/FK5qtrmRE7
+  twitter: https://twitter.com/yamfore
+
+verified: true
+
+maxSupply: 1000000000
+
+decimals: 6
+
+treasury:
+  - stake1u80gm88pyu78rr2ee3p7mn482xza6thtnvg3k3c0y43syrsdzm0lw
+  - stake1uy02585lgl0j9pfzz2jxqmdckar2jqlpwre899j9304l3ysezxnjj
+  - stake1uxxghepgwfmtq9spaxf46ucxvns54pyvcqtrpk4888dtqdqhth0sj
+  - stake1u9u5xdu6dxtqkq87rfpls54xp3jw6yqtvaywfzjzyejh65qtjjah2
+

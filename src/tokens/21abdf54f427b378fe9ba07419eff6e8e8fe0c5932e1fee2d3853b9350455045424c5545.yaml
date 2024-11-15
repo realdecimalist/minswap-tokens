@@ -1,0 +1,23 @@
+project: PEPE BLUE
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://pepeblue.io/
+  telegram: https://t.me/PEPEBLUEADA
+  twitter: https://twitter.com/PEPEBLUEADA
+  discord: https://discord.gg/FdvsKpuRmd
+  coinGecko: https://coingecko.com/en/coins/pepeblue
+
+verified: true
+
+maxSupply: 390000000000000
+
+decimals: 0
+
+treasury:
+  - addr1qxkmr0m22xeqludcg5rjdmecjxasu9fat0680qehtcsnftaadgykewa9ufvegeuca9yyq03d9v7ea2y2zthgu7hfgjtsddp6gr
+  - addr1q9vm0hf5388yk0gjdzl567thmy6f2mc3dt0p09dt6u7fp7qyvwjm865g78xqml08m3ae48qk2g0klwa63eawr05cw02qu72ey0
+  - addr1qyxlw0wx4w7cdlwy4dtdygremqpfz7skyn60af8wl32a0jvq3mcxelvy8un2qlasklx5c326eqlzrwh25aaw2gumzw9qm5qc3q
+

@@ -1,0 +1,25 @@
+project: Liqwid
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://liqwid.finance
+  discord: https://discord.com/invite/vZzGHKGz29
+  twitter: https://twitter.com/liqwidfinance
+  coinMarketCap: https://coinmarketcap.com/currencies/liqwid-finance/
+  coinGecko: https://www.coingecko.com/en/coins/liqwid-finance
+
+verified: true
+
+maxSupply: 21000000
+
+decimals: 6
+
+treasury:
+  - stake17yl23x3q5v4hpjyywjal326ku2953kn4dhkrq5edmqcyj4cz0h7v5
+  - stake17x5s640797a4wlu0x3wtxrytrq8hx67smk238vpvjgjkjgqhmc4sl
+  - stake17yr6hxevthv7fr6la584r3sy4jlgf7uwtc2udkwzj8zt3vg2mzq4x
+  - stake17xljj9au6hels8vtn5rf3ctgux9azsfnnwqgx4y7x0y5ytsu0nj2z
+  - stake17y46nf93jdpcjdjxr22re49ymxk0gp8tgnpeucuxhk4gnyc6ptg0f
+

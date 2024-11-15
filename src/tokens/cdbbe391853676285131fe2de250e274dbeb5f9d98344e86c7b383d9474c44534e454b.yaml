@@ -1,0 +1,22 @@
+project: GLDSNEK
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://www.gldsnakes.com
+  twitter: https://twitter.com/gldsnek
+  discord: https://discord.com/invite/GETecTqm
+
+verified: true
+
+maxSupply: 78000000000
+
+decimals: 0
+
+treasury:
+  - addr1q8uu7utay9dfjyxqrdqmal3nn6g2q0x6zcg906cxdyl0z005f4expj22ee6clpveucn5r8qsxvc96pm2266re27y0gss6nrg7z
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

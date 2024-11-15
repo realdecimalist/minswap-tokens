@@ -1,0 +1,23 @@
+project: anetaBTC
+
+categories:
+  - Bridge
+
+socialLinks:
+  website: https://www.anetabtc.io
+  twitter: https://twitter.com/anetaBTC
+  discord: http://discord.gg/anetabtc
+  telegram: https://t.me/anetaBTC
+  coinMarketCap: https://coinmarketcap.com/currencies/anetabtc/
+  coinGecko: https://www.coingecko.com/en/coins/cneta
+
+verified: true
+
+maxSupply: 1000000000
+
+decimals: 0
+
+treasury:
+  - stake1u8ypd7vtdsst25v65ddqgdgt7w9plww0zyqgktfrr0apscqepfcnm
+  - stake1uxpa2qrzplzsmq5d492xc3ge6g5hfsvymkakznvva5fcznsjy5ed5
+

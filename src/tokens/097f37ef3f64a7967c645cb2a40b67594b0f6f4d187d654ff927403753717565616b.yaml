@@ -1,0 +1,19 @@
+project: Squeak
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://www.squeakkoin.xyz
+  twitter: https://twitter.com/SqueakKoin
+  discord: https://discord.com/invite/cPGVJKWfsZ
+
+verified: true
+
+maxSupply: 1000000000
+
+decimals: 0
+
+burn:
+  - addr1z8kadskrrswl3avwe9psd3mar5l7shf06slyxr2tetwln4nzg06w6dvxg0vuzx4s0uenlr0vfucctcfwpa2eshd86taqduntvj
+

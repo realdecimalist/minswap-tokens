@@ -1,0 +1,23 @@
+project: SlapVentures
+
+categories:
+  - GameFi
+  - NFT
+
+socialLinks:
+  website: https://slapventures.com/
+  twitter: https://twitter.com/SlapVentures
+  discord: https://discord.gg/slapventures
+
+verified: true
+
+maxSupply: 100000000000
+
+decimals: 0
+
+treasury:
+  - stake1ux366xgzh78hh8hk0ep0824pz7ha306uese7u644h7wn86quca6l3
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

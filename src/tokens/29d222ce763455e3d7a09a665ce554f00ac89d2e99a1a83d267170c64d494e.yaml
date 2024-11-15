@@ -1,0 +1,29 @@
+project: Minswap
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://minswap.org
+  discord: https://discord.gg/minswap
+  telegram: https://t.me/MinswapMafia
+  twitter: https://twitter.com/MinswapDEX
+  coinMarketCap: https://coinmarketcap.com/currencies/minswap/
+  coinGecko: https://www.coingecko.com/en/coins/minswap
+
+verified: true
+
+maxSupply: 3000000000
+
+decimals: 6
+
+treasury:
+  - addr1vx00uxlpkzgkrga47zdypj40a3yjs0u3wad88kdy9l3rekcrmyz69
+  - // TREASURY
+  - addr1zymeshes0pxnr2s4v95a4wchxs74l0lqt5n3f6rxynnepgjj2c79gy9l76sdg0xwhd7r0c0kna0tycz4y5s6mlenh8pq64anuz
+  - addr1z87vw6ts32hywu4j4kyk9qfgd36zhzx3y7fc786vgzlc57zj2c79gy9l76sdg0xwhd7r0c0kna0tycz4y5s6mlenh8pq9rwl7c
+  - addr1z9wdv59sq7zzy2l6gchq3247lz7ssfsxs45nj4njhwsp5uzj2c79gy9l76sdg0xwhd7r0c0kna0tycz4y5s6mlenh8pqzygnta
+  - addr1z9mjhq5c4s0smv2c92g9yvecpju3p8cfaneu8jzwq97ry62j2c79gy9l76sdg0xwhd7r0c0kna0tycz4y5s6mlenh8pqw9pw55
+  - addr1zx0wxal6dz7rjzxk2mwfvj9564rp9uajqrscftx44tp6ha6j2c79gy9l76sdg0xwhd7r0c0kna0tycz4y5s6mlenh8pq83j9cv
+  - addr1q8zntywq3fldecrqk4vl593sznvj7483ejcajnavvh2qpsvftaax5f3wasl5m49rtjw5pen938vr7863w0lfz94h0lfqldx3pu
+

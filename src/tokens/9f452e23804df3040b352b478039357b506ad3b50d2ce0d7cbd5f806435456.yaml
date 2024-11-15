@@ -1,0 +1,21 @@
+project: Cardano Token Vault
+
+categories:
+  - DAO
+  - DeFi
+
+socialLinks:
+  website: https://adatokenvault.com/
+  discord: https://discord.gg/ctv
+  twitter: https://twitter.com/ADATOKENVAULT
+
+verified: true
+
+maxSupply: 100000000
+
+decimals: 0
+
+treasury:
+  - addr1qyjwhsj246x8nf9evkadxtt0crgg2qjp7mk76zdnm38r0qp397a6yhn3qpzwt3ekwvtmptfxd8427egmlrrmufxvkgtsna5evs
+  - addr1qy5u9xul7vfhn3gvk68zzqfxxl6uxy5n7j3kq39aet06f4qh8u90v36crqhfj4stq2vmj98lyqzryd5nfg4j5ca6cjmqq9xzgt
+

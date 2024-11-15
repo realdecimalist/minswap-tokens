@@ -1,0 +1,21 @@
+project: BabySNEK
+
+categories:
+  - Meme
+  - RealFi
+
+socialLinks:
+  website: https://babysnektoken.io/
+  twitter: https://twitter.com/BabySNEKtoken
+  discord: https://discord.com/invite/HB6EB8DE6A
+
+verified: true
+
+maxSupply: 76715880000
+
+decimals: 0
+
+treasury:
+  - stake1uy5fe64k5lv5nrsy0g322ywh5fnfwyxwcqvp0pej3ymee7cpuv7z4
+  - stake178mscmhst8zj35s9tvpj8926nmw9dj8vut4rhme9qwtpj2qm8f00a
+

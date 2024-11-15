@@ -1,0 +1,21 @@
+project: Sharky
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://twitter.com/sharkycardano
+  discord: https://discord.gg/Jf345EMfuz
+
+verified: true
+
+maxSupply: 585858585858
+
+decimals: 0
+
+treasury:
+  - addr1q9undvvv5ygner7arwp970m2q6hgwymmnewzm35wv00kexz5m9upnclmqh34548waj3qws89xd39q9cxy663v7ely87swr9425
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

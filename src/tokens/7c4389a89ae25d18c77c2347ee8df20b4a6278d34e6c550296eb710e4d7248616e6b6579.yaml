@@ -1,0 +1,13 @@
+verified: false
+
+maxSupply: 121719970109
+
+decimals: 0
+
+treasury:
+  - addr1q9wpgjuvkq0vjz0j9gnmtsm78kywk89h00zmwdz0wd5u0dn68j687fzlz60n6y7gc72sszwlsr5kh6rllewj4ctxwvjsmvjfsx
+
+burn:
+  - addr1w93rz3ae8p3elzn0sqfu37hyzw0up98r2kgjjdmdq9wshmck40yr8
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

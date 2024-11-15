@@ -1,0 +1,22 @@
+project: Clarity
+
+categories:
+  - DAO
+
+socialLinks:
+  website: https://www.clarity.community/
+  twitter: https://twitter.com/clarity_dao
+  discord: https://discord.gg/Npupf5yqS8
+
+verified: true
+
+maxSupply: 2000000000
+
+decimals: 6
+
+treasury:
+  - stake1u934vrjj6cdw5rrd2vewahxu3nrd9wslhjlkvamd5kc8ytce7sjsk
+  - stake1u8g43cjercws2x26xmtlukgg3nfy4m0l6uw6dqtcp0y5fhc5pm7q5
+  - stake1uxs3nf3qj4xuyv9t63vyhxq8glec3zcxw0a03vegwdzu6hglwwmld
+  - addr1w87vg0x4k2x95dlp7mrlef909lgk25kgajhk2dxzxk0tquclfp0at
+

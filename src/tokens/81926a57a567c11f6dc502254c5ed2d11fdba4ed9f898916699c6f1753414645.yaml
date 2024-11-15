@@ -1,0 +1,21 @@
+project: SAFE
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://x.com/pangolincardano
+  discord: https://discord.gg/qkNgxpS5FE
+
+verified: true
+
+maxSupply: 420698008135
+
+decimals: 0
+
+treasury:
+  - stake1u9m784lg688hwhsfp72zmff522jcsp62m9txljtatujw5hgtk80fj
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

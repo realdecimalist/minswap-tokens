@@ -1,0 +1,18 @@
+project: Wojak Blue
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://twitter.com/WojakBlueADA
+  discord: https://discord.gg/Vzg95hQkmD
+
+verified: true
+
+maxSupply: 69420000000
+
+decimals: 0
+
+treasury:
+  - addr1q90m9sd7kwdt2vusmzlwprwycsys7ayjxtyagju89n3az27y9mpw78dw8u729jy27kwmz4w623qxt89nxjva06ujkwuqtpsejr
+

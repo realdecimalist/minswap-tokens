@@ -1,0 +1,22 @@
+project: XRAY
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://raynetwork.io
+  twitter: https://twitter.com/RayNetwork
+  discord: https://discord.com/invite/WhZmm46APN
+  telegram: https://t.me/RayNetwork
+  coinMarketCap: https://coinmarketcap.com/currencies/ray-network/
+  coinGecko: https://www.coingecko.com/en/coins/ray-network
+
+verified: true
+
+maxSupply: 324922240
+
+decimals: 6
+
+treasury:
+  - addr1qyc98ysmvxunqslu3y5t9gpt2mm8dp3puylpq7n5n908jldw8w6w5nmvw86ullauxldxdjsfauyrattxw6yevxp72nnsq3lt0u
+

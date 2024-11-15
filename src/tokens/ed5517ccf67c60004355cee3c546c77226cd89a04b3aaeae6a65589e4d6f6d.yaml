@@ -1,0 +1,25 @@
+project: MOM
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://momonada.github.io/main/
+  discord: https://discord.gg/CueKtH2Cs9
+  telegram: https://t.me/+7ndbw5QA7ppkOGFk
+  twitter: https://x.com/mom_on_ada
+
+verified: true
+
+maxSupply: 2000000000
+
+decimals: 5
+
+treasury:
+  - addr1xyns7vaffqfnufk7cz9ndul7c06603rsuh9ypqmtfh8d4xp8pue6jjqn8cndasytxmelasl45lz8pew2gzpkknwwm2vq83rpx3
+  - addr1q9nvqt25uglec56600jem5cjny8rkmwqrtn3p2xzjsy4ya7nc6gnpw22jv2gv4qnwujfuuhpglfxv0eqy995aea4gnpqdjmqhl
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+  - addr1xxx0hhrmtccdh08vmmkytw3p8xhx82n59svftv9fm89q5yyvl0w8kh3smw7wehhvgkazzwdwvw48gtqcjkc2nkw2pggq4tws0m
+

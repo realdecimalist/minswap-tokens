@@ -1,0 +1,22 @@
+project: CHARLI3
+
+categories:
+  - Oracle
+
+socialLinks:
+  website: https://charli3.io
+  twitter: https://twitter.com/Oraclecharli3
+  discord: https://discord.com/invite/Tnsc3HCA3A
+  telegram: https://t.me/Charli3Official
+  coinMarketCap: https://coinmarketcap.com/currencies/charli3/
+  coinGecko: https://www.coingecko.com/en/coins/charli3
+
+verified: true
+
+maxSupply: 100000000
+
+decimals: 6
+
+treasury:
+  - addr1q82wf56fmjxgv4xuhmdw5vsl8mkwvh8ag5q0hpm0t70kkj9kexs7kszymxq6f9400u4xkg5n428e92gkhk30x3m6h4ls6ya7lr
+

@@ -1,0 +1,28 @@
+project: ADA Yield
+
+categories:
+  - DeFi
+  - NFT
+
+socialLinks:
+  website: https://adayield.io/
+  twitter: https://twitter.com/realadayield
+  discord: https://discord.com/invite/fbXT3ywQ3x
+  telegram: https://t.me/adayield
+
+verified: true
+
+maxSupply: 100000000000
+
+decimals: 7
+
+treasury:
+  - addr1qyrgyf7n3whtc7v07lfnrlzzgjywenvdx5n4ugfqsyzudyse8qjesjluhd7nkmauw9tu4tjw5m6j840af7pzmp60hf8qmc4gke
+  - addr1q87nf2vx2s6ur8jek6slprf4m65e39cmxjetz5g42zjj84jrdhxhfhtypyc3zjx6r32c8vq2xv34mlvuaddrnc8shghsy50thl
+  - addr1qy8vlnj0mglq79mlr5fx096qea6r7qrsu6rt3wqvhl678rl05jpfehp48d28ravv7qe7zh4hnur8qktff5qa4t6dhg7svrlax9
+  - addr1qxpeczj2lluh88sa2g3tm0e3fj39c34rlctmvcszjs67g6wjj9djsz0020h68nz3rxknzdh93nryqzhq6h9z0nnzf0rshrectt
+  - addr1w9jkhngsyq2nl09r59m95r903mn40wfpcze7psqvxjzxragmnuddk
+
+burn:
+  - addr1w8t6qhfx7cty7pg805adz62gjfkld0c70usezv4e4uxfk0sf0e2mj
+

@@ -1,0 +1,21 @@
+project: Ssss
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://x.com/ADAslitherinsss
+  discord: https://discord.gg/vjy2y52fWU
+
+verified: true
+
+maxSupply: 7777777777
+
+decimals: 0
+
+treasury:
+  - stake17xjrxzlfv3l9dtlykenxxf4zckh287hmwvzrg3pzhq7n6xqg39z66
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

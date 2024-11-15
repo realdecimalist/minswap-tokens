@@ -1,0 +1,15 @@
+project: Djed
+
+categories:
+  - DeFi
+  - Stablecoin
+
+socialLinks:
+  website: https://djed.xyz/
+
+verified: true
+
+maxSupply: 1000000000000
+
+decimals: 6
+

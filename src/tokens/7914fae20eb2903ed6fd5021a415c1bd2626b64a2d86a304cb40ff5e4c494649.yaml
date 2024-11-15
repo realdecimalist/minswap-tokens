@@ -1,0 +1,21 @@
+project: Linkage Finance
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://linkage.finance
+  twitter: https://twitter.com/LinkageFinance/
+  telegram: https://t.me/linkagefi
+
+verified: true
+
+maxSupply: 40000000
+
+decimals: 6
+
+treasury:
+  - addr1q9gt5vycpjqmqddvjrl6tf4ctn2tlvpsls5qa7h862vvqxgve9jeadjstl54dnds5ye4f8jnkm404ryhz527cucfgwlqnrargr
+  - addr1q8n6xylsyg3fuye3xvxlpxvumdkutpvc07p6z6js6g85hn5gdxvcfq8mr6rzq7gkegy0xkt9kp6u8vxxrcvd4058p7aq7zn9jd
+  - addr1q9t9dlhshmcdqsuu799mktwpxmw35w3rffj63xzphyquksyk2q0gxhpk3tlvuer9jyryxe73xzgc76n58vyg3d8kgcdqex46uk
+

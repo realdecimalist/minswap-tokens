@@ -1,0 +1,23 @@
+project: Space Pugs
+
+categories:
+  - GameFi
+  - Other
+
+socialLinks:
+  website: https://linktr.ee/spacepugs_
+  twitter: https://twitter.com/spacepugs_
+  discord: https://discord.gg/spacepugs
+
+verified: true
+
+maxSupply: 50000000
+
+decimals: 0
+
+treasury:
+  - stake1u9jnhcgmj3x0mw36eyyfdudk5cstupmyh60hmzmw942ml5qqflvwt
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

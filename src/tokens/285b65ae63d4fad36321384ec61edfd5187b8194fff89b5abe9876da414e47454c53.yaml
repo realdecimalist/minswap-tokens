@@ -1,0 +1,20 @@
+project: Angel Finance
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://ccardano.gitbook.io/angel-paper
+  twitter: https://twitter.com/angelcoinada
+  discord: https://discord.gg/angelfinance
+
+verified: true
+
+maxSupply: 496000
+
+decimals: 6
+
+treasury:
+  - stake1uykqzz8gny3g5ar9upqhuvgjy7uw0fcxyp66cj8sgm9uyjq7h2xtc
+  - addr1qxpfunlur9rcr7zzvzqeha5mahfjc09zwc03u9uj6z6qdkeef44f0ar7f54mp0dkw0erpjddyq3ar4vhx6ye8acjg4eqr7jmz9
+

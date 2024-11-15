@@ -1,0 +1,21 @@
+project: PAVIA
+
+categories:
+  - Metaverse
+
+socialLinks:
+  website: https://pavia.io
+  twitter: https://twitter.com/Pavia_io
+  discord: https://discord.com/invite/pavia
+  coinMarketCap: https://coinmarketcap.com/currencies/pavia/
+  coinGecko: https://www.coingecko.com/en/coins/pavia
+
+verified: true
+
+maxSupply: 1000000000
+
+decimals: 0
+
+treasury:
+  - stake1uxy8jh76wavelv6nc3mjnka0v5uveu45znq3aykx90lam4cdxdumd
+
