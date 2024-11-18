@@ -1,0 +1,22 @@
+project: Rosen Bridge rsBTC
+
+categories:
+  - Bridge
+  - Other
+
+socialLinks:
+  website: https://rosen.tech/
+  twitter: https://twitter.com/RosenBridge_erg
+  discord: https://discord.com/invite/AHgsxhDKrQ
+  telegram: https://t.me/rosenbridge_erg
+  coinGecko: https://www.coingecko.com/en/coins/rosen-bridge
+
+verified: true
+
+maxSupply: 21000000
+
+decimals: 8
+
+treasury:
+ - addr1x8x6ca648w25x085dg8xs6k5e69yemr5hakcnl0gshmal6gahwzvy33q3jhr74lurpr9p0n8derw58fh7snq2zwxe8zsdkcqrj
+ - addr1v8kqhz5lkdxqm8qtkn4lgd9f4890v0j6advjfmk5k9amu4c535lsu # lock address

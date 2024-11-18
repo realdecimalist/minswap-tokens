@@ -1,0 +1,21 @@
+project: WingRiders
+
+categories:
+  - DeFi
+  - DAO
+
+socialLinks:
+  website: https://www.wingriders.com
+  twitter: https://twitter.com/wingriderscom
+  discord: https://discord.gg/t7CdyhK8JA
+  telegram: https://t.me/WingRidersChat
+  coinMarketCap: https://coinmarketcap.com/currencies/wingriders
+  coinGecko: https://www.coingecko.com/en/coins/wingriders
+
+verified: true
+
+maxSupply: 100000000
+
+decimals: 6
+
+circulating: https://api.mainnet.wingriders.com/graphql

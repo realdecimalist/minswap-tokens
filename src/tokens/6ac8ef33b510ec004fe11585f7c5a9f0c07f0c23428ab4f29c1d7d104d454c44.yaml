@@ -1,0 +1,20 @@
+project: MELD
+
+categories:
+  - RealFi
+
+socialLinks:
+  website: https://meld.com
+  discord: https://discord.gg/caDXKq75ys
+  twitter: https://twitter.com/MELD_Defi
+  telegram: https://t.me/MELD_Global
+  coinMarketCap: https://coinmarketcap.com/currencies/meld/
+  coinGecko: https://www.coingecko.com/en/coins/meld
+
+verified: true
+
+maxSupply: 4000000000
+
+decimals: 6
+
+circulating: https://app-backend.meld.com/api/market/meld/supply

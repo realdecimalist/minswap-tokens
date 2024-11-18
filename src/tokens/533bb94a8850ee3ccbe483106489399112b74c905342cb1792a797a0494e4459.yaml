@@ -1,0 +1,20 @@
+project: Indigo
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://indigoprotocol.io
+  twitter: https://twitter.com/Indigo_protocol
+  discord: https://discord.gg/gVqDRNg7VH
+  telegram: https://t.me/indigo_protocol
+  coinMarketCap: https://coinmarketcap.com/currencies/indigo-protocol/
+  coinGecko: https://www.coingecko.com/en/coins/indigo-dao-governance-token
+
+verified: true
+
+maxSupply: 35000000
+
+decimals: 6
+
+circulating: https://analytics.indigoprotocol.io/api/stats/indy-circulating-supply

@@ -1,0 +1,18 @@
+project: Tetrano
+
+categories:
+  - GameFi
+
+socialLinks:
+  website: https://tetrano.net
+  twitter: https://twitter.com/tetrano_net
+
+verified: true
+
+maxSupply: 6947eccc74ebf8c1716339b97af768bfbc70d330a743b79bbc5ccdeb544554
+
+decimals: 0
+
+treasury:
+  - addr1wy669f5qjm82h3wj8vcy7lg8zs2n4us3ks62cssl84p730g92rwkw # vault address
+  - addr1w96qxyn67hy2qgpz4tsulkpu0y3zv4wfq9fzgd38m07pnuq0w542k # vesting address

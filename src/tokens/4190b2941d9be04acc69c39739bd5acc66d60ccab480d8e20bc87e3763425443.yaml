@@ -1,0 +1,16 @@
+project: cBTC
+
+categories:
+  - Bridge
+
+socialLinks:
+  website: https://www.anetabtc.io
+  twitter: https://twitter.com/anetaBTC
+  discord: http://discord.gg/anetabtc
+  telegram: https://t.me/anetaBTC
+
+verified: true
+
+maxSupply: 21000000
+
+circulating: 19550000
