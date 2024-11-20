@@ -1,38 +1,79 @@
-import { TokenMetadata } from "./token-schema";
-import { DEFAULT_TIMEOUT, DEFAULT_TOKEN_DIR, FetcherOptions, GetToken, GetTokenOptions, GetTokens, SupplyFetcher } from "@/types";
-import { getAmountInAddresses, getBlockFrostInstance } from "@/utils";
-import * as fs from 'fs';
+import { TokenMetadata, tokenSchema } from "./token-schema";
+import {
+  DEFAULT_TIMEOUT,
+  DEFAULT_TOKEN_DIR,
+  FetcherOptions,
+  GetToken,
+  GetTokenOptions,
+  GetTokens,
+  SupplyFetcher,
+} from "./types";
+import { getBlockFrostInstance, getAmountFromArray, ajv } from "./utils";
+import * as fs from "fs";
 import { load } from "js-yaml";
 import path from "path";
 
 export const fetcher: SupplyFetcher = async (options: FetcherOptions) => {
-  const { tokenInfo, tokenId } = options;
   const timeout = options.timeout ?? DEFAULT_TIMEOUT;
   const blockFrost = getBlockFrostInstance(timeout);
-  const total = Number(tokenInfo.maxSupply);
-  const decimals = tokenInfo.decimals;
-  const treasuryAddresses = tokenInfo.treasury;
-  const burnAddresses = tokenInfo.burn;
-  let treasury = Number(await getAmountInAddresses(blockFrost, tokenId, treasuryAddresses ?? []));
-  let burn = Number(await getAmountInAddresses(blockFrost, tokenId, burnAddresses ?? []));
+  const { tokenInfo } = options;
+  const tokenId = tokenInfo.tokenId;
+  let maxSupply;
+  let circulating = null;
 
-  if (decimals) {
-    const decimal = 10 ** decimals;
-    treasury /= decimal;
-    burn /= decimal;
+  if (Array.isArray(tokenInfo.maxSupply)) {
+    maxSupply = tokenInfo.maxSupply;
+  } else {
+    maxSupply = [tokenInfo.maxSupply];
   }
+
+  const total =
+    (await getAmountFromArray(blockFrost, tokenId, maxSupply)) *
+    BigInt(10 ** tokenInfo.decimals);
+
+  if (tokenInfo.circulating) {
+    circulating = await getAmountFromArray(
+      blockFrost,
+      tokenId,
+      tokenInfo.circulating
+    );
+    return {
+      total: total.toString(),
+      circulating: circulating.toString(),
+    };
+  }
+
+  const addresses = [...(tokenInfo.treasury ?? []), ...(tokenInfo.burn ?? [])];
+
+  const aggregatedAmount = await getAmountFromArray(
+    blockFrost,
+    tokenId,
+    addresses
+  );
 
   return {
     total: total.toString(),
-    circulating: (total - treasury - burn),
+    circulating: (total - aggregatedAmount).toString(),
   };
 };
 
-export const getToken: GetToken = async (tokenString: string) => {
-  const filePath = path.join(__dirname, `${DEFAULT_TOKEN_DIR}/${tokenString}.yaml`);
-  const tokenFileData = fs.readFileSync(filePath, "utf-8");
-  return <TokenMetadata>load(tokenFileData);
-}
+export const getToken: GetToken = async (tokenId: string) => {
+  try {
+    const filePath = path.join(
+      __dirname,
+      `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`
+    );
+    const tokenFileData = fs.readFileSync(filePath, "utf-8");
+    const tokenData = {
+      tokenId,
+      ...(load(tokenFileData) as Omit<TokenMetadata, "tokenId">),
+    };
+    const validate = ajv.validate(tokenSchema, tokenData);
+    return validate ? tokenData : null;
+  } catch {
+    return null;
+  }
+};
 
 export const getTokens: GetTokens = async (options?: GetTokenOptions) => {
   const directory = path.join(__dirname, `${DEFAULT_TOKEN_DIR}`);
@@ -41,15 +82,17 @@ export const getTokens: GetTokens = async (options?: GetTokenOptions) => {
   for (const file of files) {
     const tokenString = file.substring(0, file.length - 5);
     const token = await getToken(tokenString);
-    const matchedVerify = (!options?.verifiedOnly) || (options?.verifiedOnly && token.verified);
-    const matchedMarketCap = (!options?.hasMarketCapOnly) || (options?.hasMarketCapOnly && !!token.maxSupply);
+    if (!token) {
+      continue;
+    }
+    const matchedVerify =
+      !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
+    const matchedMarketCap =
+      !options?.hasMarketCapOnly ||
+      (options?.hasMarketCapOnly && !!token.maxSupply);
     if (matchedVerify && matchedMarketCap) {
       tokenList.push(token);
     }
   }
   return tokenList;
-}
-
-
-
-
+};

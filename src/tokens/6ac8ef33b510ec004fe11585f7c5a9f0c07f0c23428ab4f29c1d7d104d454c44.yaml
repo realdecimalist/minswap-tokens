@@ -17,4 +17,5 @@ maxSupply: 4000000000
 
 decimals: 6
 
-circulating: https://app-backend.meld.com/api/market/meld/supply
+circulating:
+  - https://app-backend.meld.com/api/market/meld/supply

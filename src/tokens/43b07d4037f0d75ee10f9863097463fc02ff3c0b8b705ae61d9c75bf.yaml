@@ -16,4 +16,5 @@ maxSupply: 100000000
 
 decimals: 0
 
-circulating: https://www.mynth.ai/api/token-supply
+circulating:
+  - https://www.mynth.ai/api/token-supply

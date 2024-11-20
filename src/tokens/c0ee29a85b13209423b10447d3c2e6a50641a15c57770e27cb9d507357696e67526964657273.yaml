@@ -18,4 +18,5 @@ maxSupply: 100000000
 
 decimals: 6
 
-circulating: https://api.mainnet.wingriders.com/graphql
+circulating:
+  - https://api.mainnet.wingriders.com/graphql

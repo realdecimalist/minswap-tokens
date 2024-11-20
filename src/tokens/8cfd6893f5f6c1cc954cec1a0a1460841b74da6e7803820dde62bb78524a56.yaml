@@ -12,4 +12,5 @@ maxSupply: https://tokensupply.singularitynet.io/tokensupply?tokensymbol=rjv&q=t
 
 decimals: 0
 
-circulating: https://tokensupply.singularitynet.io/tokensupply?tokensymbol=rjv&q=circulatingsupply
+circulating:
+  - https://tokensupply.singularitynet.io/tokensupply?tokensymbol=rjv&q=circulatingsupply

@@ -13,4 +13,5 @@ verified: true
 
 maxSupply: 21000000
 
-circulating: 19550000
+circulating:
+  - 19550000

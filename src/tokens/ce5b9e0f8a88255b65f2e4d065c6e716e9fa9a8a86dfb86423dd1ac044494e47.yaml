@@ -16,4 +16,5 @@ maxSupply: 1000000000
 
 decimals: 6
 
-circulating: https://universe.pxlz.org/circulating
+circulating:
+  - https://universe.pxlz.org/circulating

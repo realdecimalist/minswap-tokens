@@ -11,7 +11,8 @@ maxSupply: 1000000000
 
 decimals: 0
 
-circulating: 1000000000
+circulating:
+  - 1000000000
 
 
 

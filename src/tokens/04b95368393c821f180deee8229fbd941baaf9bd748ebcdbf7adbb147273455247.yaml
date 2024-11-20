@@ -16,4 +16,5 @@ decimals: 9
 
 maxSupply: 97739924
 
-circulating: https://api.ergoplatform.com/info/supply
+circulating:
+  - https://api.ergoplatform.com/info/supply

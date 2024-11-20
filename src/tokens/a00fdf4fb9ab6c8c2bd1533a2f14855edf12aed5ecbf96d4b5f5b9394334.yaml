@@ -15,4 +15,5 @@ maxSupply: 1669428532
 
 decimals: 0
 
-circulating: 1669428532
+circulating:
+  - 1669428532

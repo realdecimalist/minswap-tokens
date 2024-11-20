@@ -16,4 +16,5 @@ maxSupply: https://tokensupply.singularitynet.io/tokensupply?tokensymbol=ntx&q=t
 
 decimals: 6
 
-circulating: https://tokensupply.singularitynet.io/tokensupply?tokensymbol=ntx&q=circulatingsupply
+circulating:
+  - https://tokensupply.singularitynet.io/tokensupply?tokensymbol=ntx&q=circulatingsupply

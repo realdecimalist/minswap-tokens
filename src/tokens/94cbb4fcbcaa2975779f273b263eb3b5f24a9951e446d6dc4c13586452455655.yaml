@@ -21,4 +21,5 @@ maxSupply: 280125000
 
 decimals: 8
 
-circulating: https://production.revuto.com/api/v1/wallet/circulating_supply
+circulating:
+  - https://production.revuto.com/api/v1/wallet/circulating_supply

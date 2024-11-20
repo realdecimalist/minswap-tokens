@@ -17,4 +17,5 @@ maxSupply: 35000000
 
 decimals: 6
 
-circulating: https://analytics.indigoprotocol.io/api/stats/indy-circulating-supply
+circulating:
+  - https://analytics.indigoprotocol.io/api/stats/indy-circulating-supply

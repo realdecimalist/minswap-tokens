@@ -11,5 +11,6 @@ maxSupply: 125000000
 
 decimals: 6
 
-circulating: https://api.coingecko.com/api/v3/coins/ardana
+circulating:
+  - https://api.coingecko.com/api/v3/coins/ardana
 
