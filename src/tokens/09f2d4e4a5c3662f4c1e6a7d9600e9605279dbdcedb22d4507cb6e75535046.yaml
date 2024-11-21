@@ -15,9 +15,9 @@ verified: true
 
 decimals: 6
 
-maxSupply: 1000000000
+maxSupply: 1000000000000000
 
 treasury:
   - addr1v8njca4vkseetespu6jjtlk25sy46ya3qvrcp7n5c7zy9esj2g22a # network vault
   - addr1vy8h9l37fzdwpq8etmftagdc80trh9jjg0avt3je26szu8g820gnj # treasury
-  - addr1vx3vcluw7qtulynhzsy4prfdmnjth8w52ejg2qeclsz7argu26gcf # reward address 
+  - addr1vx3vcluw7qtulynhzsy4prfdmnjth8w52ejg2qeclsz7argu26gcf # reward address

@@ -1,13 +1,6 @@
-project: Placeholder
-
-categories:
-  - Other
-
-socialLinks:
-
 verified: false
 
-maxSupply: 8000000
+maxSupply: '8000000000000'
 
 decimals: 6
 

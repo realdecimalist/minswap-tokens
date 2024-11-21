@@ -11,7 +11,9 @@ socialLinks:
 
 verified: true
 
-maxSupply: 21000000
+maxSupply: 2100000000000000
+
+decimals: 8
 
 circulating:
   - 19550000
