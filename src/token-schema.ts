@@ -1,26 +1,5 @@
 import { JSONSchemaType } from "ajv";
 
-// enum categoriesType {
-//   "DeFi",
-//   "RealFi",
-//   "GameFi",
-//   "Meme",
-//   "Bridge",
-//   "Metaverse",
-//   "Wallet",
-//   "NFT",
-//   "Oracle",
-//   "AI",
-//   "Launchpad",
-//   "DAO",
-//   "Stablecoin",
-//   "Social",
-//   "Media",
-//   "Other",
-// }
-
-// const categories = Object.keys(categoriesType) as Array<keyof typeof categoriesType>;
-
 export type categoriesType =
   | "DeFi"
   | "RealFi"
@@ -57,6 +36,10 @@ interface TokenMetadata {
   treasury?: (string | number)[];
   burn?: (string | number)[];
   circulating?: (string | number)[];
+  treasuryNft?: {
+    nftId: string;
+    index: number[];
+  };
 }
 
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
@@ -124,6 +107,22 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
         type: ["string", "number"],
       },
       nullable: true,
+    },
+    treasuryNft: {
+      type: "object",
+      properties: {
+        nftId: {
+          type: "string",
+        },
+        index: {
+          type: "array",
+          items: {
+            type: "number",
+          },
+        },
+      },
+      required: ["nftId", "index"],
+      nullable: true
     },
   },
   required: [

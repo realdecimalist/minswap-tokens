@@ -1,0 +1,19 @@
+project: Burnz Token
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://x.com/Burnz_Coin
+  discord: https://discord.gg/tgwqstAfyX
+
+verified: true
+
+maxSupply: '1000000000'
+
+decimals: 0
+
+treasury:
+  - addr1qxc6u2d5ppeuhg7tkj5quf3csxp2022g98az65hpad9m6yreuxes6p3hhg880tegsg95xqwek6srgac5jq04x9rcm2qq6a6md7 # TREASURY
+  - addr1qxtqu8cvxjxrh035s6f9k698rglpguz4xs8gw5edja2z6fp4x79ct53d3gpl0g3w4eyvnlv09nkjqvrkspfxjza3h0eqy34flk # team
+

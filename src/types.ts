@@ -1,15 +1,16 @@
 import { TokenMetadata } from "./token-schema";
 
 export type FetcherOptions = {
-  tokenInfo: TokenMetadata;
   /**
    * Fetch timeout in milliseconds. Default to 20s
    */
   timeout?: number;
 };
 
-export const DEFAULT_TIMEOUT = 20_000;
 export const DEFAULT_TOKEN_DIR = "tokens";
+export const DefaultFetcherOptions: FetcherOptions = {
+  timeout: 20_000
+}
 
 export type GetTokenOptions = {
   verifiedOnly?: boolean;
@@ -22,7 +23,8 @@ export type SupplyFetcherResponse = {
 };
 
 export type SupplyFetcher = (
-  options: FetcherOptions
+  tokenInfo: TokenMetadata,
+  options?: FetcherOptions
 ) => Promise<SupplyFetcherResponse>;
 
 export type GetToken = (tokenString: string) => Promise<TokenMetadata | null>;

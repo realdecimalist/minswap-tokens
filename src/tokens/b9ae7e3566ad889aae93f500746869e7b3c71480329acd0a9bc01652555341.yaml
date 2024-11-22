@@ -1,3 +1,10 @@
+project: NotFound
+
+categories:
+  - Other
+
+socialLinks:
+
 verified: false
 
 maxSupply: '1000000000'
@@ -5,7 +12,7 @@ maxSupply: '1000000000'
 decimals: 0
 
 treasury:
-  - 'addr1qxzlnzupsj47z2adgkd25rd8mq2aygr8wtdxchxnv0k5x3an2puwhfn097ytnk6du50dp27mh570um832ek48gk4dzjsmx60ct '
+  - addr1qxzlnzupsj47z2adgkd25rd8mq2aygr8wtdxchxnv0k5x3an2puwhfn097ytnk6du50dp27mh570um832ek48gk4dzjsmx60ct
   - addr1v858vfzl7hdqduqqa4vsj58nfy9njtw5q98q8tzzds58uncqjezd7
 
 burn:

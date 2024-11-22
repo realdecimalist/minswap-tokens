@@ -10,9 +10,9 @@ socialLinks:
 
 verified: true
 
-maxSupply: '100000000'
+maxSupply: '100000000000000'
 
-decimals: 0
+decimals: 6
 
 treasury:
   - addr1qy6raw2ndg60u68g0rd079a84qh4y6625gysvzukc6r7u39247zav5n3h2vcpp2sktqxsaa8v44jypar3vk24gjs2jgqsy8hcv

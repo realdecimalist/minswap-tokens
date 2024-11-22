@@ -1,33 +1,78 @@
-import { fetcher, getToken } from ".";
-import { TokenMetadata } from "./token-schema";
-import { DEFAULT_TIMEOUT } from "./types";
-import { getBlockFrostInstance } from "./utils";
+import { supplyFetchers } from "@minswap/market-cap"
+import { getBlockFrostInstance } from "../src/utils";
+import { BlockFrostAdapter } from "../src/adapter";
+import { MarketCapFetcher } from "../src/api";
+import * as fs from 'fs';
+import { DEFAULT_TOKEN_DIR, SupplyFetcherResponse } from "../src/types";
+import path from "path";
 
-const tokenTest: TokenMetadata = {
-  tokenId: '016be5325fd988fea98ad422fcfd53e5352cacfced5c106a932a35a442544e',
-  project: 'Butane',
-  categories: ["DeFi"],
-  socialLinks: {
-    website: 'https://butane.dev',
-    twitter: 'https://twitter.com/butaneprotocol',
-    discord: 'https://discord.gg/butane',
-    telegram: 'https://t.me/butaneprotocol'
-  },
-  verified: true,
-  maxSupply: 25000000,
-  decimals: 6,
-  circulating: [ '016be5325fd988fea98ad422fcfd53e5352cacfced5c106a932a35a442544e' ]
-}
+const REPORT_DIR = path.join(__dirname, '../report');
+const ERROR_TOLERANCE = 0.0001;
 
-async function main() {
-  const blockFrost = getBlockFrostInstance(DEFAULT_TIMEOUT);
-  const tokenId = 'f13ac4d66b3ee19a6aa0f2a22298737bd907cc95121662fc971b5275535452494b45';
-  const tokenInfo = await getToken(tokenId);
-  console.log(tokenInfo);
-  if (tokenInfo) {
-    const amount = await fetcher({tokenInfo})
-    console.log(amount);
+function moveFile(tokenName: string, flag = 1) {
+  const oldPath = `./src/${DEFAULT_TOKEN_DIR}/${tokenName}`;
+  let newPath = `${REPORT_DIR}/${tokenName}`;
+  if (!flag) {
+    newPath = `${REPORT_DIR}/diff/${tokenName}`;
   }
-
+  if (flag === 2) {
+    newPath = `${REPORT_DIR}/only-total/${tokenName}`;
+  }
+  fs.rename(oldPath, newPath, (err) => {
+    if (err) {
+      console.error("Could not move file", err);
+    }
+  });
 }
-main()
+
+function compareMarketcapInfo(result: SupplyFetcherResponse, expected: SupplyFetcherResponse): boolean | string {
+
+  if (result.circulating === expected.circulating && result.total === expected.total) {
+    return true;
+  }
+  const circulatingError = Math.abs(parseFloat(result.circulating!) - parseFloat(expected.circulating!));
+  const totalError = Math.abs(parseFloat(result.total!) - parseFloat(expected.total!));
+  return circulatingError < ERROR_TOLERANCE && totalError < ERROR_TOLERANCE;
+}
+
+async function test() {
+  const blockFrostInstance = getBlockFrostInstance();
+  const blockFrostAdapter = new BlockFrostAdapter(blockFrostInstance);
+  const fetcher = new MarketCapFetcher(blockFrostAdapter);
+  const tokenDir = path.join(__dirname, `${DEFAULT_TOKEN_DIR}`);
+  const tokenFileNames = fs.readdirSync(tokenDir);
+  for (const tokenFileName of tokenFileNames) {
+    const tokenId = tokenFileName.substring(0, tokenFileName.length - 5);
+    const tokenData = await fetcher.getToken(tokenId);
+    // error when reading files or yaml file does not follow the right schema
+    if (!tokenData) {
+      moveFile(tokenFileName);
+    } else {
+      try {
+        const result = await fetcher.getMarketCapInfo(tokenData);
+        const expected = await supplyFetchers[tokenId]();
+        if (!result || !expected) {
+          console.log("Expected/Result notfound: ", tokenFileName);
+        } else {
+          const decimal = tokenData.decimals;
+
+          if (!result.circulating || !result.total || !expected.circulating || !expected.total) {
+            moveFile(tokenFileName, 2);
+            continue;
+          }
+          if (!compareMarketcapInfo(result, expected) || typeof compareMarketcapInfo(result, expected) === "string") {
+            console.log("Error Comparing: ", tokenFileName);
+            console.log("Result: ", result, "Expected: ", expected, "Decimals: ", decimal);
+            moveFile(tokenFileName, 0)
+          };
+
+        }
+      } catch (error) {
+        console.log("Error", error, tokenFileName);
+        moveFile(tokenFileName, 0)
+      }
+    }
+  }
+}
+
+test()

@@ -1,13 +1,10 @@
 import { BlockFrostAPI } from "@blockfrost/blockfrost-js";
-import { DEFAULT_TIMEOUT } from "./types";
-import Ajv from "ajv";
+import { DefaultFetcherOptions } from "./types";
 
-export const ajv = new Ajv();
-
-export function getBlockFrostInstance(requestTimeout: number): BlockFrostAPI {
+export function getBlockFrostInstance(options = DefaultFetcherOptions): BlockFrostAPI {
   return new BlockFrostAPI({
     projectId: process.env["BLOCKFROST_PROJECT_ID"] ?? "",
-    requestTimeout,
+    requestTimeout: options.timeout,
   });
 }
 
@@ -17,6 +14,14 @@ export function tryParseBigInt(value: string | number): bigint | null {
   } catch {
     return null;
   }
+}
+
+export function formatNumber(value: BigInt, decimals: number): string {
+  const numberString = value.toString();
+  const postfix = (numberString.slice(numberString.length - decimals)).replace(/0+$/g, "");
+  const decimalPoint = postfix.length ? "." : "";
+  const prefix = numberString.slice(0, numberString.length - decimals) ? numberString.slice(0, numberString.length - decimals) : "0";
+  return prefix + decimalPoint + postfix;
 }
 
 export function isBigInt(value: string | number): boolean {
@@ -37,63 +42,12 @@ export function isAddress(str: string | number): boolean {
   );
 }
 
-export async function getAmountFromAsset(
-  blockFrost: BlockFrostAPI,
-  assetId: string
-): Promise<bigint> {
-  try {
-    const assetInfo = await blockFrost.assetsById(assetId);
-    return BigInt(assetInfo?.quantity);
-
-  } catch (error) {
-    throw error;
-  }
-}
-
-export async function fetchDataFromURL(url: string): Promise<bigint> {
+export async function getAmountFromURL(url: string): Promise<bigint> {
   const response = await fetch(url);
   const data = await response.text();
-  return BigInt(data.replace(".", ""));
+  return BigInt(data);
 }
 
-export async function getAmountFromArray(
-  blockFrost: BlockFrostAPI,
-  token: string,
-  values: (string | number)[]
-): Promise<bigint> {
-  const amounts = await Promise.all(values.map((value) => {
-    if (isBigInt(value)) {
-      return BigInt(value);
-    }
-    if (isAddress(value)) {
-      return getAmountInAddress(blockFrost, token, value.toString());
-    }
-    if (isAPIEndPoint(value)) {
-      return fetchDataFromURL(value.toString());
-    }
-    return getAmountFromAsset(blockFrost, token);
-  }))
 
-  return amounts.reduce((sum, x) => sum + x, 0n);
-}
 
-export function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-export async function getAmountInAddress(
-  blockFrost: BlockFrostAPI,
-  token: string,
-  address: string
-) {
-  const value = address.startsWith("stake1")
-    ? await blockFrost.accountsAddressesAssetsAll(address)
-    : await blockFrost.addresses(address).then((resp) => resp.amount);
-  const amount = value
-    .filter(({ unit }) => unit === token)
-    .reduce((sum, x) => {
-      return sum + BigInt(x.quantity);
-    }, 0n);
-  return amount;
-}
 

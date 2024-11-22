@@ -15,7 +15,7 @@ verified: true
 
 maxSupply: ab0dec21aa7d939ad124ffaf95faf8ed72b1018ff72fffd8f9974907474f4b4559
 
-decimals: 0
+decimals: 6
 
 treasury:
   - stake1uxectp3ej56dq8cmxz96h7g36xw5a4e0mlpyx9lm5rpqfgggdsfu8 # $gokey
