@@ -1,0 +1,20 @@
+project: Walkers
+
+categories:
+  - GameFi
+  - NFT
+  - Other
+
+socialLinks:
+  website: https://walkerscardano.xyz/
+  discord: https://discord.com/invite/yH9bCXMTpF
+  twitter: https://twitter.com/WalkersCNFT
+
+verified: true
+
+maxSupply: 55000000000
+
+decimals: 0
+
+treasury:
+  - addr1vxgzxk84zzk0zj787wrzf3m9nu5edexukv66p0z4s3e02lqf3692x
