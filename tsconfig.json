@@ -3,6 +3,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["DOM", "DOM.Iterable", "ES2015"],
@@ -16,11 +17,8 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "types": [
-      "jest"
-    ],
-    "target": "ES2020"
+    "target": "ES2020",
   },
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
+  "exclude": ["node_modules", "build"],
   "include": ["**/*.ts", "**/*.d.ts"]
 }

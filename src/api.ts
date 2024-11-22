@@ -1,4 +1,4 @@
-import path, { format } from "path";
+import path from "path";
 import { Adapter } from "./adapter";
 import { TokenMetadata, tokenSchema } from "./token-schema";
 import { DEFAULT_TOKEN_DIR, GetTokenOptions, SupplyFetcherResponse } from "./types";
@@ -128,3 +128,14 @@ export class MarketCapFetcher {
 
 
 }
+
+// import fs from 'node:fs';
+// import path from 'node:path';
+
+// export class McApi {
+//   public readFile(assetId: string) {
+//     const filePath = path.resolve(__dirname, "tokens", `${assetId}.yaml`);
+//     return fs.readFileSync(filePath, "utf-8");
+//   }
+// }
+
