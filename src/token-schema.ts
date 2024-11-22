@@ -36,7 +36,7 @@ interface TokenMetadata {
   treasury?: (string | number)[];
   burn?: (string | number)[];
   circulatingOnChain?: (string | number)[];
-  treasuryNft?: string
+  treasuryNft?: string;
 }
 
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
