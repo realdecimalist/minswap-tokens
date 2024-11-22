@@ -5,7 +5,7 @@ export interface Adapter {
 
   getAmountFromAsset(assetId: string): Promise<bigint>;
 
-  getAmountFromNftId(nftId: string, indices: number[]): Promise<bigint>;
+  getAmountFromNftId(tokenId: string, nftId: string, index: number): Promise<bigint>;
 }
 
 export class BlockFrostAdapter implements Adapter {
@@ -33,14 +33,11 @@ export class BlockFrostAdapter implements Adapter {
     return BigInt(assetInfo?.quantity);
   }
 
-  async getAmountFromNftId(nftId: string, indices: number[]): Promise<bigint> {
+  async getAmountFromNftId(tokenId: string, nftId: string, index: number): Promise<bigint> {
     const addresses = await this.blockFrost.assetsAddresses(nftId);
-    const amounts = await Promise.all(
-      indices.map((index) => {
-        return this.getAmountInAddress(addresses[index]["address"], nftId);
-      }),
+    return await this.getAmountInAddress(
+      addresses[index]["address"],
+      tokenId
     );
-    const amount = amounts.reduce((sum, value) => sum + value, 0n);
-    return amount;
   }
 }

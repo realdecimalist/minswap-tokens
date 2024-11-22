@@ -4,7 +4,8 @@ import { MarketCapFetcher } from "./api";
 import { getBlockFrostInstance } from "./utils";
 
 async function main() {
-  const tokenId = "f6696363e9196289ef4f2b4bf34bc8acca5352cdc7509647afe6888f54454459";
+  const tokenId =
+    "8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd615368656e4d6963726f555344";
   const blockFrostInstance = getBlockFrostInstance();
   const blockFrostAdapter = new BlockFrostAdapter(blockFrostInstance);
   const fetcher = new MarketCapFetcher(blockFrostAdapter);

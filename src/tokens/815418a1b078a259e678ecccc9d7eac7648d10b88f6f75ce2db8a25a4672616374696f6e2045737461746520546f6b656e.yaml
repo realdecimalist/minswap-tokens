@@ -16,6 +16,9 @@ maxSupply: '1000000000000000000'
 
 decimals: 10
 
+circulating:
+  - 815418a1b078a259e678ecccc9d7eac7648d10b88f6f75ce2db8a25a4672616374696f6e2045737461746520546f6b656e
+
 treasury:
   - stake1uyedlzmcwtn63sjmvau4rgr5jwwd98jzqv8lc5fe7v36c2gy7y3mq
   - stake1u9j7m6yrzw6ue0g2wyesqppf9qkkk86ac5x6gqy6axmx9xqtcv3n5

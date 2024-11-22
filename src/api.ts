@@ -18,6 +18,10 @@ export class MarketCapFetcher {
   }
 
   public async getMarketCapInfo(tokenInfo: TokenMetadata): Promise<SupplyFetcherResponse> {
+    if (!tokenInfo.maxSupply) {
+      throw new Error("Marketcap has not been configured.")
+    }
+
     const tokenId = tokenInfo.tokenId;
     const decimals = tokenInfo.decimals;
     let maxSupply: (string | number)[];
@@ -36,17 +40,10 @@ export class MarketCapFetcher {
       };
     }
 
-    if (tokenInfo.circulating) {
-      const circulating = await this.getAmountFromArray(tokenId, tokenInfo.circulating);
-      return {
-        total: formatNumber(total, decimals),
-        circulating: formatNumber(circulating, decimals),
-      };
-    }
-
     if (tokenInfo.treasuryNft) {
       const treasuryRaw = tokenInfo.treasuryNft;
-      const treasury = await this.adapter.getAmountFromNftId(treasuryRaw.nftId, treasuryRaw.index);
+      console.log("TokenId: ", tokenId, "Treasury ",  tokenInfo.treasuryNft);
+      const treasury = await this.adapter.getAmountFromNftId(tokenId, treasuryRaw.nftId, treasuryRaw.index);
       return {
         total: formatNumber(total - treasury, decimals),
         circulating: formatNumber(total - treasury, decimals),
@@ -57,6 +54,17 @@ export class MarketCapFetcher {
       this.getAmountFromArray(tokenId, tokenInfo.treasury ?? []),
       this.getAmountFromArray(tokenId, tokenInfo.burn ?? []),
     ]);
+
+    if (tokenInfo.circulating) {
+      const circulating = await this.getAmountFromArray(
+        tokenId,
+        tokenInfo.circulating
+      );
+      return {
+        total: formatNumber(total - burn, decimals),
+        circulating: formatNumber(circulating - treasury, decimals),
+      };
+    }
 
     return {
       total: formatNumber(total - burn, decimals),

@@ -6,32 +6,37 @@ import { MarketCapFetcher } from "../src/api";
 import { DEFAULT_TOKEN_DIR, type SupplyFetcherResponse } from "../src/types";
 import { getBlockFrostInstance } from "../src/utils";
 
-const REPORT_DIR = path.join(__dirname, "../report");
+// const REPORT_DIR = path.join(__dirname, "../report");
 const ERROR_TOLERANCE = 0.0001;
 
-function moveFile(tokenName: string, flag = 1) {
-  const oldPath = `./src/${DEFAULT_TOKEN_DIR}/${tokenName}`;
-  let newPath = `${REPORT_DIR}/${tokenName}`;
-  if (!flag) {
-    newPath = `${REPORT_DIR}/diff/${tokenName}`;
-  }
-  if (flag === 2) {
-    newPath = `${REPORT_DIR}/only-total/${tokenName}`;
-  }
-  fs.rename(oldPath, newPath, (err) => {
-    if (err) {
-      console.error("Could not move file", err);
-    }
-  });
-}
+// function moveFile(tokenName: string, flag = 1) {
+//   const oldPath = `./src/${DEFAULT_TOKEN_DIR}/${tokenName}`;
+//   let newPath = `${REPORT_DIR}/${tokenName}`;
+//   if (!flag) {
+//     newPath = `${REPORT_DIR}/diff/${tokenName}`;
+//   }
+//   fs.rename(oldPath, newPath, (err) => {
+//     if (err) {
+//       console.error("Could not move file", err);
+//     }
+//   });
+// }
 
-function compareMarketcapInfo(result: SupplyFetcherResponse, expected: SupplyFetcherResponse): boolean | string {
+function compareMarketcapInfo(result: SupplyFetcherResponse, expected: SupplyFetcherResponse) {
   if (result.circulating === expected.circulating && result.total === expected.total) {
-    return true;
+    return {
+      match: true,
+      circulating: 0,
+      total: 0
+    };
   }
   const circulatingError = Math.abs(Number.parseFloat(result.circulating!) - Number.parseFloat(expected.circulating!));
   const totalError = Math.abs(Number.parseFloat(result.total!) - Number.parseFloat(expected.total!));
-  return circulatingError < ERROR_TOLERANCE && totalError < ERROR_TOLERANCE;
+  return {
+    match: circulatingError < ERROR_TOLERANCE && totalError < ERROR_TOLERANCE,
+    circulating: circulatingError,
+    total: totalError
+  }
 }
 
 async function test() {
@@ -45,29 +50,29 @@ async function test() {
     const tokenData = await fetcher.getToken(tokenId);
     // error when reading files or yaml file does not follow the right schema
     if (!tokenData) {
-      moveFile(tokenFileName);
+      console.log(
+        tokenFileName,
+        "Error when reading files or yaml file does not follow the right schema"
+      );
     } else {
+      if (!tokenData.maxSupply) {
+        continue;
+      }
       try {
         const result = await fetcher.getMarketCapInfo(tokenData);
         const expected = await supplyFetchers[tokenId]();
         if (!result || !expected) {
           console.log("Expected/Result notfound: ", tokenFileName);
         } else {
-          const decimal = tokenData.decimals;
-
-          if (!result.circulating || !result.total || !expected.circulating || !expected.total) {
-            moveFile(tokenFileName, 2);
-            continue;
-          }
-          if (!compareMarketcapInfo(result, expected) || typeof compareMarketcapInfo(result, expected) === "string") {
-            console.log("Error Comparing: ", tokenFileName);
-            console.log("Result: ", result, "Expected: ", expected, "Decimals: ", decimal);
-            moveFile(tokenFileName, 0);
+          const res = compareMarketcapInfo(result, expected);
+          if (!res.match) {
+            console.log("Error comparing: ", tokenFileName);
+            console.log("Result: ", result, "Expected: ", expected);
+            console.log("Error: ", res.circulating, res.total);
           }
         }
       } catch (error) {
         console.log("Error", error, tokenFileName);
-        moveFile(tokenFileName, 0);
       }
     }
   }

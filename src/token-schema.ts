@@ -1,6 +1,6 @@
 import type { JSONSchemaType } from "ajv";
 
-export type categoriesType =
+export type Category =
   | "DeFi"
   | "RealFi"
   | "GameFi"
@@ -21,7 +21,7 @@ export type categoriesType =
 interface TokenMetadata {
   tokenId: string;
   project: string;
-  categories: categoriesType[];
+  categories: Category[];
   socialLinks?: {
     website?: string;
     twitter?: string;
@@ -31,14 +31,14 @@ interface TokenMetadata {
     coinGecko?: string;
   };
   verified: boolean;
-  maxSupply: number | string | (number | string)[];
   decimals: number;
+  maxSupply?: number | string | (number | string)[];
   treasury?: (string | number)[];
   burn?: (string | number)[];
   circulating?: (string | number)[];
   treasuryNft?: {
     nftId: string;
-    index: number[];
+    index: number;
   };
 }
 
@@ -89,6 +89,7 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       items: {
         type: ["string", "number"],
       },
+      nullable: true
     },
     decimals: { type: "number" },
     treasury: {
@@ -115,17 +116,14 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
           type: "string",
         },
         index: {
-          type: "array",
-          items: {
-            type: "number",
-          },
+          type: "number",
         },
       },
       required: ["nftId", "index"],
       nullable: true,
     },
   },
-  required: ["tokenId", "project", "categories", "maxSupply", "decimals", "verified"],
+  required: ["tokenId", "project", "categories", "decimals", "verified"],
 };
 
 export type { TokenMetadata };
