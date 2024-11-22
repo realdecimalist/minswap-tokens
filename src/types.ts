@@ -2,7 +2,7 @@ import type { TokenMetadata } from "./token-schema";
 
 export type FetcherOptions = {
   /**
-   * Fetch timeout in milliseconds. Default to 20s
+   * Fetch timeout in milliseconds. Default to 20 seconds.
    */
   timeout?: number;
 };

@@ -1,11 +1,28 @@
 import type { BlockFrostAPI } from "@blockfrost/blockfrost-js";
 
 export interface Adapter {
+  /**
+   * Get asset amount from an address.
+   * @param address The addresses.
+   * @param tokenId The concatenation of token's policy ID and token name.
+   */
   getAmountInAddress(address: string, tokenId: string): Promise<bigint>;
 
+  /**
+   * Get asset amount by its ID.
+   * @param assetId The concatenation of token's policy ID and token name.
+   */
   getAmountFromAsset(assetId: string): Promise<bigint>;
 
-  getAmountFromNftId(tokenId: string, nftId: string, index: number): Promise<bigint>;
+  /**
+   *  Get amount for NFT asset.
+   * @param tokenId The token's policy ID.
+   * @param nftId The concatenation of token's policy ID and token name.
+   */
+  getAmountFromNftId(
+    tokenId: string,
+    nftId: string
+  ): Promise<bigint>;
 }
 
 export class BlockFrostAdapter implements Adapter {
@@ -33,11 +50,11 @@ export class BlockFrostAdapter implements Adapter {
     return BigInt(assetInfo?.quantity);
   }
 
-  async getAmountFromNftId(tokenId: string, nftId: string, index: number): Promise<bigint> {
+  async getAmountFromNftId(
+    tokenId: string,
+    nftId: string
+  ): Promise<bigint> {
     const addresses = await this.blockFrost.assetsAddresses(nftId);
-    return await this.getAmountInAddress(
-      addresses[index]["address"],
-      tokenId
-    );
+    return await this.getAmountInAddress(addresses[0]["address"], tokenId);
   }
 }

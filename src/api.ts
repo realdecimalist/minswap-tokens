@@ -5,8 +5,18 @@ import { load } from "js-yaml";
 
 import type { Adapter } from "./adapter";
 import { type TokenMetadata, tokenSchema } from "./token-schema";
-import { DEFAULT_TOKEN_DIR, type GetTokenOptions, type SupplyFetcherResponse } from "./types";
-import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } from "./utils";
+import {
+  DEFAULT_TOKEN_DIR,
+  type GetTokenOptions,
+  type SupplyFetcherResponse,
+} from "./types";
+import {
+  formatNumber,
+  getAmountFromURL,
+  isAPIEndPoint,
+  isAddress,
+  isBigInt,
+} from "./utils";
 
 const ajv = new Ajv();
 
@@ -17,9 +27,17 @@ export class MarketCapFetcher {
     this.adapter = adapter;
   }
 
-  public async getMarketCapInfo(tokenInfo: TokenMetadata): Promise<SupplyFetcherResponse> {
+  /**
+   *  Get market cap information of an asset.
+   * @param tokenInfo Token metadata followed by the token schema.
+   * @returns The maximum supply of an asset.
+   * @returns The circulating amount of an asset.
+   */
+  public async getMarketCapInfo(
+    tokenInfo: TokenMetadata
+  ): Promise<SupplyFetcherResponse> {
     if (!tokenInfo.maxSupply) {
-      throw new Error("Marketcap has not been configured.")
+      throw new Error("Marketcap has not been configured.");
     }
 
     const tokenId = tokenInfo.tokenId;
@@ -34,7 +52,12 @@ export class MarketCapFetcher {
 
     const total = await this.getAmountFromArray(tokenId, maxSupply);
 
-    if (!tokenInfo.circulatingOnChain && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryNft) {
+    if (
+      !tokenInfo.circulatingOnChain &&
+      !tokenInfo.burn &&
+      !tokenInfo.treasury &&
+      !tokenInfo.treasuryNft
+    ) {
       return {
         total: formatNumber(total, decimals),
       };
@@ -42,8 +65,11 @@ export class MarketCapFetcher {
 
     if (tokenInfo.treasuryNft) {
       const treasuryRaw = tokenInfo.treasuryNft;
-      console.log("TokenId: ", tokenId, "Treasury ",  tokenInfo.treasuryNft);
-      const treasury = await this.adapter.getAmountFromNftId(tokenId, treasuryRaw.nftId, treasuryRaw.index);
+
+      const treasury = await this.adapter.getAmountFromNftId(
+        tokenId,
+        treasuryRaw
+      );
       return {
         total: formatNumber(total - treasury, decimals),
         circulating: formatNumber(total - treasury, decimals),
@@ -72,7 +98,10 @@ export class MarketCapFetcher {
     };
   }
 
-  private async getAmountFromArray(token: string, values: (string | number)[]): Promise<bigint> {
+  private async getAmountFromArray(
+    token: string,
+    values: (string | number)[]
+  ): Promise<bigint> {
     const amounts = await Promise.all(
       values.map((value) => {
         if (isBigInt(value)) {
@@ -85,14 +114,22 @@ export class MarketCapFetcher {
           return getAmountFromURL(value.toString());
         }
         return this.adapter.getAmountFromAsset(value.toString());
-      }),
+      })
     );
     return amounts.reduce((sum, x) => sum + x, 0n);
   }
 
-  async getToken(tokenId: string) {
+  /**
+   * Get token's metadata by its ID.
+   * @param tokenId The concatenation of token policy ID and token name.
+   * @returns The token metadata followed the token schema.
+   */
+  public async getToken(tokenId: string) {
     try {
-      const filePath = path.join(__dirname, `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`);
+      const filePath = path.join(
+        __dirname,
+        `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`
+      );
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
         tokenId,
@@ -105,7 +142,12 @@ export class MarketCapFetcher {
     }
   }
 
-  async getTokens(options?: GetTokenOptions) {
+  /**
+   * Get all tokens' metadata by its ID.
+   * @param options only verified or only tokens with market cap.
+   * @returns The list of all tokens' metadata.
+   */
+  public async getTokens(options?: GetTokenOptions) {
     const directory = path.join(__dirname, `${DEFAULT_TOKEN_DIR}`);
     const tokenList: TokenMetadata[] = [];
     const files = fs.readdirSync(directory);
@@ -115,8 +157,11 @@ export class MarketCapFetcher {
       if (!token) {
         continue;
       }
-      const matchedVerify = !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
-      const matchedMarketCap = !options?.hasMarketCapOnly || (options?.hasMarketCapOnly && !!token.maxSupply);
+      const matchedVerify =
+        !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
+      const matchedMarketCap =
+        !options?.hasMarketCapOnly ||
+        (options?.hasMarketCapOnly && !!token.maxSupply);
       if (matchedVerify && matchedMarketCap) {
         tokenList.push(token);
       }
