@@ -16,19 +16,18 @@ export function tryParseBigInt(value: string | number): bigint | null {
   }
 }
 
-export function formatNumber(value: BigInt, decimals: number): string {
+export function formatNumber(value: bigint, decimals: number): string {
   const numberString = value.toString();
-  const postfix = (numberString.slice(numberString.length - decimals)).replace(/0+$/g, "");
+  const postfix = numberString.slice(numberString.length - decimals).replace(/0+$/g, "");
   const decimalPoint = postfix.length ? "." : "";
-  const prefix = numberString.slice(0, numberString.length - decimals) ? numberString.slice(0, numberString.length - decimals) : "0";
+  const prefix = numberString.slice(0, numberString.length - decimals)
+    ? numberString.slice(0, numberString.length - decimals)
+    : "0";
   return prefix + decimalPoint + postfix;
 }
 
 export function isBigInt(value: string | number): boolean {
-  return (
-    !isNaN(Number(value)) &&
-    value.toString() === tryParseBigInt(value)?.toString()
-  );
+  return !Number.isNaN(Number(value)) && value.toString() === tryParseBigInt(value)?.toString();
 }
 
 export function isAPIEndPoint(str: string | number): boolean {
@@ -36,10 +35,7 @@ export function isAPIEndPoint(str: string | number): boolean {
 }
 
 export function isAddress(str: string | number): boolean {
-  return (
-    typeof str === "string" &&
-    (str.startsWith("addr1") || str.startsWith("stake1"))
-  );
+  return typeof str === "string" && (str.startsWith("addr1") || str.startsWith("stake1"));
 }
 
 export async function getAmountFromURL(url: string): Promise<bigint> {
@@ -47,7 +43,3 @@ export async function getAmountFromURL(url: string): Promise<bigint> {
   const data = await response.text();
   return BigInt(data);
 }
-
-
-
-

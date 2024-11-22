@@ -1,5 +1,5 @@
-import { McApi } from "./api";
+import { MarketCapFetcher } from "./api";
 
 export const MinswapTokens = {
-  McApi
-}
+  MarketCapFetcher,
+};

@@ -1,7 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      BLOCKFROST_PROJECT_ID: string,
+      BLOCKFROST_PROJECT_ID: string;
     }
   }
 }

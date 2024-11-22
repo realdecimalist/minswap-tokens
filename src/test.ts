@@ -1,12 +1,12 @@
-import { supplyFetchers } from "@minswap/market-cap"
-import { getBlockFrostInstance } from "../src/utils";
+import * as fs from "fs";
+import path from "node:path";
+import { supplyFetchers } from "@minswap/market-cap";
 import { BlockFrostAdapter } from "../src/adapter";
 import { MarketCapFetcher } from "../src/api";
-import * as fs from 'fs';
-import { DEFAULT_TOKEN_DIR, SupplyFetcherResponse } from "../src/types";
-import path from "path";
+import { DEFAULT_TOKEN_DIR, type SupplyFetcherResponse } from "../src/types";
+import { getBlockFrostInstance } from "../src/utils";
 
-const REPORT_DIR = path.join(__dirname, '../report');
+const REPORT_DIR = path.join(__dirname, "../report");
 const ERROR_TOLERANCE = 0.0001;
 
 function moveFile(tokenName: string, flag = 1) {
@@ -26,12 +26,11 @@ function moveFile(tokenName: string, flag = 1) {
 }
 
 function compareMarketcapInfo(result: SupplyFetcherResponse, expected: SupplyFetcherResponse): boolean | string {
-
   if (result.circulating === expected.circulating && result.total === expected.total) {
     return true;
   }
-  const circulatingError = Math.abs(parseFloat(result.circulating!) - parseFloat(expected.circulating!));
-  const totalError = Math.abs(parseFloat(result.total!) - parseFloat(expected.total!));
+  const circulatingError = Math.abs(Number.parseFloat(result.circulating!) - Number.parseFloat(expected.circulating!));
+  const totalError = Math.abs(Number.parseFloat(result.total!) - Number.parseFloat(expected.total!));
   return circulatingError < ERROR_TOLERANCE && totalError < ERROR_TOLERANCE;
 }
 
@@ -63,16 +62,15 @@ async function test() {
           if (!compareMarketcapInfo(result, expected) || typeof compareMarketcapInfo(result, expected) === "string") {
             console.log("Error Comparing: ", tokenFileName);
             console.log("Result: ", result, "Expected: ", expected, "Decimals: ", decimal);
-            moveFile(tokenFileName, 0)
-          };
-
+            moveFile(tokenFileName, 0);
+          }
         }
       } catch (error) {
         console.log("Error", error, tokenFileName);
-        moveFile(tokenFileName, 0)
+        moveFile(tokenFileName, 0);
       }
     }
   }
 }
 
-test()
+test();

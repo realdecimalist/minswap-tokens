@@ -1,4 +1,4 @@
-import { JSONSchemaType } from "ajv";
+import type { JSONSchemaType } from "ajv";
 
 export type categoriesType =
   | "DeFi"
@@ -122,17 +122,10 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
         },
       },
       required: ["nftId", "index"],
-      nullable: true
+      nullable: true,
     },
   },
-  required: [
-    "tokenId",
-    "project",
-    "categories",
-    "maxSupply",
-    "decimals",
-    "verified",
-  ],
+  required: ["tokenId", "project", "categories", "maxSupply", "decimals", "verified"],
 };
 
 export type { TokenMetadata };

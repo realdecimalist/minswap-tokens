@@ -1,4 +1,4 @@
-import { TokenMetadata } from "./token-schema";
+import type { TokenMetadata } from "./token-schema";
 
 export type FetcherOptions = {
   /**
@@ -9,8 +9,8 @@ export type FetcherOptions = {
 
 export const DEFAULT_TOKEN_DIR = "tokens";
 export const DefaultFetcherOptions: FetcherOptions = {
-  timeout: 20_000
-}
+  timeout: 20_000,
+};
 
 export type GetTokenOptions = {
   verifiedOnly?: boolean;
@@ -22,10 +22,7 @@ export type SupplyFetcherResponse = {
   circulating?: string;
 };
 
-export type SupplyFetcher = (
-  tokenInfo: TokenMetadata,
-  options?: FetcherOptions
-) => Promise<SupplyFetcherResponse>;
+export type SupplyFetcher = (tokenInfo: TokenMetadata, options?: FetcherOptions) => Promise<SupplyFetcherResponse>;
 
 export type GetToken = (tokenString: string) => Promise<TokenMetadata | null>;
 

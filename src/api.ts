@@ -1,25 +1,26 @@
-import path from "path";
-import { Adapter } from "./adapter";
-import { TokenMetadata, tokenSchema } from "./token-schema";
-import { DEFAULT_TOKEN_DIR, GetTokenOptions, SupplyFetcherResponse } from "./types";
-import { formatNumber, getAmountFromURL, isAddress, isAPIEndPoint, isBigInt } from "./utils";
-import { load } from "js-yaml";
-import fs from 'fs';
+import fs from "node:fs";
+import path from "node:path";
 import Ajv from "ajv";
+import { load } from "js-yaml";
+
+import type { Adapter } from "./adapter";
+import { type TokenMetadata, tokenSchema } from "./token-schema";
+import { DEFAULT_TOKEN_DIR, type GetTokenOptions, type SupplyFetcherResponse } from "./types";
+import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } from "./utils";
 
 const ajv = new Ajv();
 
 export class MarketCapFetcher {
   private readonly adapter: Adapter;
 
-  constructor (adapter: Adapter) {
+  constructor(adapter: Adapter) {
     this.adapter = adapter;
   }
 
   public async getMarketCapInfo(tokenInfo: TokenMetadata): Promise<SupplyFetcherResponse> {
     const tokenId = tokenInfo.tokenId;
     const decimals = tokenInfo.decimals;
-    let maxSupply;
+    let maxSupply: (string | number)[];
 
     if (Array.isArray(tokenInfo.maxSupply)) {
       maxSupply = tokenInfo.maxSupply;
@@ -31,15 +32,12 @@ export class MarketCapFetcher {
 
     if (!tokenInfo.circulating && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryNft) {
       return {
-        total: formatNumber(total, decimals)
-      }
+        total: formatNumber(total, decimals),
+      };
     }
 
     if (tokenInfo.circulating) {
-      const circulating = await this.getAmountFromArray(
-        tokenId,
-        tokenInfo.circulating
-      );
+      const circulating = await this.getAmountFromArray(tokenId, tokenInfo.circulating);
       return {
         total: formatNumber(total, decimals),
         circulating: formatNumber(circulating, decimals),
@@ -64,34 +62,29 @@ export class MarketCapFetcher {
       total: formatNumber(total - burn, decimals),
       circulating: formatNumber(total - treasury - burn, decimals),
     };
-  };
+  }
 
-  private async getAmountFromArray(
-    token: string,
-    values: (string | number)[]
-  ): Promise<bigint> {
-    const amounts = await Promise.all(values.map((value) => {
-      if (isBigInt(value)) {
-        return BigInt(value);
-      }
-      if (isAddress(value)) {
-        return this.adapter.getAmountInAddress(value.toString(), token);
-      }
-      if (isAPIEndPoint(value)) {
-        return getAmountFromURL(value.toString());
-      }
-      return this.adapter.getAmountFromAsset(value.toString());
-    }))
+  private async getAmountFromArray(token: string, values: (string | number)[]): Promise<bigint> {
+    const amounts = await Promise.all(
+      values.map((value) => {
+        if (isBigInt(value)) {
+          return BigInt(value);
+        }
+        if (isAddress(value)) {
+          return this.adapter.getAmountInAddress(value.toString(), token);
+        }
+        if (isAPIEndPoint(value)) {
+          return getAmountFromURL(value.toString());
+        }
+        return this.adapter.getAmountFromAsset(value.toString());
+      }),
+    );
     return amounts.reduce((sum, x) => sum + x, 0n);
   }
 
-
   async getToken(tokenId: string) {
     try {
-      const filePath = path.join(
-        __dirname,
-        `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`
-      );
+      const filePath = path.join(__dirname, `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`);
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
         tokenId,
@@ -102,7 +95,7 @@ export class MarketCapFetcher {
     } catch {
       return null;
     }
-  };
+  }
 
   async getTokens(options?: GetTokenOptions) {
     const directory = path.join(__dirname, `${DEFAULT_TOKEN_DIR}`);
@@ -114,19 +107,14 @@ export class MarketCapFetcher {
       if (!token) {
         continue;
       }
-      const matchedVerify =
-        !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
-      const matchedMarketCap =
-        !options?.hasMarketCapOnly ||
-        (options?.hasMarketCapOnly && !!token.maxSupply);
+      const matchedVerify = !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
+      const matchedMarketCap = !options?.hasMarketCapOnly || (options?.hasMarketCapOnly && !!token.maxSupply);
       if (matchedVerify && matchedMarketCap) {
         tokenList.push(token);
       }
     }
     return tokenList;
-  };
-
-
+  }
 }
 
 // import fs from 'node:fs';
@@ -138,4 +126,3 @@ export class MarketCapFetcher {
 //     return fs.readFileSync(filePath, "utf-8");
 //   }
 // }
-

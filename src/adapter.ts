@@ -38,7 +38,7 @@ export class BlockFrostAdapter implements Adapter {
     const amounts = await Promise.all(
       indices.map((index) => {
         return this.getAmountInAddress(addresses[index]["address"], nftId);
-      })
+      }),
     );
     const amount = amounts.reduce((sum, value) => sum + value, 0n);
     return amount;
