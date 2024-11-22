@@ -5,10 +5,19 @@
   "main": "build/index.js",
   "module": "build/index.es.js",
   "types": "build/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "rimraf build && rollup -c rollup.config.js",
     "test": "echo \"Test run\" && exit 0",
     "lint": "biome check --no-errors-on-unmatched --fix ."
+  },
+  "files": ["build"],
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "import": "./build/index.es.js",
+      "require": "./build/index.js"
+    }
   },
   "keywords": [],
   "author": "Minswap Labs",
@@ -16,26 +25,20 @@
   "packageManager": "pnpm@9.5.0",
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@minswap/sdk": "^0.3.4",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.9.1",
     "rimraf": "^6.0.1",
-    "rollup": "^2.70.2",
+    "rollup": "^2.79.2",
     "rollup-plugin-copy": "^3.5.0",
-    "rollup-plugin-dts": "^4.2.1",
-    "rollup-plugin-esbuild": "^4.9.1",
+    "rollup-plugin-dts": "^4.2.3",
+    "rollup-plugin-esbuild": "^4.10.3",
     "typescript": "^5.6.3"
   },
   "dependencies": {
     "@blockfrost/blockfrost-js": "^5.7.0",
-    "@minswap/market-cap": "^0.1.13",
-    "@minswap/sdk": "^0.3.4",
     "ajv": "^8.17.1",
-    "fs": "0.0.1-security",
-    "install": "^0.13.0",
-    "js-yaml": "^4.1.0",
-    "minswap-tokens": "file:",
-    "npm": "^10.9.0",
-    "pnpm": "^9.13.2"
+    "js-yaml": "^4.1.0"
   }
 }

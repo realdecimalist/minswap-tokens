@@ -27,7 +27,7 @@ function compareMarketcapInfo(result: SupplyFetcherResponse, expected: SupplyFet
     return {
       match: true,
       circulating: 0,
-      total: 0
+      total: 0,
     };
   }
   const circulatingError = Math.abs(Number.parseFloat(result.circulating!) - Number.parseFloat(expected.circulating!));
@@ -35,8 +35,8 @@ function compareMarketcapInfo(result: SupplyFetcherResponse, expected: SupplyFet
   return {
     match: circulatingError < ERROR_TOLERANCE && totalError < ERROR_TOLERANCE,
     circulating: circulatingError,
-    total: totalError
-  }
+    total: totalError,
+  };
 }
 
 async function test() {
@@ -50,10 +50,7 @@ async function test() {
     const tokenData = await fetcher.getToken(tokenId);
     // error when reading files or yaml file does not follow the right schema
     if (!tokenData) {
-      console.log(
-        tokenFileName,
-        "Error when reading files or yaml file does not follow the right schema"
-      );
+      console.log(tokenFileName, "Error when reading files or yaml file does not follow the right schema");
     } else {
       if (!tokenData.maxSupply) {
         continue;

@@ -1,10 +1,12 @@
-import * as SDK from "@minswap/sdk";
-import { BlockFrostAPI } from "@blockfrost/blockfrost-js";
-import { ADA } from "@minswap/sdk";
-import path from "node:path";
 import fs from "node:fs";
+import path from "node:path";
 import type { TokenMetadata } from "@/token-schema";
-import { load, dump } from "js-yaml";
+import { BlockFrostAPI } from "@blockfrost/blockfrost-js";
+import * as SDK from "@minswap/sdk";
+import { ADA } from "@minswap/sdk";
+import { dump, load } from "js-yaml";
+
+const __dirname = import.meta.dirname;
 
 const MINIMUM_TVL = 1000_000000n; // 1000 ADA
 const TOKEN_DIR = "../src/tokens";
@@ -48,25 +50,18 @@ export async function verifyTVL() {
 }
 
 async function checkTVL(tokenId: string): Promise<boolean> {
-  const [v1Pools, { pools: v2Pools }] = await Promise.all([
-    getAllV1Pools(),
-    blockfrostAdapter.getAllV2Pools(),
-  ]);
+  const [v1Pools, { pools: v2Pools }] = await Promise.all([getAllV1Pools(), blockfrostAdapter.getAllV2Pools()]);
 
   if (STABLE_COINS.includes(tokenId)) {
     return true;
   }
 
   let maxTVL = 0n;
-  const poolV1 = v1Pools.find(
-    (pool) => pool.assetA === SDK.Asset.toString(ADA) && pool.assetB === tokenId
-  );
+  const poolV1 = v1Pools.find((pool) => pool.assetA === SDK.Asset.toString(ADA) && pool.assetB === tokenId);
 
   maxTVL = (poolV1?.reserveA ?? 0n) * 2n;
 
-  const poolV2 = v2Pools.find(
-    (pool) => pool.assetA === SDK.Asset.toString(ADA) && pool.assetB === tokenId
-  );
+  const poolV2 = v2Pools.find((pool) => pool.assetA === SDK.Asset.toString(ADA) && pool.assetB === tokenId);
 
   const reserveV2 = (poolV2?.reserveA ?? 0n) * 2n;
   if (maxTVL < reserveV2) {

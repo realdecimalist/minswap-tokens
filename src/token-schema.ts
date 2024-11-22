@@ -89,7 +89,7 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       items: {
         type: ["string", "number"],
       },
-      nullable: true
+      nullable: true,
     },
     decimals: { type: "number" },
     treasury: {

@@ -19,7 +19,7 @@ export class MarketCapFetcher {
 
   public async getMarketCapInfo(tokenInfo: TokenMetadata): Promise<SupplyFetcherResponse> {
     if (!tokenInfo.maxSupply) {
-      throw new Error("Marketcap has not been configured.")
+      throw new Error("Marketcap has not been configured.");
     }
 
     const tokenId = tokenInfo.tokenId;
@@ -42,7 +42,7 @@ export class MarketCapFetcher {
 
     if (tokenInfo.treasuryNft) {
       const treasuryRaw = tokenInfo.treasuryNft;
-      console.log("TokenId: ", tokenId, "Treasury ",  tokenInfo.treasuryNft);
+      console.log("TokenId: ", tokenId, "Treasury ", tokenInfo.treasuryNft);
       const treasury = await this.adapter.getAmountFromNftId(tokenId, treasuryRaw.nftId, treasuryRaw.index);
       return {
         total: formatNumber(total - treasury, decimals),
@@ -56,10 +56,7 @@ export class MarketCapFetcher {
     ]);
 
     if (tokenInfo.circulatingOnChain) {
-      const circulatingOnChain = await this.getAmountFromArray(
-        tokenId,
-        tokenInfo.circulatingOnChain
-      );
+      const circulatingOnChain = await this.getAmountFromArray(tokenId, tokenInfo.circulatingOnChain);
       return {
         total: formatNumber(total - burn, decimals),
         circulating: formatNumber(circulatingOnChain - treasury, decimals),
@@ -92,6 +89,7 @@ export class MarketCapFetcher {
 
   async getToken(tokenId: string) {
     try {
+      const __dirname = import.meta.dirname;
       const filePath = path.join(__dirname, `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`);
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
@@ -100,12 +98,14 @@ export class MarketCapFetcher {
       };
       const validate = ajv.validate(tokenSchema, tokenData);
       return validate ? tokenData : null;
-    } catch {
+    } catch (e) {
+      console.error(e);
       return null;
     }
   }
 
   async getTokens(options?: GetTokenOptions) {
+    const __dirname = import.meta.dirname;
     const directory = path.join(__dirname, `${DEFAULT_TOKEN_DIR}`);
     const tokenList: TokenMetadata[] = [];
     const files = fs.readdirSync(directory);
@@ -124,13 +124,3 @@ export class MarketCapFetcher {
     return tokenList;
   }
 }
-
-// import fs from 'node:fs';
-// import path from 'node:path';
-
-// export class McApi {
-//   public readFile(assetId: string) {
-//     const filePath = path.resolve(__dirname, "tokens", `${assetId}.yaml`);
-//     return fs.readFileSync(filePath, "utf-8");
-//   }
-// }
