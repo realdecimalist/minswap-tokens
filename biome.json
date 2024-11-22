@@ -51,8 +51,7 @@
         "noUnusedTemplateLiteral": "error",
         "noUselessElse": "error",
         "useLiteralEnumMembers": "error",
-        "useTemplate": "error",
-        "useNodejsImportProtocol": "off"
+        "useTemplate": "error"
       },
       "suspicious": {
         "noArrayIndexKey": "error",
