@@ -13,8 +13,7 @@ verified: true
 
 maxSupply: f66d78b4a3cb3d37afa0ec36461e51ecbde00f26c8f0a68f94b6988069455448
 
-circulating:
+circulatingOnChain:
   - f66d78b4a3cb3d37afa0ec36461e51ecbde00f26c8f0a68f94b6988069455448
 
 decimals: 6
-

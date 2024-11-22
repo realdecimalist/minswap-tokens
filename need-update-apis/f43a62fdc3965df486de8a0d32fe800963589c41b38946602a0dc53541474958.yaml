@@ -16,5 +16,5 @@ maxSupply: https://tokensupply.singularitynet.io/tokensupply?tokensymbol=agix&q=
 
 decimals: 6
 
-circulating:
+circulatingOnChain:
   - https://tokensupply.singularitynet.io/tokensupply?tokensymbol=agix&q=circulatingsupply

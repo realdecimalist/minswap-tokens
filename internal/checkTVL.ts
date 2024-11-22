@@ -1,9 +1,13 @@
-import { Asset, BlockfrostAdapter, NetworkId, type PoolV1 } from "@minswap/sdk";
+import * as SDK from "@minswap/sdk";
 import { BlockFrostAPI } from "@blockfrost/blockfrost-js";
 import { ADA } from "@minswap/sdk";
+import path from "node:path";
+import fs from "node:fs";
+import type { TokenMetadata } from "@/token-schema";
+import { load, dump } from "js-yaml";
 
 const MINIMUM_TVL = 1000_000000n; // 1000 ADA
-
+const TOKEN_DIR = "../src/tokens";
 const LIMIT_PAGINATION = 100;
 
 const STABLE_COINS = [
@@ -19,16 +23,35 @@ const blockfrostAPI = new BlockFrostAPI({
   network: "mainnet",
 });
 
-const blockfrostAdapter = new BlockfrostAdapter({
-  networkId: NetworkId.MAINNET,
+const blockfrostAdapter = new SDK.BlockfrostAdapter({
+  networkId: SDK.NetworkId.MAINNET,
   blockFrost: blockfrostAPI,
 });
 
-export async function checkTVL(tokenId: string): Promise<boolean> {
-  const [v1Pools, {pools: v2Pools}] = await Promise.all([
+export async function verifyTVL() {
+  const tokenDir = path.join(__dirname, TOKEN_DIR);
+  fs.readdir(tokenDir, async function (error, files) {
+    if (error) {
+      throw error;
+    }
+    for (const file of files) {
+      const filePath = path.join(tokenDir, file);
+      const tokenData = <TokenMetadata>load(fs.readFileSync(filePath, "utf8"));
+      const tokenId = file.substring(0, file.length - 5);
+      const verified = {
+        verified: await checkTVL(tokenId),
+      };
+      const yamlString = dump({ ...tokenData, ...verified });
+      fs.writeFileSync(filePath, yamlString, "utf8");
+    }
+  });
+}
+
+async function checkTVL(tokenId: string): Promise<boolean> {
+  const [v1Pools, { pools: v2Pools }] = await Promise.all([
     getAllV1Pools(),
-    blockfrostAdapter.getAllV2Pools()
-  ])
+    blockfrostAdapter.getAllV2Pools(),
+  ]);
 
   if (STABLE_COINS.includes(tokenId)) {
     return true;
@@ -36,13 +59,13 @@ export async function checkTVL(tokenId: string): Promise<boolean> {
 
   let maxTVL = 0n;
   const poolV1 = v1Pools.find(
-    (pool) => pool.assetA === Asset.toString(ADA) && pool.assetB === tokenId
+    (pool) => pool.assetA === SDK.Asset.toString(ADA) && pool.assetB === tokenId
   );
 
   maxTVL = (poolV1?.reserveA ?? 0n) * 2n;
 
   const poolV2 = v2Pools.find(
-    (pool) => pool.assetA === Asset.toString(ADA) && pool.assetB === tokenId
+    (pool) => pool.assetA === SDK.Asset.toString(ADA) && pool.assetB === tokenId
   );
 
   const reserveV2 = (poolV2?.reserveA ?? 0n) * 2n;
@@ -54,7 +77,7 @@ export async function checkTVL(tokenId: string): Promise<boolean> {
 }
 
 async function getAllV1Pools() {
-  const v1Pools: PoolV1.State[] = [];
+  const v1Pools: SDK.PoolV1.State[] = [];
 
   let flag = true;
   let page = 1;
@@ -72,3 +95,5 @@ async function getAllV1Pools() {
 
   return v1Pools;
 }
+
+verifyTVL();

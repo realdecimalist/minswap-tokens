@@ -35,7 +35,7 @@ interface TokenMetadata {
   maxSupply?: number | string | (number | string)[];
   treasury?: (string | number)[];
   burn?: (string | number)[];
-  circulating?: (string | number)[];
+  circulatingOnChain?: (string | number)[];
   treasuryNft?: {
     nftId: string;
     index: number;
@@ -102,7 +102,7 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       items: { type: ["string", "number"] },
       nullable: true,
     },
-    circulating: {
+    circulatingOnChain: {
       type: "array",
       items: {
         type: ["string", "number"],

@@ -15,5 +15,5 @@ maxSupply: 2000000000000000
 
 decimals: 6
 
-circulating:
+circulatingOnChain:
   - https://api.coingecko.com/api/v3/coins/world-mobile-token

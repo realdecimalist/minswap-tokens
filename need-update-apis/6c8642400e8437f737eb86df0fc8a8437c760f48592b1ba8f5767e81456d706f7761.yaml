@@ -17,6 +17,5 @@ maxSupply: 200000000000000
 
 decimals: 6
 
-circulating:
+circulatingOnChain:
   - https://token.empowa.io/emp/supply
-

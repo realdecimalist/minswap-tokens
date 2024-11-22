@@ -17,5 +17,5 @@ maxSupply: 3840000000000000
 
 decimals: 6
 
-circulating:
+circulatingOnChain:
   - https://raw.githubusercontent.com/Cornucopias/circulating-supply/main/cs

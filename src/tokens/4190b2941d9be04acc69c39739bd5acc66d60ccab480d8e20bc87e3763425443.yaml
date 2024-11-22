@@ -15,5 +15,5 @@ maxSupply: 2100000000000000
 
 decimals: 8
 
-circulating:
+circulatingOnChain:
   - 1955000000000000

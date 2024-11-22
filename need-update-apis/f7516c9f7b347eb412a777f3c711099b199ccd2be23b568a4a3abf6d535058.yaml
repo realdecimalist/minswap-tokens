@@ -14,5 +14,5 @@ decimals: 6
 
 maxSupply: https://map.smart-places.io/api/token/circulating
 
-circulating:
+circulatingOnChain:
   - https://map.smart-places.io/api/token/circulating

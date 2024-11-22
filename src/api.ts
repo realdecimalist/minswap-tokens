@@ -34,7 +34,7 @@ export class MarketCapFetcher {
 
     const total = await this.getAmountFromArray(tokenId, maxSupply);
 
-    if (!tokenInfo.circulating && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryNft) {
+    if (!tokenInfo.circulatingOnChain && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryNft) {
       return {
         total: formatNumber(total, decimals),
       };
@@ -55,14 +55,14 @@ export class MarketCapFetcher {
       this.getAmountFromArray(tokenId, tokenInfo.burn ?? []),
     ]);
 
-    if (tokenInfo.circulating) {
-      const circulating = await this.getAmountFromArray(
+    if (tokenInfo.circulatingOnChain) {
+      const circulatingOnChain = await this.getAmountFromArray(
         tokenId,
-        tokenInfo.circulating
+        tokenInfo.circulatingOnChain
       );
       return {
         total: formatNumber(total - burn, decimals),
-        circulating: formatNumber(circulating - treasury, decimals),
+        circulating: formatNumber(circulatingOnChain - treasury, decimals),
       };
     }
 
