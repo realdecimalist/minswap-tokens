@@ -4,7 +4,8 @@ import Ajv from "ajv";
 import { load } from "js-yaml";
 
 import type { Adapter } from "./adapter";
-import { type TokenMetadata, tokenSchema } from "./token-schema";
+import { tokenSchema } from "./token-schema";
+import type { TokenMetadata } from "./types";
 import { DEFAULT_TOKEN_DIR, type GetTokenOptions, type SupplyFetcherResponse } from "./types";
 import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } from "./utils";
 

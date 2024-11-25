@@ -10,9 +10,9 @@ socialLinks:
   discord: https://discord.gg/CPTmRnjukt
   telegram: https://t.me/FractionEstate
 
-verified: true
+verified: false
 
-maxSupply: "1000000000000000000"
+maxSupply: '1000000000000000000'
 
 decimals: 10
 
@@ -28,3 +28,4 @@ treasury:
   - addr1wy08wwdmpp6wtkzzjnghpxn0wtm9zyp69s4fxe675yv06cs70pjxk
   - stake1uxmyhzdqv6e57xwkz3z93v996v3ktdctlda44jv76ese5pqwwg7ue
   - stake1uyuxqkvqwngv86g9m804kjnhmvunc52kk4kl8cm8fck5kwcjmx8sg
+

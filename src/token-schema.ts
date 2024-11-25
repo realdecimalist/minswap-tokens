@@ -1,43 +1,6 @@
 import type { JSONSchemaType } from "ajv";
 
-export type Category =
-  | "DeFi"
-  | "RealFi"
-  | "GameFi"
-  | "Meme"
-  | "Bridge"
-  | "Metaverse"
-  | "Wallet"
-  | "NFT"
-  | "Oracle"
-  | "AI"
-  | "Launchpad"
-  | "DAO"
-  | "Stablecoin"
-  | "Social"
-  | "Media"
-  | "Other";
-
-interface TokenMetadata {
-  tokenId: string;
-  project: string;
-  categories: Category[];
-  socialLinks?: {
-    website?: string;
-    twitter?: string;
-    discord?: string;
-    telegram?: string;
-    coinMarketCap?: string;
-    coinGecko?: string;
-  };
-  verified: boolean;
-  decimals: number;
-  maxSupply?: number | string | (number | string)[];
-  treasury?: (string | number)[];
-  burn?: (string | number)[];
-  circulatingOnChain?: (string | number)[];
-  treasuryNft?: string;
-}
+import type { TokenMetadata } from "./types";
 
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   type: "object",
@@ -113,5 +76,3 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   },
   required: ["tokenId", "project", "categories", "decimals", "verified"],
 };
-
-export type { TokenMetadata };

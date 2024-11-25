@@ -1,16 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { TokenMetadata } from "@/token-schema";
 import { BlockFrostAPI } from "@blockfrost/blockfrost-js";
 import * as SDK from "@minswap/sdk";
-import { ADA } from "@minswap/sdk";
 import { dump, load } from "js-yaml";
 
-const __dirname = import.meta.dirname;
+import type { TokenMetadata } from "@/types";
 
 const MINIMUM_TVL = 1000_000000n; // 1000 ADA
-const TOKEN_DIR = "../src/tokens";
 const LIMIT_PAGINATION = 100;
+const __dirname = import.meta.dirname;
+const TOKEN_DIR = path.join(__dirname, "../src/tokens");
 
 const STABLE_COINS = [
   "8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61.446a65644d6963726f555344", // DJED
@@ -32,6 +31,8 @@ const blockfrostAdapter = new SDK.BlockfrostAdapter({
 
 export async function verifyTVL() {
   const tokenDir = path.join(__dirname, TOKEN_DIR);
+  const [v1Pools, { pools: v2Pools }] = await Promise.all([getAllV1Pools(), blockfrostAdapter.getAllV2Pools()]);
+
   fs.readdir(tokenDir, async function (error, files) {
     if (error) {
       throw error;
@@ -40,28 +41,38 @@ export async function verifyTVL() {
       const filePath = path.join(tokenDir, file);
       const tokenData = <TokenMetadata>load(fs.readFileSync(filePath, "utf8"));
       const tokenId = file.substring(0, file.length - 5);
-      const verified = {
-        verified: await checkTVL(tokenId),
+      const newVerified = await checkTVL(v1Pools, v2Pools, tokenId);
+
+      if (newVerified === tokenData.verified) {
+        continue;
+      }
+
+      const tokenInfo = {
+        ...tokenData,
+        verified: newVerified,
       };
-      const yamlString = dump({ ...tokenData, ...verified });
+
+      let yamlString = "";
+      for (const [key, value] of Object.entries(tokenInfo)) {
+        yamlString += `${dump({ [key]: value }, { lineWidth: -1 })}\n`;
+      }
       fs.writeFileSync(filePath, yamlString, "utf8");
     }
   });
 }
 
-async function checkTVL(tokenId: string): Promise<boolean> {
-  const [v1Pools, { pools: v2Pools }] = await Promise.all([getAllV1Pools(), blockfrostAdapter.getAllV2Pools()]);
-
+async function checkTVL(v1Pools: SDK.PoolV1.State[], v2Pools: SDK.PoolV2.State[], tokenId: string): Promise<boolean> {
   if (STABLE_COINS.includes(tokenId)) {
     return true;
   }
 
   let maxTVL = 0n;
-  const poolV1 = v1Pools.find((pool) => pool.assetA === SDK.Asset.toString(ADA) && pool.assetB === tokenId);
+
+  const poolV1 = v1Pools.find((pool) => pool.assetA === SDK.Asset.toString(SDK.ADA) && pool.assetB === tokenId);
 
   maxTVL = (poolV1?.reserveA ?? 0n) * 2n;
 
-  const poolV2 = v2Pools.find((pool) => pool.assetA === SDK.Asset.toString(ADA) && pool.assetB === tokenId);
+  const poolV2 = v2Pools.find((pool) => pool.assetA === SDK.Asset.toString(SDK.ADA) && pool.assetB === tokenId);
 
   const reserveV2 = (poolV2?.reserveA ?? 0n) * 2n;
   if (maxTVL < reserveV2) {
@@ -74,20 +85,18 @@ async function checkTVL(tokenId: string): Promise<boolean> {
 async function getAllV1Pools() {
   const v1Pools: SDK.PoolV1.State[] = [];
 
-  let flag = true;
   let page = 1;
-  while (flag) {
+  while (true) {
     const paginatedPools = await blockfrostAdapter.getV1Pools({
       page,
       count: LIMIT_PAGINATION,
     });
-    v1Pools.push(...paginatedPools);
-    if (paginatedPools.length < LIMIT_PAGINATION) {
-      flag = false;
+    if (paginatedPools.length === 0) {
+      break;
     }
+    v1Pools.push(...paginatedPools);
     page++;
   }
-
   return v1Pools;
 }
 
