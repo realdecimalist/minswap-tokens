@@ -15,6 +15,9 @@ const FILE_REGEX = /^.*[\\/]/;
 
 async function validateTokenFiles(files: string[]) {
   for (const file of files) {
+    if (!file.includes('src/tokens')) {
+      continue;
+    }
     const fileName = file.replace(FILE_REGEX, "");
     const filePath = path.join(TOKEN_DIR, `${fileName}`);
     const tokenFileData = fs.readFileSync(filePath, "utf-8");
