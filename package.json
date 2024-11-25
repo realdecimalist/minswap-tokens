@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "build": "rimraf build && rollup -c rollup.config.js",
-    "test": "echo \"Test run\" && exit 0",
+    "test": "npx tsx ./internal/validateTokenFiles.ts",
     "lint": "biome check --no-errors-on-unmatched --fix ."
   },
   "files": ["build"],
