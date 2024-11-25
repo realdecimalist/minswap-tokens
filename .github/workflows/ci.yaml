@@ -3,7 +3,6 @@ on:
   pull_request:
     branches:
       - "*"
-  workflow_dispatch:
   push:
 jobs:
   validate-data:
@@ -33,4 +32,5 @@ jobs:
           base: 'tlinh'
       - name: Run validate data
         if: steps.changes.outputs.tokens == 'true'
+        working-directory: src/tokens
         run: pnpm run test
