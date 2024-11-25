@@ -4,6 +4,7 @@ on:
     branches:
       - "*"
   workflow_dispatch:
+  push:
 jobs:
   validate-data:
     runs-on: ubuntu-latest
@@ -24,11 +25,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - uses: dorny/paths-filter@v3
-        id: filter
+        id: changes
         with:
           filters: |
             tokens:
-              - '.src/tokens/*.yaml'
+              - 'src/tokens/**'
+          base: 'tlinh'
       - name: Run validate data
-        if: steps.filter.outputs.tokens == 'true'
+        if: steps.changes.outputs.tokens == 'true'
         run: pnpm run test
