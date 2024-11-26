@@ -4,7 +4,7 @@ import * as fs from "node:fs";
 import { load } from "js-yaml";
 import { execSync } from "node:child_process";
 
-import { DEFAULT_TOKEN_DIR, FILE_REGEX } from "@/const";
+import { DEFAULT_TOKEN_DIR } from "@/const";
 import type { TokenMetadata } from "@/types";
 import { tokenSchema } from "@/token-schema";
 
@@ -17,7 +17,8 @@ async function validateTokenFiles(files: string[]) {
     if (!file.includes("src/tokens")) {
       continue;
     }
-    const fileName = file.replace(FILE_REGEX, "");
+    const fileComponents = file.split("/");
+    const fileName = fileComponents[fileComponents.length - 1];
     const filePath = path.join(TOKEN_DIR, `${fileName}`);
     const tokenFileData = fs.readFileSync(filePath, "utf-8");
     const tokenData: TokenMetadata = {

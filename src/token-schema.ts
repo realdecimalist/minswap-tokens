@@ -1,18 +1,7 @@
-import { Ajv, type JSONSchemaType } from "ajv";
-import addFormats from "ajv-formats";
+import type { JSONSchemaType } from "ajv";
 
 import type { TokenMetadata } from "./types";
-import { ADDRESS_REGEX, URI_REGEX } from "./const";
-
-const ajv = new Ajv({
-  validateFormats: true,
-  validateSchema: true
-});
-
-addFormats(ajv);
-
-// ajv.addFormat("uri", /^https:\/\/.*/);
-// ajv.addFormat("address", /^(addr1|stake1)[a-z0-9]+/);
+import { ADDRESS_REGEX, URL_REGEX, ASSET_ID_REGEX } from "./const";
 
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   type: "object",
@@ -49,15 +38,15 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
     socialLinks: {
       type: "object",
       properties: {
-        website: { type: "string", nullable: true },
-        twitter: { type: "string", nullable: true },
-        discord: { type: "string", nullable: true },
-        telegram: { type: "string", nullable: true },
-        coinMarketCap: { type: "string", nullable: true },
-        coinGecko: { type: "string", nullable: true },
+        website: { type: "string", nullable: true, pattern: URL_REGEX },
+        twitter: { type: "string", nullable: true, pattern: URL_REGEX },
+        discord: { type: "string", nullable: true, pattern: URL_REGEX },
+        telegram: { type: "string", nullable: true, pattern: URL_REGEX },
+        coinMarketCap: { type: "string", nullable: true, pattern: URL_REGEX },
+        coinGecko: { type: "string", nullable: true, pattern: URL_REGEX },
       },
       nullable: true,
-      additionalProperties: false
+      additionalProperties: false,
     },
     verified: { type: "boolean", default: true },
     maxSupply: {
@@ -67,20 +56,97 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       },
       nullable: true,
     },
+    // $defs: {
+    //   name: {
+    //     type: "array",
+    //     items: {
+    //       oneOf: [
+    //         {
+    //           type: "string",
+    //           pattern: ADDRESS_REGEX,
+    //         },
+    //         {
+    //           type: "string",
+    //           pattern: URL_REGEX,
+    //         },
+    //         {
+    //           type: "string",
+    //           pattern: ASSET_ID_REGEX,
+    //         },
+    //         {
+    //           type: "number",
+    //         },
+    //       ],
+    //     },
+    //     nullable: true,
+    //   },
+    // },
     treasury: {
       type: "array",
-      items: { type: ["string", "number"] },
+      items: {
+        oneOf: [
+          {
+            type: "string",
+            pattern: ADDRESS_REGEX,
+          },
+          {
+            type: "string",
+            pattern: URL_REGEX,
+          },
+          {
+            type: "string",
+            pattern: ASSET_ID_REGEX,
+          },
+          {
+            type: "number",
+          },
+        ],
+      },
       nullable: true,
     },
     burn: {
       type: "array",
-      items: { type: ["string", "number"] },
+      items: {
+        oneOf: [
+          {
+            type: "string",
+            pattern: ADDRESS_REGEX,
+          },
+          {
+            type: "string",
+            pattern: URL_REGEX,
+          },
+          {
+            type: "string",
+            pattern: ASSET_ID_REGEX,
+          },
+          {
+            type: "number",
+          },
+        ],
+      },
       nullable: true,
     },
     circulatingOnChain: {
       type: "array",
       items: {
-        type: ["string", "number"],
+        oneOf: [
+          {
+            type: "string",
+            pattern: ADDRESS_REGEX,
+          },
+          {
+            type: "string",
+            pattern: URL_REGEX,
+          },
+          {
+            type: "string",
+            pattern: ASSET_ID_REGEX,
+          },
+          {
+            type: "number",
+          },
+        ],
       },
       nullable: true,
     },
@@ -92,3 +158,5 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   additionalProperties: false,
   required: ["tokenId", "project", "categories", "decimals", "verified"],
 };
+
+console.log();

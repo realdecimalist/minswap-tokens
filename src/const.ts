@@ -1,5 +1,5 @@
 export const DEFAULT_TOKEN_DIR = "tokens";
 export const DEFAULT_FETCH_TIMEOUT = 20_000;
-export const URI_REGEX = /^https:(?:\/\/(?:((?:[a-z0-9-._~!$&'()*+,;=:]|%[0-9A-F]{2})*)@)?((?:[a-z0-9-._~!$&'()*+,;=]|%[0-9A-F]{2})*)(?::(\d*))?(\/(?:[a-z0-9-._~!$&'()*+,;=:@/]|%[0-9A-F]{2})*)?|(\/?(?:[a-z0-9-._~!$&'()*+,;=:@]|%[0-9A-F]{2})+(?:[a-z0-9-._~!$&'()*+,;=:@/]|%[0-9A-F]{2})*)?)(?:\?((?:[a-z0-9-._~!$&'()*+,;=:/?@]|%[0-9A-F]{2})*))?(?:#((?:[a-z0-9-._~!$&'()*+,;=:/?@]|%[0-9A-F]{2})*))?$/
-export const ADDRESS_REGEX = /^(addr|stake)[0-9a-z]+/
-export const FILE_REGEX = /^.*[/]/;
+export const URL_REGEX = "^https:\/\/.*$";
+export const ADDRESS_REGEX = "^(addr|stake)[0-9a-zA-Z]+";
+export const ASSET_ID_REGEX = "^[a-fA-F0-9]{56}[a-fA-F0-9]*";
