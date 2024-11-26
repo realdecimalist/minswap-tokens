@@ -1,3 +1,5 @@
+import { DEFAULT_FETCH_TIMEOUT } from "./const";
+
 export type FetcherOptions = {
   /**
    * Fetch timeout in milliseconds. Default to 20 seconds.
@@ -5,9 +7,8 @@ export type FetcherOptions = {
   timeout?: number;
 };
 
-export const DEFAULT_TOKEN_DIR = "tokens";
 export const DefaultFetcherOptions: FetcherOptions = {
-  timeout: 20_000,
+  timeout: DEFAULT_FETCH_TIMEOUT,
 };
 
 export type Category =
@@ -54,15 +55,9 @@ export type GetTokenOptions = {
   hasMarketCapOnly?: boolean;
 };
 
-export type SupplyFetcherResponse = {
+export type MarketCapInfoResponse = {
   total?: string;
   circulating?: string;
 };
-
-export type SupplyFetcher = (tokenInfo: TokenMetadata, options?: FetcherOptions) => Promise<SupplyFetcherResponse>;
-
-export type GetToken = (tokenString: string) => Promise<TokenMetadata | null>;
-
-export type GetTokens = (options: GetTokenOptions) => Promise<TokenMetadata[]>;
 
 export type { TokenMetadata };

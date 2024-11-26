@@ -40,7 +40,7 @@ export async function verifyTVL() {
     for (const file of files) {
       const filePath = path.join(tokenDir, file);
       const tokenData = <TokenMetadata>load(fs.readFileSync(filePath, "utf8"));
-      const tokenId = file.substring(0, file.length - 5);
+      const tokenId = file.split('.')[0];
       const newVerified = await checkTVL(v1Pools, v2Pools, tokenId);
 
       if (newVerified === tokenData.verified) {
@@ -74,9 +74,9 @@ async function checkTVL(v1Pools: SDK.PoolV1.State[], v2Pools: SDK.PoolV2.State[]
 
   const poolV2 = v2Pools.find((pool) => pool.assetA === SDK.Asset.toString(SDK.ADA) && pool.assetB === tokenId);
 
-  const reserveV2 = (poolV2?.reserveA ?? 0n) * 2n;
-  if (maxTVL < reserveV2) {
-    maxTVL = reserveV2;
+  const tvlV2 = (poolV2?.reserveA ?? 0n) * 2n;
+  if (maxTVL < tvlV2) {
+    maxTVL = tvlV2;
   }
 
   return maxTVL >= MINIMUM_TVL;

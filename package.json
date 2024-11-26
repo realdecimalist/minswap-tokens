@@ -8,10 +8,12 @@
   "type": "module",
   "scripts": {
     "build": "rimraf build && rollup -c rollup.config.js",
-    "test": "npx tsx ./internal/validateTokenFiles.ts",
+    "test": "jest && npx tsx ./internal/validateTokenFiles.ts",
     "lint": "biome check --no-errors-on-unmatched --fix ."
   },
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
@@ -27,8 +29,10 @@
     "@biomejs/biome": "1.9.4",
     "@minswap/sdk": "^0.3.4",
     "@total-typescript/ts-reset": "^0.6.1",
+    "@types/jest": "^29.5.14",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.9.1",
+    "jest": "^29.7.0",
     "rimraf": "^6.0.1",
     "rollup": "^2.79.2",
     "rollup-plugin-copy": "^3.5.0",
@@ -39,6 +43,8 @@
   "dependencies": {
     "@blockfrost/blockfrost-js": "^5.7.0",
     "ajv": "^8.17.1",
-    "js-yaml": "^4.1.0"
+    "ajv-formats": "^3.0.1",
+    "js-yaml": "^4.1.0",
+    "ts-jest": "^29.2.5"
   }
 }

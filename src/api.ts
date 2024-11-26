@@ -1,17 +1,23 @@
 import fs from "node:fs";
 import path from "node:path";
-import Ajv from "ajv";
 import { load } from "js-yaml";
 
 import type { Adapter } from "./adapter";
-import { tokenSchema } from "./token-schema";
 import type { TokenMetadata } from "./types";
-import { DEFAULT_TOKEN_DIR, type GetTokenOptions, type SupplyFetcherResponse } from "./types";
-import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } from "./utils";
+import type {
+  GetTokenOptions,
+  MarketCapInfoResponse,
+} from "./types";
+import { DEFAULT_TOKEN_DIR } from "./const";
+import {
+  formatNumber,
+  getAmountFromURL,
+  isAPIEndPoint,
+  isAddress,
+  isBigInt,
+} from "./utils";
 
-const ajv = new Ajv();
-
-export class MarketCapFetcher {
+export class MarketCapAPI {
   private readonly adapter: Adapter;
 
   constructor(adapter: Adapter) {
@@ -19,14 +25,16 @@ export class MarketCapFetcher {
   }
 
   /**
-   *  Get market cap information of an asset.
+   * Get market cap information of an asset.
    * @param tokenInfo Token metadata followed by the token schema.
    * @returns The maximum supply of an asset.
    * @returns The circulating amount of an asset.
    */
-  public async getMarketCapInfo(tokenInfo: TokenMetadata): Promise<SupplyFetcherResponse> {
+  public async getMarketCapInfo(
+    tokenInfo: TokenMetadata
+  ): Promise<MarketCapInfoResponse> {
     if (!tokenInfo.maxSupply) {
-      throw new Error("Marketcap has not been configured.");
+      throw new Error("MarketCap has not been configured.");
     }
 
     const tokenId = tokenInfo.tokenId;
@@ -41,7 +49,12 @@ export class MarketCapFetcher {
 
     const total = await this.getAmountFromArray(tokenId, maxSupply);
 
-    if (!tokenInfo.circulatingOnChain && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryNft) {
+    if (
+      !tokenInfo.circulatingOnChain &&
+      !tokenInfo.burn &&
+      !tokenInfo.treasury &&
+      !tokenInfo.treasuryNft
+    ) {
       return {
         total: formatNumber(total, decimals),
       };
@@ -50,7 +63,10 @@ export class MarketCapFetcher {
     if (tokenInfo.treasuryNft) {
       const treasuryRaw = tokenInfo.treasuryNft;
 
-      const treasury = await this.adapter.getAmountFromNftId(tokenId, treasuryRaw);
+      const treasury = await this.adapter.getAmountInFirstAddressHoldingAsset(
+        tokenId,
+        treasuryRaw
+      );
       return {
         total: formatNumber(total - treasury, decimals),
         circulating: formatNumber(total - treasury, decimals),
@@ -63,7 +79,10 @@ export class MarketCapFetcher {
     ]);
 
     if (tokenInfo.circulatingOnChain) {
-      const circulatingOnChain = await this.getAmountFromArray(tokenId, tokenInfo.circulatingOnChain);
+      const circulatingOnChain = await this.getAmountFromArray(
+        tokenId,
+        tokenInfo.circulatingOnChain
+      );
       return {
         total: formatNumber(total - burn, decimals),
         circulating: formatNumber(circulatingOnChain - treasury, decimals),
@@ -76,7 +95,10 @@ export class MarketCapFetcher {
     };
   }
 
-  private async getAmountFromArray(token: string, values: (string | number)[]): Promise<bigint> {
+  private async getAmountFromArray(
+    token: string,
+    values: (string | number)[]
+  ): Promise<bigint> {
     const amounts = await Promise.all(
       values.map((value) => {
         if (isBigInt(value)) {
@@ -88,28 +110,32 @@ export class MarketCapFetcher {
         if (isAPIEndPoint(value)) {
           return getAmountFromURL(value.toString());
         }
-        return this.adapter.getAmountFromAsset(value.toString());
-      }),
+        return this.adapter.getOnchainAmountOfAsset(value.toString());
+      })
     );
     return amounts.reduce((sum, x) => sum + x, 0n);
   }
+}
 
+export class TokenAPI {
   /**
    * Get token's metadata by its ID.
-   * @param tokenId The concatenation of token policy ID and token name.
+   * @param tokenId The concatenation of token policy ID and hex-coded token name.
    * @returns The token metadata followed the token schema.
    */
   public async getToken(tokenId: string) {
     try {
       const __dirname = import.meta.dirname;
-      const filePath = path.join(__dirname, `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`);
+      const filePath = path.join(
+        __dirname,
+        `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`
+      );
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
         tokenId,
         ...(load(tokenFileData) as Omit<TokenMetadata, "tokenId">),
       };
-      const validate = ajv.validate(tokenSchema, tokenData);
-      return validate ? tokenData : null;
+      return tokenData;
     } catch (e) {
       console.error(e);
       return null;
@@ -118,7 +144,7 @@ export class MarketCapFetcher {
 
   /**
    * Get all tokens' metadata by its ID.
-   * @param options only verified or only tokens with market cap.
+   * @param options Only verified or only tokens with market cap.
    * @returns The list of all tokens' metadata.
    */
   public async getTokens(options?: GetTokenOptions) {
@@ -127,13 +153,16 @@ export class MarketCapFetcher {
     const tokenList: TokenMetadata[] = [];
     const files = fs.readdirSync(directory);
     for (const file of files) {
-      const tokenString = file.substring(0, file.length - 5);
+      const tokenString = file.split(".")[0];
       const token = await this.getToken(tokenString);
       if (!token) {
         continue;
       }
-      const matchedVerify = !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
-      const matchedMarketCap = !options?.hasMarketCapOnly || (options?.hasMarketCapOnly && !!token.maxSupply);
+      const matchedVerify =
+        !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
+      const matchedMarketCap =
+        !options?.hasMarketCapOnly ||
+        (options?.hasMarketCapOnly && !!token.maxSupply);
       if (matchedVerify && matchedMarketCap) {
         tokenList.push(token);
       }

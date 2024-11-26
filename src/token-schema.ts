@@ -1,6 +1,18 @@
-import type { JSONSchemaType } from "ajv";
+import { Ajv, type JSONSchemaType } from "ajv";
+import addFormats from "ajv-formats";
 
 import type { TokenMetadata } from "./types";
+import { ADDRESS_REGEX, URI_REGEX } from "./const";
+
+const ajv = new Ajv({
+  validateFormats: true,
+  validateSchema: true
+});
+
+addFormats(ajv);
+
+// ajv.addFormat("uri", /^https:\/\/.*/);
+// ajv.addFormat("address", /^(addr1|stake1)[a-z0-9]+/);
 
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   type: "object",
@@ -30,7 +42,10 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
           "Other",
         ],
       },
+      minItems: 1,
+      uniqueItems: true,
     },
+    decimals: { type: "number" },
     socialLinks: {
       type: "object",
       properties: {
@@ -42,6 +57,7 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
         coinGecko: { type: "string", nullable: true },
       },
       nullable: true,
+      additionalProperties: false
     },
     verified: { type: "boolean", default: true },
     maxSupply: {
@@ -51,7 +67,6 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       },
       nullable: true,
     },
-    decimals: { type: "number" },
     treasury: {
       type: "array",
       items: { type: ["string", "number"] },
@@ -74,5 +89,6 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       nullable: true,
     },
   },
+  additionalProperties: false,
   required: ["tokenId", "project", "categories", "decimals", "verified"],
 };

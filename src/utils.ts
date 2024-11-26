@@ -18,11 +18,14 @@ export function tryParseBigInt(value: string | number): bigint | null {
 
 export function formatNumber(value: bigint, decimals: number): string {
   const numberString = value.toString();
+
+  if (numberString.length <= decimals) {
+    return `0.${numberString.padStart(decimals, '0')}`;
+  }
+
   const postfix = numberString.slice(numberString.length - decimals).replace(/0+$/g, "");
   const decimalPoint = postfix.length ? "." : "";
-  const prefix = numberString.slice(0, numberString.length - decimals)
-    ? numberString.slice(0, numberString.length - decimals)
-    : "0";
+  const prefix = numberString.slice(0, numberString.length - decimals);
   return prefix + decimalPoint + postfix;
 }
 
@@ -35,7 +38,7 @@ export function isAPIEndPoint(str: string | number): boolean {
 }
 
 export function isAddress(str: string | number): boolean {
-  return typeof str === "string" && (str.startsWith("addr1") || str.startsWith("stake1"));
+  return typeof str === "string" && (str.startsWith("addr") || str.startsWith("stake"));
 }
 
 export async function getAmountFromURL(url: string): Promise<bigint> {
