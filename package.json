@@ -8,7 +8,9 @@
   "type": "module",
   "scripts": {
     "build": "rimraf build && rollup -c rollup.config.js",
-    "test": "jest && npx tsx ./internal/validateTokenFiles.ts",
+    "test": "jest",
+    "check-format": "tsx ./internal/validateTokenFiles.ts",
+    "check-tvl": "tsx --env-file=.env ./internal/checkTVL.ts",
     "lint": "biome check --no-errors-on-unmatched --fix ."
   },
   "files": [
@@ -38,6 +40,7 @@
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^4.2.3",
     "rollup-plugin-esbuild": "^4.10.3",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   },
   "dependencies": {

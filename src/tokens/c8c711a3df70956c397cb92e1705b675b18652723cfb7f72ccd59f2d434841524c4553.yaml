@@ -1,0 +1,15 @@
+project: Stuff.io
+
+categories:
+  - Media
+  - Social
+  - Other
+
+socialLinks:
+  website: https://stuff.io
+  twitter: https://twitter.com/stuff_io
+  discord: https://discord.gg/rNyn99WwYZ
+
+decimals: 0
+
+verified: true

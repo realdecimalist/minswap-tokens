@@ -1,0 +1,15 @@
+project: SKILL
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://linktr.ee/skills_labs
+  twitter: https://twitter.com/skills_labs
+  discord: https://discord.com/invite/gtyYpqNb9z
+  coinMarketCap: https://coinmarketcap.com/dexscan/cardano/fe11648668b2ca4f9eea8c017ffc8312002b32d069a0da307165c361d867e75b/
+
+decimals: 6
+
+verified: true
+

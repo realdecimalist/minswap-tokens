@@ -7,11 +7,11 @@ categories:
 socialLinks:
   website: https://book.io
   twitter: https://twitter.com/book_io
-  discord: http://discord.gg/rNyn99WwYZ
+  discord: https://discord.gg/rNyn99WwYZ
 
 verified: true
 
-maxSupply: '10000000000000000'
+maxSupply: "10000000000000000"
 
 decimals: 6
 

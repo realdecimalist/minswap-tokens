@@ -13,5 +13,8 @@ describe('Utils functions tests', () => {
     expect(formatNumber(BigInt(12345), 5)).toEqual('0.12345');
     expect(formatNumber(BigInt(1230003000), 5)).toEqual('12300.03');
     expect(formatNumber(BigInt(123), 5)).toEqual('0.00123');
+    expect(formatNumber(123000n, 2)).toEqual("1230");
+    expect(formatNumber(BigInt(0), 5)).toEqual('0');
+
   })
 })

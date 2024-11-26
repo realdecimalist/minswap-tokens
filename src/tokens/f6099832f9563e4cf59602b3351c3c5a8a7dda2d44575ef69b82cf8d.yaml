@@ -1,0 +1,15 @@
+project: OADA
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://www.optim.finance/
+  twitter: https://x.com/OptimFi
+  discord: https://discord.gg/sJKGcZeW
+  coinGecko: https://www.coingecko.com/en/coins/optim-oada
+
+decimals: 6
+
+verified: true
+

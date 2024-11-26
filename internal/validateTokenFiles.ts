@@ -29,6 +29,7 @@ async function validateTokenFiles(files: string[]) {
     if (!validate) {
       throw new Error(`Error validating token, token file: ${fileName}`);
     }
+
   }
 }
 

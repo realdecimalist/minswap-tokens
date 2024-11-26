@@ -3,6 +3,7 @@ import type { JSONSchemaType } from "ajv";
 import type { TokenMetadata } from "./types";
 import { ADDRESS_REGEX, URL_REGEX, ASSET_ID_REGEX } from "./const";
 
+
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   type: "object",
   properties: {
@@ -28,7 +29,10 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
           "Stablecoin",
           "Social",
           "Media",
-          "Other",
+          "Risk Ratings",
+          "Index Vaults",
+          "DePIN",
+          "Other"
         ],
       },
       minItems: 1,
@@ -159,4 +163,3 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   required: ["tokenId", "project", "categories", "decimals", "verified"],
 };
 
-console.log();

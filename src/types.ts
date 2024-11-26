@@ -27,6 +27,9 @@ export type Category =
   | "Stablecoin"
   | "Social"
   | "Media"
+  | "Risk Ratings"
+  | "Index Vaults"
+  | "DePIN"
   | "Other";
 
 interface TokenMetadata {

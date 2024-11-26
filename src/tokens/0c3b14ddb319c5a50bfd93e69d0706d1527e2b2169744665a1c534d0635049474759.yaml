@@ -1,0 +1,16 @@
+project: VixFi
+
+categories:
+  - RealFi
+
+socialLinks:
+  website: https://vixfinancetoken.com/
+  twitter: https://twitter.com/VixFi_Token
+  discord: https://discord.gg/6mBVYTZ22h
+  telegram: https://t.me/VixFi_Token
+  coinGecko: https://www.coingecko.com/es/monedas/cpiggy-bank-token
+  coinMarketCap: https://coinmarketcap.com/currencies/cpiggy-bank-token/
+
+decimals: 2
+
+verified: true

@@ -1,0 +1,15 @@
+project: World Mobile Token X
+
+categories:
+  - RealFi
+
+socialLinks:
+  website: https://worldmobiletoken.com/
+  twitter: https://twitter.com/WorldMobileTeam/
+  coinMarketCap: https://coinmarketcap.com/currencies/world-mobile-token/
+  coinGecko: https://www.coingecko.com/en/coins/world-mobile-token
+
+decimals: 6
+
+verified: true
+

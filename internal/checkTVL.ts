@@ -30,19 +30,16 @@ const blockfrostAdapter = new SDK.BlockfrostAdapter({
 });
 
 export async function verifyTVL() {
-  const tokenDir = path.join(__dirname, TOKEN_DIR);
   const [v1Pools, { pools: v2Pools }] = await Promise.all([getAllV1Pools(), blockfrostAdapter.getAllV2Pools()]);
-
-  fs.readdir(tokenDir, async function (error, files) {
+  fs.readdir(TOKEN_DIR, async function (error, files) {
     if (error) {
       throw error;
     }
     for (const file of files) {
-      const filePath = path.join(tokenDir, file);
+      const filePath = path.join(TOKEN_DIR, file);
       const tokenData = <TokenMetadata>load(fs.readFileSync(filePath, "utf8"));
       const tokenId = file.split('.')[0];
       const newVerified = await checkTVL(v1Pools, v2Pools, tokenId);
-
       if (newVerified === tokenData.verified) {
         continue;
       }

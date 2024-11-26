@@ -1,0 +1,15 @@
+project: TOKEN
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://token.stakepool.cc
+  twitter: https://twitter.com/token_stakepool
+  discord: https://discord.com/invite/3DfH5UvPXt
+  telegram: https://t.me/tokenstakepool
+
+decimals: 0
+
+verified: false
+

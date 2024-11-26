@@ -5,15 +5,15 @@ categories:
 
 socialLinks:
   website: https://hosky.io
-  twitter: http://twitter.com/hoskytoken
-  discord: http://discord.gg/hosky
+  twitter: https://twitter.com/hoskytoken
+  discord: https://discord.gg/hosky
   telegram: https://t.me/hosky_discussion
   coinMarketCap: https://coinmarketcap.com/currencies/hosky-token/
   coinGecko: https://www.coingecko.com/en/coins/hosky
 
 verified: true
 
-maxSupply: '1000000000000000'
+maxSupply: "1000000000000000"
 
 decimals: 0
 
@@ -22,4 +22,3 @@ treasury:
   - stake1ux6rtgcn4defph3q00068vxzp9dpv084vulvsfkgcdzerssff44v8
   - stake1uxl3jymaqw4lrw28xrkag7ugphk5l4eptfw6es9r87mx0lc5rcar0
   - stake1uyp8xczrtp5hrhv0juxuke2fsm8e6kr9xhk7j4ydk3jh7wc7eyxmm
-
