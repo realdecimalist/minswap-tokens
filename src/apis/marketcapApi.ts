@@ -4,8 +4,8 @@ import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } fr
 
 const nullResponse = {
   total: null,
-  circulating: null
-}
+  circulating: null,
+};
 
 export class MarketCapAPI {
   private readonly adapter: Adapter;
@@ -66,11 +66,7 @@ export class MarketCapAPI {
     }
 
     if (tokenInfo.circulatingOnChain) {
-      const circulatingOnChain = await this.getAmountFromArray(
-        tokenId,
-        tokenInfo.circulatingOnChain,
-        decimals
-      );
+      const circulatingOnChain = await this.getAmountFromArray(tokenId, tokenInfo.circulatingOnChain, decimals);
 
       if (circulatingOnChain === null) {
         return nullResponse;
@@ -91,7 +87,7 @@ export class MarketCapAPI {
   private async getAmountFromArray(
     token: string,
     values: (string | number)[],
-    decimals: number
+    decimals: number,
   ): Promise<bigint | null> {
     const amounts = await Promise.all(
       values.map((value) => {

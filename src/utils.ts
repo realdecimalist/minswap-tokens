@@ -15,19 +15,14 @@ export function formatNumber(value: bigint, decimals: number): string {
     return `0.${numberString.padStart(decimals, "0")}`;
   }
 
-  const postfix = numberString
-    .slice(numberString.length - decimals)
-    .replace(/0+$/g, "");
+  const postfix = numberString.slice(numberString.length - decimals).replace(/0+$/g, "");
   const decimalPoint = postfix.length ? "." : "";
   const prefix = numberString.slice(0, numberString.length - decimals);
   return prefix + decimalPoint + postfix;
 }
 
 export function isBigInt(value: string | number): boolean {
-  return (
-    !Number.isNaN(Number(value)) &&
-    value.toString() === tryParseBigInt(value)?.toString()
-  );
+  return !Number.isNaN(Number(value)) && value.toString() === tryParseBigInt(value)?.toString();
 }
 
 export function isAPIEndPoint(str: string | number): boolean {
@@ -35,27 +30,20 @@ export function isAPIEndPoint(str: string | number): boolean {
 }
 
 export function isAddress(str: string | number): boolean {
-  return (
-    typeof str === "string" &&
-    (str.startsWith("addr") || str.startsWith("stake"))
-  );
+  return typeof str === "string" && (str.startsWith("addr") || str.startsWith("stake"));
 }
 
-export async function getAmountFromURL(
-  url: string,
-  decimals: number
-): Promise<bigint | null> {
+export async function getAmountFromURL(url: string, decimals: number): Promise<bigint | null> {
   const response = await fetch(url);
-  let data = await response.text();
-  //
-  if (data.includes(".")) {
-    const [prefix, postfix] = data.split(".");
-    console.log({ prefix, postfix, decimals });
+  let amount = await response.text();
+  // format to support APIs which return amount with decimal places
+  if (amount.includes(".")) {
+    const [prefix, postfix] = amount.split(".");
     if (postfix.length > decimals) {
       return null;
     }
-    data = prefix + postfix.padEnd(decimals, "0");
+    amount = prefix + postfix.padEnd(decimals, "0");
   }
 
-  return tryParseBigInt(data);
+  return tryParseBigInt(amount);
 }

@@ -18,8 +18,8 @@ async function validateTokenFiles() {
       throw error;
     }
     for (const file of files) {
-      const fileName = file.split('.')[0];
-      if (fileName.match(ASSET_ID_REGEX)) {
+      const fileName = file.split(".")[0];
+      if (!fileName.match(ASSET_ID_REGEX)) {
         throw new Error(`Invalid filename: ${fileName}`);
       }
       const filePath = path.join(TOKEN_DIR, `${file}`);

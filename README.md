@@ -11,8 +11,19 @@ In cases where `circulatingOnChain` is provided directly according to the asset'
 For tokens providing with `treasuryNft`, the `circulating` is the quantity of the asset in the latest address containing it.
 
 ## Requirements
+As token verification prerequisites, ensure your token has a pool with at least **1000 ADA TVL**  and follow the structure stated in the instructions below.
 
-For tokens to be verified, ensure your token has a pool with at least **1000 ADA TVL** and follow the structures stated in the instructions below. Any token that has been verified does not meet the requirements in the future would still be unverified.
+For tokens to be verified:
+1. Create a transaction transfer **100 ADA** to Minswap wallet receiving token verification fee below.
+2. Metadata includes: **the last 4 numbers of asset's policyId and asset's ticker**.
+3. Attach the transaction hash to a comment in the yaml file pull request (instructions below).
+
+
+Minswap wallet receiving token verification fee: `addr1q85g6fkwzr2cf984qdmntqthl3yxnw4pst4mpgeyygdlnehqlcgwvr6c9vmajz96vnmmset3earqt5wl0keg0kw60eysdgwnej`
+
+Any token that has been verified does not meet the requirements in the future would still be unverified.
+
+
 
 ## How to add my token
 

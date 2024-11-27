@@ -60,6 +60,7 @@ async function verifyTVL() {
 }
 
 async function checkTVL(v1Pools: SDK.PoolV1.State[], v2Pools: SDK.PoolV2.State[], tokenId: string): Promise<boolean> {
+  console.log(`Checking TVL for token ${tokenId}...`);
   if (STABLE_COINS.includes(tokenId)) {
     return true;
   }
@@ -85,6 +86,7 @@ async function getAllV1Pools() {
 
   let page = 1;
   while (true) {
+    console.log(`Fetching V1 Pools on page: ${page}...`);
     const paginatedPools = await blockfrostAdapter.getV1Pools({
       page,
       count: LIMIT_PAGINATION,
