@@ -1,4 +1,4 @@
-# Minswap tokens
+# 😽 Minswap tokens
 
 ## Overview
 
@@ -10,8 +10,12 @@ In cases where `circulatingOnChain` is provided directly according to the asset'
 
 For tokens providing with `treasuryNft`, the `circulating` is the quantity of the asset in the latest address containing it.
 
-## Requirements
-As token verification prerequisites, ensure your token has a pool with at least **1000 ADA TVL**  and follow the structure stated in the instructions below.
+## How to add my token
+### Requirements
+As token verification prerequisites, ensure your token has:
+- A pool with at least **1000 ADA TVL**
+- A logo added in the [Cardano Token Registry](https://github.com/cardano-foundation/cardano-token-registry) or CIP-68 metadata
+and follow the structure stated in the instructions below.
 
 For tokens to be verified:
 1. Create a transaction transfer **100 ADA** to Minswap wallet receiving token verification fee below.
@@ -23,11 +27,9 @@ Minswap wallet receiving token verification fee: `addr1q85g6fkwzr2cf984qdmntqthl
 
 Any token that has been verified does not meet the requirements in the future would still be unverified.
 
+### Create pull request
 
-
-## How to add my token
-
-Create a pull request adding yaml file according to the following structure in the `src/tokens`:
+1. Create a pull request adding yaml file according to the following structure in the `src/tokens`:
 
 ```yaml
 # 1 token = 1 yaml file
@@ -72,6 +74,11 @@ circulatingOnChain:
 
 treasuryNft: assetId
 ```
+
+Alternatively, create an issue with above information and our team will update accordingly. The pull request will be processed faster.
+
+2. Post your policy ID on Twitter or display your policy ID on your landing page.
+3. Our team will verify and approve in first-in-first-out order.
 
 ## Usage
 

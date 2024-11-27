@@ -44,7 +44,9 @@ async function verifyTVL() {
       if (newVerified === tokenData.verified) {
         continue;
       }
-
+      console.log(
+        `TVL check failed, changing verification information from ${tokenData.verified} to ${newVerified}...`,
+      );
       const tokenInfo = {
         ...tokenData,
         verified: newVerified,
@@ -60,7 +62,6 @@ async function verifyTVL() {
 }
 
 async function checkTVL(v1Pools: SDK.PoolV1.State[], v2Pools: SDK.PoolV2.State[], tokenId: string): Promise<boolean> {
-  console.log(`Checking TVL for token ${tokenId}...`);
   if (STABLE_COINS.includes(tokenId)) {
     return true;
   }
