@@ -1,11 +1,11 @@
-import Ajv from "ajv";
-import path from "node:path";
 import * as fs from "node:fs";
+import path from "node:path";
+import Ajv from "ajv";
 import { load } from "js-yaml";
 
 import { DEFAULT_TOKEN_DIR } from "@/const";
-import type { TokenMetadata } from "@/types";
 import { tokenSchema } from "@/tokenSchema";
+import type { TokenMetadata } from "@/types";
 
 const ajv = new Ajv();
 const __dirname = import.meta.dirname;
@@ -21,7 +21,7 @@ async function validateTokenFiles() {
       const filePath = path.join(TOKEN_DIR, `${file}`);
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
-        tokenId: file.split('.')[0],
+        tokenId: file.split(".")[0],
         ...(load(tokenFileData) as Omit<TokenMetadata, "tokenId">),
       };
       const validate = ajv.validate(tokenSchema, tokenData);

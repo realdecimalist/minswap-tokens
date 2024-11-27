@@ -6,7 +6,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules/**", ".vscode/**", "build", "src/tokens"]
+    "ignore": ["node_modules/**", ".vscode/**", "build", "src/tokens", "*.config.js"]
   },
   "formatter": {
     "bracketSpacing": true,

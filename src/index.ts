@@ -1,5 +1,6 @@
 import { BlockFrostAdapter } from "./adapter";
-import { MarketCapAPI, TokenAPI } from "./apis/marketcapApi";
+import { MarketCapAPI } from "./apis/marketcapApi";
+import { TokenAPI } from "./apis/tokenApi";
 
 export const MinswapTokens = {
   MarketCapAPI,

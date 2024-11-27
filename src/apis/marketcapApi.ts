@@ -1,12 +1,6 @@
 import type { Adapter } from "../adapter";
 import type { MarketCapInfoResponse, TokenMetadata } from "../types";
-import {
-  formatNumber,
-  getAmountFromURL,
-  isAPIEndPoint,
-  isAddress,
-  isBigInt,
-} from "../utils";
+import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } from "../utils";
 
 export class MarketCapAPI {
   private readonly adapter: Adapter;
@@ -21,9 +15,7 @@ export class MarketCapAPI {
    * @returns The maximum supply of an asset.
    * @returns The circulating amount of an asset.
    */
-  public async getMarketCapInfo(
-    tokenInfo: TokenMetadata
-  ): Promise<MarketCapInfoResponse> {
+  public async getMarketCapInfo(tokenInfo: TokenMetadata): Promise<MarketCapInfoResponse> {
     if (!tokenInfo.maxSupply) {
       throw new Error("MarketCap has not been configured.");
     }
@@ -40,12 +32,7 @@ export class MarketCapAPI {
 
     const total = await this.getAmountFromArray(tokenId, maxSupply);
 
-    if (
-      !tokenInfo.circulatingOnChain &&
-      !tokenInfo.burn &&
-      !tokenInfo.treasury &&
-      !tokenInfo.treasuryNft
-    ) {
+    if (!tokenInfo.circulatingOnChain && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryNft) {
       return {
         total: formatNumber(total, decimals),
       };
@@ -54,10 +41,7 @@ export class MarketCapAPI {
     if (tokenInfo.treasuryNft) {
       const treasuryRaw = tokenInfo.treasuryNft;
 
-      const treasury = await this.adapter.getAmountInFirstAddressHoldingAsset(
-        tokenId,
-        treasuryRaw
-      );
+      const treasury = await this.adapter.getAmountInFirstAddressHoldingAsset(tokenId, treasuryRaw);
       return {
         total: formatNumber(total - treasury, decimals),
         circulating: formatNumber(total - treasury, decimals),
@@ -70,10 +54,7 @@ export class MarketCapAPI {
     ]);
 
     if (tokenInfo.circulatingOnChain) {
-      const circulatingOnChain = await this.getAmountFromArray(
-        tokenId,
-        tokenInfo.circulatingOnChain
-      );
+      const circulatingOnChain = await this.getAmountFromArray(tokenId, tokenInfo.circulatingOnChain);
       return {
         total: formatNumber(total - burn, decimals),
         circulating: formatNumber(circulatingOnChain - treasury, decimals),
@@ -86,10 +67,7 @@ export class MarketCapAPI {
     };
   }
 
-  private async getAmountFromArray(
-    token: string,
-    values: (string | number)[]
-  ): Promise<bigint> {
+  private async getAmountFromArray(token: string, values: (string | number)[]): Promise<bigint> {
     const amounts = await Promise.all(
       values.map((value) => {
         if (isBigInt(value)) {
@@ -102,7 +80,7 @@ export class MarketCapAPI {
           return getAmountFromURL(value.toString());
         }
         return this.adapter.getOnchainAmountOfAsset(value.toString());
-      })
+      }),
     );
     return amounts.reduce((sum, x) => sum + x, 0n);
   }
