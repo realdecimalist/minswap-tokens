@@ -1,15 +1,3 @@
-import { BlockFrostAPI } from "@blockfrost/blockfrost-js";
-import { DefaultFetcherOptions } from "./types";
-
-export function getBlockFrostInstance(
-  options = DefaultFetcherOptions
-): BlockFrostAPI {
-  return new BlockFrostAPI({
-    projectId: process.env["BLOCKFROST_PROJECT_ID"] ?? "",
-    requestTimeout: options.timeout,
-  });
-}
-
 export function tryParseBigInt(value: string | number): bigint | null {
   try {
     return BigInt(value);
@@ -59,7 +47,7 @@ export async function getAmountFromURL(
 ): Promise<bigint | null> {
   const response = await fetch(url);
   let data = await response.text();
-  // 
+  //
   if (data.includes(".")) {
     const [prefix, postfix] = data.split(".");
     console.log({ prefix, postfix, decimals });

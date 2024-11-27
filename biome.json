@@ -6,7 +6,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules/**", ".vscode/**", "build", "src/tokens"]
+    "ignore": ["node_modules/**", ".vscode/**", ".husky", "build", "src/tokens", "*.config.js"]
   },
   "formatter": {
     "bracketSpacing": true,
@@ -42,7 +42,9 @@
         "noEnum": "error"
       },
       "performance": {
-        "all": true
+        "all": true,
+        "noBarrelFile": "off",
+        "noReExportAll": "off"
       },
       "recommended": true,
       "style": {

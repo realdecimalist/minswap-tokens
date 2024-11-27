@@ -1,7 +1,11 @@
-import { MarketCapNullResponse } from "@/const";
-import type { Adapter } from "../adapter";
+import type { Adapter } from "../adapters";
 import type { MarketCapInfoResponse, TokenMetadata } from "../types";
 import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } from "../utils";
+
+const nullResponse = {
+  total: null,
+  circulating: null
+}
 
 export class MarketCapAPI {
   private readonly adapter: Adapter;
@@ -16,9 +20,7 @@ export class MarketCapAPI {
    * @returns The maximum supply of an asset.
    * @returns The circulating amount of an asset.
    */
-  public async getMarketCapInfo(
-    tokenInfo: TokenMetadata
-  ): Promise<MarketCapInfoResponse> {
+  public async getMarketCapInfo(tokenInfo: TokenMetadata): Promise<MarketCapInfoResponse> {
     if (!tokenInfo.maxSupply) {
       throw new Error("MarketCap has not been configured.");
     }
@@ -35,15 +37,10 @@ export class MarketCapAPI {
 
     const total = await this.getAmountFromArray(tokenId, maxSupply, decimals);
     if (total === null) {
-      return MarketCapNullResponse;
+      return nullResponse;
     }
 
-    if (
-      !tokenInfo.circulatingOnChain &&
-      !tokenInfo.burn &&
-      !tokenInfo.treasury &&
-      !tokenInfo.treasuryNft
-    ) {
+    if (!tokenInfo.circulatingOnChain && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryNft) {
       return {
         total: formatNumber(total, decimals),
       };
@@ -52,10 +49,7 @@ export class MarketCapAPI {
     if (tokenInfo.treasuryNft) {
       const treasuryRaw = tokenInfo.treasuryNft;
 
-      const treasury = await this.adapter.getAmountInFirstAddressHoldingAsset(
-        tokenId,
-        treasuryRaw
-      );
+      const treasury = await this.adapter.getAmountInFirstAddressHoldingAsset(tokenId, treasuryRaw);
       return {
         total: formatNumber(total - treasury, decimals),
         circulating: formatNumber(total - treasury, decimals),
@@ -68,7 +62,7 @@ export class MarketCapAPI {
     ]);
 
     if (burn === null || treasury === null) {
-      return MarketCapNullResponse;
+      return nullResponse;
     }
 
     if (tokenInfo.circulatingOnChain) {
@@ -79,7 +73,7 @@ export class MarketCapAPI {
       );
 
       if (circulatingOnChain === null) {
-        return MarketCapNullResponse;
+        return nullResponse;
       }
 
       return {
@@ -111,7 +105,7 @@ export class MarketCapAPI {
           return getAmountFromURL(value.toString(), decimals);
         }
         return this.adapter.getOnchainAmountOfAsset(value.toString());
-      })
+      }),
     );
     let amount = 0n;
     for (const value of amounts) {

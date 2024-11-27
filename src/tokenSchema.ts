@@ -1,10 +1,7 @@
-import { Ajv, type JSONSchemaType } from "ajv";
+import type { JSONSchemaType } from "ajv";
 
-import { ADDRESS_REGEX, ASSET_ID_REGEX, URL_REGEX } from "./const";
+import { ADDRESS_REGEX, ASSET_ID_REGEX, URL_REGEX } from "./consts";
 import type { TokenMetadata } from "./types";
-
-const ajv = new Ajv();
-ajv.addKeyword("resource");
 
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   type: "object",

@@ -1,3 +1,4 @@
+import { describe, expect, test } from "@jest/globals";
 import { formatNumber, tryParseBigInt } from "../src/utils";
 
 describe("Utils functions tests", () => {
