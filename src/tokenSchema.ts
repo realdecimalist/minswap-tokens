@@ -1,7 +1,10 @@
-import type { JSONSchemaType } from "ajv";
+import { Ajv, type JSONSchemaType } from "ajv";
 
 import type { TokenMetadata } from "./types";
 import { ADDRESS_REGEX, URL_REGEX, ASSET_ID_REGEX } from "./const";
+
+const ajv = new Ajv();
+ajv.addKeyword("resource");
 
 
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
@@ -32,7 +35,7 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
           "Risk Ratings",
           "Index Vaults",
           "DePIN",
-          "Other"
+          "Other",
         ],
       },
       minItems: 1,
@@ -61,7 +64,7 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       nullable: true,
     },
     // $defs: {
-    //   name: {
+    //   resource: {
     //     type: "array",
     //     items: {
     //       oneOf: [
@@ -86,28 +89,28 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
     //   },
     // },
     treasury: {
-      type: "array",
-      items: {
-        oneOf: [
-          {
-            type: "string",
-            pattern: ADDRESS_REGEX,
-          },
-          {
-            type: "string",
-            pattern: URL_REGEX,
-          },
-          {
-            type: "string",
-            pattern: ASSET_ID_REGEX,
-          },
-          {
-            type: "number",
-          },
-        ],
+        type: "array",
+        items: {
+          oneOf: [
+            {
+              type: "string",
+              pattern: ADDRESS_REGEX,
+            },
+            {
+              type: "string",
+              pattern: URL_REGEX,
+            },
+            {
+              type: "string",
+              pattern: ASSET_ID_REGEX,
+            },
+            {
+              type: "number",
+            },
+          ],
+        },
+        nullable: true,
       },
-      nullable: true,
-    },
     burn: {
       type: "array",
       items: {
