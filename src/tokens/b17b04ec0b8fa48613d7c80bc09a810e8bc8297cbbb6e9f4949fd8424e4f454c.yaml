@@ -1,0 +1,19 @@
+project: NOEL
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://noeltoken.xyz/
+  twitter: https://x.com/noeltoken
+  discord: https://discord.gg/x896MpyQVN
+
+verified: true
+
+maxSupply: '5310000000'
+
+decimals: 0
+
+treasury:
+  - addr1v94yd0rgueuum6964du46xcnp4qr3kzpsxjwpx8avqcnpkcdm8dru
+

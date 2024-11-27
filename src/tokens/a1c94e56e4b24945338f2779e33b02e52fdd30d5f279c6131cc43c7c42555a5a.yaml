@@ -1,0 +1,16 @@
+project: BUZZ
+
+categories:
+  - Meme
+  - Other
+
+socialLinks:
+  website: https://buzzthebellboy.com/
+  twitter: https://twitter.com/BuzzTheBellboy
+  discord: https://discord.gg/XhBSeFbABm
+  coinGecko: https://www.coingecko.com/es/monedas/buzz-the-bellboy
+
+decimals: 2
+
+verified: true
+

@@ -1,0 +1,23 @@
+project: UnbotheredWolves ($AWOO)
+
+categories:
+  - NFT
+
+socialLinks:
+  website: https://www.unbotheredwolves.com/
+  twitter: https://twitter.com/UnbotherWolves
+  discord: https://discord.com/invite/unbotheredwolves
+
+verified: true
+
+maxSupply: '69000000000000'
+
+decimals: 6
+
+treasury:
+  - stake1uy2s0etue4vgt6gz66t84zzgf8r6fgggc0prf4hsay3rvfcam00kg
+  - stake1uxh23dnmd2lzvxqr06vvuxtsgh4l4dxnrrcvj2fx6f53rkc70lmqh
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

@@ -1,0 +1,28 @@
+project: NFT Creative
+
+categories:
+  - NFT
+
+socialLinks:
+  website: https://nftcreative.ca
+  twitter: https://twitter.com/nftcreativeca
+  discord: https://discord.gg/nftc
+
+verified: false
+
+maxSupply: '10000000000'
+
+decimals: 0
+
+treasury:
+  - stake1uxvujg8rmtyr94wt6u0mn2yzvqwd5m0vg3t6rfe9zacp5lsurk408
+  - stake1uykz753y0jx3fjhcnplltwncw07h5repj2lhw8wzq6ctelglhevnc
+  - stake1u83wpvg0gq76qsww7v0ct7qvu09yf9w8pkht9fwvlna6qjgm32732
+  - stake1u8q5zzjlw660awfk9ka62fsy5esngpej3dsp2qlcmjzjhwgnq5weg
+  - stake1u828c3c2kvswe7asfcct8zervwfshx4s30y9mqsfdlk9cmsd9ddkl
+  - stake1u9t5x4k3selfsas5c9p9w0z5pggw37mna9umaxq5t2ssedc9xv9ak
+  - stake1u9f9v0z5zzlldgx58n8tklphu8mf7h4jvp2j2gddluemnssjfnkzz
+  - stake1u9uekhsgm69hvk6d0q79gawhcyaxy5p7ryq363mrpjzr83q948gaf
+  - stake1ux9f4e03lvna7l2lpycgssy7chnrmc06ufvskk5szrxmfqq78z5ch
+  - stake1ux7k5ztvhwj7ykv5v7vwjjzq8ckjk0v74z9p9m5w0t55f9clf62eq
+

@@ -1,0 +1,28 @@
+project: Tortol
+
+categories:
+  - Meme
+  - Other
+
+socialLinks:
+  website: https://www.theturtlesyndicate.xyz/
+  twitter: https://twitter.com/TortolToken
+  discord: https://discord.gg/fjx9f6wuym
+
+verified: true
+
+maxSupply: '356000000000'
+
+decimals: 0
+
+treasury:
+  - stake1u858q8m5vxffh7rpff7p9spcqtvjac0xce620zlvqyd8rcgxfw9lj
+  - stake1u908d0tv3re46g58vnwndvjewd7s6mccs7k2gecs7f0n7cq5g89gp
+
+burn:
+  - addr1xy9phln4e5q23w533z7nme7sxr3p6lpldqhsyc8u5qd9c2mudsgax8xq9e4qr8f4yu4cxsghtapg282z5wn0nyjgtmsspwevz8
+  - addr1x8gm0yhvdzv2a4n6rm02vfyez6x49nsj2dls4ml7t3rl7tw3k7fwc6yc4mt858k75cjfj95d2t8py5mlpthluhz8luks03cwcj
+  - addr1z8snz7c4974vzdpxu65ruphl3zjdvtxw8strf2c2tmqnxzwccf8ywaly0m99ngq68lus48lmafut7ku9geawu8u6k49suv42qq
+  - addr1w93rz3ae8p3elzn0sqfu37hyzw0up98r2kgjjdmdq9wshmck40yr8
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

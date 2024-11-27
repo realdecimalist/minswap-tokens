@@ -1,0 +1,24 @@
+project: baby Shitzu
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://x.com/BabyShitzu
+
+verified: true
+
+maxSupply: '777777777777'
+
+decimals: 0
+
+treasury:
+  - stake1ux8qy73ylrk6pclmp880kffxz78t6vmq8jn04e2s6lchwps3fzafa
+  - stake1uxudsd30d6k5l4wwt0sf2t9numc2m8dpl3k45h2edxfqs3cccet2d
+  - stake1u9nmczw7ulpns6nqunnc4lwxse3v0emwgvzpg33jl68rz4sznuhfz
+  - stake1u9rzlqgxczarm8ms0w5fqlj9nej5uctvduc6lqmn4xtp8mqyxdak9
+  - stake1uy5rkqrl06sn6lqfqsax2nwtcykjl9atyv4xmnfw9zq0yxch9ceqr
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

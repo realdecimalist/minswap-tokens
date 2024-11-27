@@ -1,0 +1,23 @@
+project: Flac Finance
+
+categories:
+  - RealFi
+
+socialLinks:
+  website: https://flac.finance
+  twitter: https://twitter.com/FlacFinance
+  discord: https://discord.gg/ADBF9ec7DC
+
+verified: true
+
+maxSupply: '2000000000000000'
+
+decimals: 6
+
+treasury:
+  - stake1u9ll9vjjqkgyau7nteehe4aufxfx4qq0wr4vzs36gc8vl9sghkjg4
+  - stake1u9sedsmwcmt6za0rhqywryyydl3f7s74ntfk5dhzaev2fkcgp7p36
+  - stake1uygtdaws5xvjksv8ccqza8sqfv93jdmeuq8jw3xe48l4p8s9r550q
+  - stake1u80f822sv5gag205l0xpl85jl0yqf4255qmpa407mwxrzsgzpavty
+  - stake1uxc5n75f9fr75d734tnj4gayf3pxzwm84w8nauh5tdz9d6c40yuv8
+

@@ -1,0 +1,25 @@
+project: Venom $VNM
+
+categories:
+  - RealFi
+  - DeFi
+  - Launchpad
+  - NFT
+
+socialLinks:
+  website: https://www.platypuscyberpunks.com/
+  twitter: https://twitter.com/Venom__Coin
+  discord: https://discord.gg/platypuscyberpunks
+
+verified: true
+
+maxSupply: '1500000000000'
+
+decimals: 4
+
+treasury:
+  - stake1u8uv6eaj6ulpymd7ua6ag203fet6ypv9xj7aj8525vnjwyqlqyqsp
+
+burn:
+  - addr1z8kadskrrswl3avwe9psd3mar5l7shf06slyxr2tetwln4nzg06w6dvxg0vuzx4s0uenlr0vfucctcfwpa2eshd86taqduntvj
+

@@ -1,0 +1,21 @@
+project: Gummy
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://twitter.com/gummycoinada
+  discord: https://discord.gg/PJPygK4nsV
+
+verified: true
+
+maxSupply: '10000000000'
+
+decimals: 0
+
+treasury:
+  - stake1u8szpq85z7f9jv3nvtltzzkv025hpgaql2ec82v7lffse2cjg6lam
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

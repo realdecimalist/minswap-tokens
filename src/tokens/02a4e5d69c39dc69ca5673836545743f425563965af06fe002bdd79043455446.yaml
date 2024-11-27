@@ -1,0 +1,15 @@
+project: CETF
+
+categories:
+  - DAO
+
+socialLinks:
+  website: https://cardanoetf.io
+  twitter: https://twitter.com/CardanoETF
+  telegram: https://t.me/+I49vBSnEGLg1ZWUx
+  coinMarketCap: https://coinmarketcap.com/dexscan/cardano/b675f8035c971082b541702dd3ccc1017587b9e5c6995b15d1ec1837135cb725/
+
+decimals: 4
+
+verified: true
+

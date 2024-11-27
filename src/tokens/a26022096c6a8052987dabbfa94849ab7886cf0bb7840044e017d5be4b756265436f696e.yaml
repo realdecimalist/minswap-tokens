@@ -1,0 +1,16 @@
+project: KubeCoin
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://kubecoin.org/
+  twitter: https://twitter.com/Kubecoin_
+  discord: https://discord.com/invite/y6tS98NtrW
+  telegram: https://t.me/kubecoin
+  coinMarketCap: https://coinmarketcap.com/currencies/kubecoin/
+  coinGecko: https://www.coingecko.com/en/coins/kubecoin
+
+decimals: 6
+
+verified: true

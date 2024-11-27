@@ -1,0 +1,16 @@
+project: Wozdog Token
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://www.wozdogtoken.com
+  twitter: https://twiiter.com/wozdogtoken
+  discord: https://discord.gg/kzWwCWjVTt
+  telegram: https://t.me/wozdogtoken
+
+verified: true
+
+maxSupply: 45000000000
+
+decimals: 0

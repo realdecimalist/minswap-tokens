@@ -1,0 +1,22 @@
+project: SnUk
+
+categories:
+  - Meme
+  - Other
+
+socialLinks:
+  twitter: https://twitter.com/snukcoinada
+  discord: https://discord.gg/pSEPHZrA4k
+
+verified: true
+
+maxSupply: "100000000000"
+
+decimals: 0
+
+treasury:
+  - stake1u8fa4qqljq4kz3hrwnmf76t9w383vl9058rs2mj767hg79g30xyee
+  - stake1uxdxf8sjds7nrz8fymjyjrp5kw4cjtdvn6n69qrhkfz8jncnppg45
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4

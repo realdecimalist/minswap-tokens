@@ -1,0 +1,20 @@
+project: Strike
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://strikefinance.org
+  twitter: https://twitter.com/strikecardano
+  discord: https://discord.gg/8MndyPVjg2
+
+verified: true
+
+maxSupply: '25000000000000'
+
+decimals: 6
+
+treasury:
+  - addr1wxfsprv3e2ar80tf2rkex08673llh6rewhgfpzmeeqgnekqv3n2ps
+  - addr1qx8xgm3zrytup3mdgzxf93d6hc4x6dxywmzhnste6kzhe4lvvwe5f7xtt25s5fyftlm468rnjznztvgn9p0gvvr72p5qhfgyug
+

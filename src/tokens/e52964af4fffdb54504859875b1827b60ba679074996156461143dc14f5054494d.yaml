@@ -1,0 +1,21 @@
+project: OPTIM FINANCE
+
+categories:
+  - DeFi
+  - DAO
+
+socialLinks:
+  website: https://optim.finance/
+  twitter: https://twitter.com/OptimFi
+  discord: https://discord.gg/VZ329q7x69
+  coinGecko: https://www.coingecko.com/en/coins/optim
+
+verified: false
+
+maxSupply: '100000000000000'
+
+decimals: 6
+
+treasury:
+  - stake178j4fcxw7pwgxw92yu28c2zqmjxnumumj52hxr9jtr6qwngf2ve5n
+

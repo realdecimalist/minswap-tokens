@@ -1,0 +1,15 @@
+project: iAssets
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://indigoprotocol.io
+  twitter: https://twitter.com/Indigo_protocol
+  discord: https://discord.com/invite/indigoprotocol
+  telegram: https://t.me/indigo_protocol
+
+decimals: 6
+
+verified: true
+

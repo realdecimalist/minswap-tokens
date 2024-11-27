@@ -1,36 +1,49 @@
 # Minswap tokens
+The merge of deprecated verified-tokens and market cap repositories, which contains a list of tokens, exposes APIs for transparent access to circulating supply and total supply.
 
 ## Requirements
+For tokens to be verified, ensure your token has a pool with at least **1000 ADA TVL** and follow the structures stated in the instructions below. Any token that has been verified does not meet the requirements in the future would still be unverified.
 
+## How to add my token
+Create a pull request adding yaml file according to the following structure in the `src/tokens`:
 ```yaml
 # 1 token = 1 yaml file
-# filename: policyId + tokenName (like cardano-token-registry)
-# merge verified-tokens and market-cap into 1 new repo, then archive those 2 old repos (to avoid breaking changes with integrators)
+# filename/assetId: policyId + hex-coded token name
 
-projectName: Minswap
+project: Minswap
+# among DeFi, RealFi, GameFi, Meme, Bridge, Metaverse, Wallet, NFT, Oracle, AI, Launchpad, DAO, Stablecoin, Social, Media, Risk Ratings, Index Vaults, DePIN, Other
 categories:
-- DeFi
-- DAO
+  - DeFi
+  - DAO
 
+decimals: 0
+# not required, among website, twitter, discord, telegram, coinMarketCap, coinGecko
 socialLinks:
   website: https://
   discord: ...
 
-unverified: true # default false, if a token violate verification policy then turn on
+verified: true # default true, if a token violate verification policy then switch to false
 
-maxSupply: 500000000
+# the following fields are not required
+maxSupply: 500000000 # either number or string
 # or
 maxSupply: https://...
 
-treasuryWallets:
-- addr...
-- addr...
-- https://...
+treasury:
+  - addr...
+  - stake...
+  - https://...
+  - assetId
 
-burnWallets:
-- addr...
-- https://...
+burn:
+  - addr...
+  - stake...
+  - https://...
+  - assetId
 
-# total = max - burn
-# circulating = max - burn - treasury
+circulatingOnChain:
+  - addr...
+  - stake...
+  - https://...
+  - assetId
 ```

@@ -1,0 +1,20 @@
+project: CLAP
+
+categories:
+  - Launchpad
+
+socialLinks:
+  website: https://cardashift.com/
+  twitter: https://twitter.com/cardashift
+  discord: https://discord.gg/hTSWWButZR
+  coinMarketCap: https://coinmarketcap.com/currencies/cardashift/
+
+verified: true
+
+maxSupply: '1000000000000'
+
+decimals: 3
+
+treasury:
+  - addr1qxkcc74fpfvdenelc7m4zxtezrgvnhmd7z78jlkgr4gy9x9cjxt7rq9rfwqqh3wv24adfv2hex0ttwu3zh7e276xmcesgw34jc
+

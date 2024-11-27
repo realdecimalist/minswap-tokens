@@ -1,0 +1,24 @@
+project: BabyPorke
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://babyporke.com
+  twitter: https://twitter.com/babyporke
+  discord: https://discord.gg/FVQMxbQpRF
+
+verified: true
+
+maxSupply: '1000000000000000'
+
+decimals: 0
+
+treasury:
+  - stake1u8wwshdrztua5qhd9g06g68692dvrgqksncccpxv7pgpzwgd5mxuy
+  - stake1uxmtrg8cs7d86u8hydvpgjntgnn8apvrpqawaff0f9a270gfhpzpg
+  - stake1u82ls6hlnx0hh8ph5fl6kqdxx7mvw9kqz2563l7ukhxwxec0mtv4y
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

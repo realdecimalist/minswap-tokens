@@ -1,0 +1,22 @@
+project: FIRE Token
+
+categories:
+  - Meme
+  - Other
+
+socialLinks:
+  website: https://firetokenada.com/
+  discord: https://discord.gg/5Q6RprS5Tc
+  twitter: https://twitter.com/FireTokenADA
+
+verified: true
+
+maxSupply: '500000000'
+
+decimals: 0
+
+treasury:
+  - stake1ux7k5ztvhwj7ykv5v7vwjjzq8ckjk0v74z9p9m5w0t55f9clf62eq
+  - addr1w8tqqyccvj7402zns2tea78d42etw520fzvf22zmyasjdtsv3e5rz
+  - stake1u94e6kguu8zzpaeevrnagm2f4u4huhh6uazupt3jytznumq93v7dh
+

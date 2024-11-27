@@ -1,0 +1,21 @@
+project: SMOKE
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://twitter.com/Smokecoinada
+
+verified: true
+
+maxSupply: '6900000000'
+
+decimals: 0
+
+treasury:
+  - stake1uyzckf6tcr4d3mqu9y9z8xuqmjygsnj0pr5440fls49su8c4xygss
+  - stake1uxqs97h0whyzrfjesqn93gzv6k2e6chgw74ze3e20djtshgcq8xk4
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

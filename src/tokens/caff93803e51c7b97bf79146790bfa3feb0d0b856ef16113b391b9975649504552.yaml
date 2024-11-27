@@ -1,0 +1,24 @@
+project: Viper
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://vipercoin.io/
+  twitter: https://twitter.com//vipercoinada
+  discord: https://discord.gg/9cHTj5jBWK
+
+verified: true
+
+maxSupply: '76715880000'
+
+decimals: 0
+
+treasury:
+  - addr1q8hcfzrpjde5geldv4a2lx9njms24f5afge2pgryd7avueaejeq5ph79pnsgh798h05ffe08a0ueq6rtxpxrx8ntxq8sjksh9n
+  - addr1qydndhsnzlhxtzazl5y4jaup40kk0ucv3njhdjrt5pspan97qptktvzfzy40dnc6544xpfckwlf8kkentendpql7z89qlcp444
+  - addr1q9knde3r2wvhk8fjajchlfuh52k2jc2df65m9ymnxv4v85fkymz384ls0rwxwzx74xh4xc5adfrmhp9lr5m7p8gzmljq0s30ne
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

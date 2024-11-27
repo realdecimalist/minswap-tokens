@@ -1,0 +1,13 @@
+project: Tokeo
+
+categories:
+  - Wallet
+
+socialLinks:
+  website: https://tokeopay.io
+  twitter: https://twitter.com/tokeopay
+
+decimals: 0
+
+verified: true
+

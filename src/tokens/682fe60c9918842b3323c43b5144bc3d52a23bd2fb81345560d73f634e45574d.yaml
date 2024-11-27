@@ -1,0 +1,26 @@
+project: NEWM
+
+categories:
+  - RealFi
+  - NFT
+  - DAO
+
+socialLinks:
+  website: https://newm.io
+  twitter: https://twitter.com/projectNEWM
+  discord: https://discord.gg/z4sYqxqgvQ
+  telegram: https://t.me/NEWMofficial
+  coinGecko: https://www.coingecko.com/en/coins/newm
+
+verified: true
+
+maxSupply: '9735033900000000'
+
+decimals: 6
+
+treasury:
+  - stake1u8kt3m25a5nycushdc7rl7jm8wmll23nadxc8rpzwx7vq8s3j8jf8
+  - stake1ux0vqjvjccqvk8a43jwa5nd2aqzt4ekdjarvnqmt9629pzcty2qcs
+  - stake1u8n0tlf4f2kktz7k3kr0g7sdn98stmsmm42kw7xcue2smycv766hh
+  - addr1wxkajet4zhhuylr6475ykqerll0gl8x8v8kgmnrpxt2vrwq2eh67y
+

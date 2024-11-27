@@ -1,0 +1,21 @@
+project: Empowa
+
+categories:
+  - RealFi
+
+socialLinks:
+  website: https://empowa.io
+  twitter: https://twitter.com/empowa_io
+  discord: https://discord.com/invite/53hZwSTPMq
+  telegram: https://t.me/empowa_chat
+  coinMarketCap: https://coinmarketcap.com/currencies/empowa/
+  coinGecko: https://www.coingecko.com/en/coins/empowa
+
+verified: true
+
+maxSupply: 200000000000000
+
+decimals: 6
+
+circulatingOnChain:
+  - https://token.empowa.io/emp/supply

@@ -1,0 +1,24 @@
+project: MarketRaker
+
+categories:
+  - AI
+
+socialLinks:
+  website: https://raker.market
+  twitter: https://twitter.com/rakermarket
+  discord: https://discord.gg/CJbZFUaAsM
+  coinGecko: https://coingecko.com/en/coins/marketraker
+  coinMarketCap: https://coinmarketcap.com/dexscan/cardano/c3036830521a51040113de37368fa4baa45778aee35aeb5246dfb120a30a110a/
+
+verified: true
+
+maxSupply: '10614254'
+
+decimals: 0
+
+treasury:
+  - addr1q8djvsvq45pff7vmyvqdujpudkwpzr3cdejqsxg5r6qg60utvn6keknqc0ea3rs3c96naytguxq3pspqn5fkjltmr95srtewf6
+  - addr1qydps9yp6c2fs390hqh5fhwzy080xxs3lwndp3jx02yhned6j6fv80mjxvap57s2nvgndrthk27kjc0qw92hfswcv0xqrcelcu
+  - addr1qxkmr0m22xeqludcg5rjdmecjxasu9fat0680qehtcsnftaadgykewa9ufvegeuca9yyq03d9v7ea2y2zthgu7hfgjtsddp6gr
+  - addr1z8snz7c4974vzdpxu65ruphl3zjdvtxw8strf2c2tmqnxz2j2c79gy9l76sdg0xwhd7r0c0kna0tycz4y5s6mlenh8pq0xmsha
+

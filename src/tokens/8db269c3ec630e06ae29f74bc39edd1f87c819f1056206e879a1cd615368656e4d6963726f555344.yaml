@@ -1,0 +1,17 @@
+project: Shen
+
+categories:
+  - DeFi
+  - Stablecoin
+
+socialLinks:
+  website: https://djed.xyz/
+
+verified: true
+
+maxSupply: '1000000000000000000'
+
+decimals: 6
+
+treasuryNft: 8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61446a6564537461626c65436f696e4e4654
+

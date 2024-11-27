@@ -1,0 +1,22 @@
+project: ENCOINS $ENCS
+
+categories:
+  - DeFi
+  - DAO
+  - Other
+
+socialLinks:
+  website: https://encoins.io
+  twitter: https://twitter.com/ENCOINS1
+  discord: https://discord.gg/Q3gPP87Tcw
+  telegram: https://t.me/encoins_io
+
+verified: true
+
+maxSupply: '15000000000000'
+
+decimals: 6
+
+treasury:
+  - stake17ynh8uegtjar9rgdrjfccrer6x674nf58lulned7z5vs6zcrt298r
+

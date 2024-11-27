@@ -1,0 +1,21 @@
+project: CherryLend
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://cherrylend.org/
+  discord: https://discord.com/invite/suuavpNAPS
+  telegram: https://t.me/cherrylendofficial
+  twitter: https://twitter.com/Cherry_Lend
+
+verified: true
+
+maxSupply: '88000000000000'
+
+decimals: 6
+
+treasury:
+  - stake17ya8xvcc5h2mkeladwnw8vutr5qya3vau6z9dw7zgs6mmrgtqgz58
+  - stake1u8ffzkegp8h48mare3g3ntf3xmjce3jqptsdtj38ee3yh3c9t4uum
+

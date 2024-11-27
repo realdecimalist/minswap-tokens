@@ -1,0 +1,20 @@
+project: TOOL
+
+categories:
+  - DeFi
+  - NFT
+
+socialLinks:
+  website: https://cnft.tools/
+  twitter: https://twitter.com/cnfttools
+  discord: https://discord.gg/cnfttools
+
+verified: true
+
+maxSupply: '1000000000'
+
+decimals: 0
+
+treasury:
+  - addr1vxndsnat5pgddcaqcddu3epun8gvh42yt4z6ekcr8p58wagnl5ek7
+

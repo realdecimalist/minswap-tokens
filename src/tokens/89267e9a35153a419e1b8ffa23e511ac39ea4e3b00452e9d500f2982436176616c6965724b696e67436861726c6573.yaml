@@ -1,0 +1,25 @@
+project: Cavalier King Charles token
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://charly-token.io/
+  twitter: https://twitter.com/Charlytoken7
+  discord: https://discord.com/invite/ArH9udyKTN
+  telegram: https://t.me/charlytoken7
+
+verified: true
+
+maxSupply: '777777777777'
+
+decimals: 0
+
+treasury:
+  - addr1vxgts9tzm59h72uetsg48m3tj4z6h0gqz3m7pdm0gapwxxslqglt9
+  - addr1v9gs0trlcmyty7jakcewjs3h00a7xrzyd5wnyfrpeg4wjts0ugx63
+  - stake1uxkxtajzhlmnlglr5dhrdfx36ry597wvr2k5utlm6eu8susrny2uj
+  - stake1ux3q72uz5ztmyvuz7qwgv8qw3akpr2pnh4ed3wzudddt33qh67tzj
+  - stake1u94eatrzsm59pnlncqtx0jds2hyv4u46pdjjgw9avus5qhq5p08fc
+  - stake1u94vpc75fv6mq4vcupew454mf97wygg54shprlnwy8f5r5spul7ju
+

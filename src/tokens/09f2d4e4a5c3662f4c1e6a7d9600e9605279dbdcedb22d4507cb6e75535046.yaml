@@ -1,0 +1,23 @@
+project: Spectrum Finance
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://spectrum.fi
+  twitter: https://twitter.com/spectrumlabs_
+  discord: https://discord.com/invite/zY2gmTYQVD
+  telegram: https://t.me/spectrum_labs
+  coinMarketCap: https://coinmarketcap.com/currencies/spectrum-finance/
+  coinGecko: https://www.coingecko.com/en/coins/spectrum-finance
+
+verified: false
+
+decimals: 6
+
+maxSupply: 1000000000000000
+
+treasury:
+  - addr1v8njca4vkseetespu6jjtlk25sy46ya3qvrcp7n5c7zy9esj2g22a # network vault
+  - addr1vy8h9l37fzdwpq8etmftagdc80trh9jjg0avt3je26szu8g820gnj # treasury
+  - addr1vx3vcluw7qtulynhzsy4prfdmnjth8w52ejg2qeclsz7argu26gcf # reward address

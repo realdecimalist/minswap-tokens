@@ -1,0 +1,21 @@
+project: DANZO
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://x.com/DanZoADA
+  discord: https://discord.gg/NR35UdwBGk
+
+verified: true
+
+maxSupply: '69000000000'
+
+decimals: 0
+
+treasury:
+  - stake17xnecta77s7r3qp9aryd79tln2wc2qs24sx9gvf4npcyptgqq4p4s
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

@@ -1,0 +1,21 @@
+project: GIRLFREN
+
+categories:
+  - Meme
+
+socialLinks:
+  twitter: https://twitter.com/GirlFrenADA
+  discord: https://discord.gg/KpmsznRf77
+
+verified: true
+
+maxSupply: '69420000000'
+
+decimals: 0
+
+treasury:
+  - stake1uyz9dgwqjdtqa36nn7mn4t6ptsu66dnd3c9uwv9luhkzlcgsa3v5h
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+

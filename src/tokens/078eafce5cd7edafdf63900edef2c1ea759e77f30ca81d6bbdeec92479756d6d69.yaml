@@ -1,0 +1,26 @@
+project: YUMMI
+
+categories:
+  - NFT
+
+socialLinks:
+  website: https://yummi-universe.gitbook.io/
+  twitter: https://twitter.com/YummiUniverse
+  discord: https://discord.gg/yummiuniverse
+  coinMarketCap: https://coinmarketcap.com/currencies/yummi-universe/
+
+verified: true
+
+maxSupply: 10000000000
+
+decimals: 0
+
+circulatingOnChain:
+  - 078eafce5cd7edafdf63900edef2c1ea759e77f30ca81d6bbdeec92479756d6d69
+
+treasury:
+  - addr1wydpsqf5zz9ddy76d3f3jrrf6jkpyjr48nx5a706w9y68ucy4wu6s # staking
+  - addr1v88anmxf0wh2uhck5cnltuft8x3k5pclc8e4mpdr8ju23mcjjd05d # min address
+  - addr1qxkmr0m22xeqludcg5rjdmecjxasu9fat0680qehtcsnftaadgykewa9ufvegeuca9yyq03d9v7ea2y2zthgu7hfgjtsddp6gr # min masterchef address
+  - addr1vxdsefaj7n3hh6ztnpc4myfvcz7udrfexv5yf9ztkd06kksjv2ht8 # sundae address
+  - addr1w9zsdakg8mwjeclyzlycn62t4nuvwx6a5ggytcghdn7cvugz5kz5u # drip drop address

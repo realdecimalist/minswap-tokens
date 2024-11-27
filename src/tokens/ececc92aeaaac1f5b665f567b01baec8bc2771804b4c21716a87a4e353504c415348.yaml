@@ -1,0 +1,21 @@
+project: Splash
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://splash.trade
+  twitter: https://x.com/splashprotocol
+  discord: https://discord.gg/NAvMKrQq9g
+
+verified: false
+
+maxSupply: '100000000000000'
+
+decimals: 6
+
+treasury:
+  - addr1x96ug4cwkcj6azqmx235c543t8m08uljc742had6c35gzvllzldzmfztwhxahljux7gq8v85j75a9rwhnq4emqvg3uhs8qh80w
+  - addr1q96p2l077gtj4cpn6md5lfwa39gqzkjum2hyvyrzfgmmk644xkv048skchrn36ekysu82z3rdk0m5xgysms6aj67ekfqy0eh3v
+  - addr1w8jxjly04tdcm8dvhuev4tvfrr9xtuquylf9f4679nnlkws3vwhzn
+

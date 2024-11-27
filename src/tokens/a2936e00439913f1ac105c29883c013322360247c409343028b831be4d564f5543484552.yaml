@@ -1,0 +1,17 @@
+project: MuesliSwap
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://muesliswap.com
+  discord: https://discord.gg/VG7fWHvHSM
+  telegram: https://t.me/muesliswapADA
+  twitter: https://twitter.com/MuesliSwapTeam
+  coinMarketCap: https://coinmarketcap.com/currencies/muesliswap/
+  coinGecko: https://www.coingecko.com/en/coins/muesliswap-milk
+
+decimals: 6
+
+verified: false
+

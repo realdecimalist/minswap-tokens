@@ -1,0 +1,26 @@
+project: LOBSTER
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://wenlobster.io/
+  twitter: https://twitter.com/TheLobsterCoin
+  discord: https://discord.com/invite/Z9bMpFxhda
+  coinGecko: https://www.coingecko.com/en/coins/lobster
+
+verified: true
+
+maxSupply: '1000000000000000'
+
+decimals: 0
+
+treasury:
+  - addr1qxkmr0m22xeqludcg5rjdmecjxasu9fat0680qehtcsnftaadgykewa9ufvegeuca9yyq03d9v7ea2y2zthgu7hfgjtsddp6gr
+  - addr1w94tcvd04rvkpa7c6057fq6sfxqcpu7q539gdskvx8jz0zgld4mju
+  - addr1q9cxpyew4ejyamjk5ycg95lhkswpsdkta36sjdx4p8e6hg2a0cwj8v3hjkj5era0dtpjtw5zema9lsfz80wu7kt3sxusyv58nf
+
+burn:
+  - addr1w93rz3ae8p3elzn0sqfu37hyzw0up98r2kgjjdmdq9wshmck40yr8
+  - addr1qx5lyl2rww7h84xhup9ge22h42vnwurcfucrk3w3x7nyh9lfaquqs0f48akca9kvukqsp3cax4whwmj792dlelq7lymsk2mn3f
+

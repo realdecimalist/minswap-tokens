@@ -1,0 +1,22 @@
+project: MuesliSwap
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://muesliswap.com
+  discord: https://discord.gg/VG7fWHvHSM
+  telegram: https://t.me/muesliswapADA
+  twitter: https://twitter.com/MuesliSwapTeam
+  coinMarketCap: https://coinmarketcap.com/currencies/muesliswap/
+  coinGecko: https://www.coingecko.com/en/coins/muesliswap-milk
+
+verified: true
+
+maxSupply: 10000000000000
+
+decimals: 6
+
+treasury:
+  - addr1q9rtclgcvqwhutjnkr3acfgetxn2f6qjkzjcdc4m5fes868g8gfztpemy35qyh208nz9fp2gh5pnc2z6zkcrleyp4j0s8x3g5c # treasury
+  - addr1v8h4fm4ejd9w8wr8lkkeu0pe4m00ycl2vysd3jvs9mgw7ps8sm9rt # yield rewards

@@ -1,0 +1,15 @@
+project: NotFound
+
+categories:
+  - Other
+
+socialLinks:
+
+verified: false
+
+maxSupply: 125000000000000
+
+decimals: 6
+
+circulatingOnChain:
+  - https://api.coingecko.com/api/v3/coins/ardana

@@ -1,0 +1,21 @@
+project: HUNT
+
+categories:
+  - DeFi
+
+socialLinks:
+  website: https://dexhunter.io/
+  twitter: https://twitter.com/DexHunterIO
+
+verified: true
+
+maxSupply: '100000000000000'
+
+decimals: 6
+
+treasury:
+  - stake1uxdgnz5awy9ntz82xscxs62dgwtnjhwwchr5lrfcwlzyl6qtke3pl
+  - stake1uxapatrmk76xuu5xh780men8ndym9kgq9ktdk6v6h8as2mcu65pka
+  - stake1u9jtef02ge2d290qu86szjwnz2gx9aypw7hwdwpm3kjevqc234y2z
+  - stake1uyqtfsvt7ky3zhullz2rqewu3pz8ksga5g3nd3vj293hpgcvuezsq
+

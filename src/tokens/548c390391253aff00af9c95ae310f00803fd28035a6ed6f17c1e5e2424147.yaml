@@ -1,0 +1,18 @@
+project: BAG
+
+categories:
+  - Meme
+
+socialLinks:
+  website: https://bagadacoin.com/
+  twitter: https://twitter.com/MMonopoly10
+
+verified: true
+
+maxSupply: '1000000000'
+
+decimals: 0
+
+treasury:
+  - stake1uxwvvuluasxf456sjuqcdfnlv3gecykp6ajf5ds4r09xkzgvwml26
+

@@ -1,0 +1,16 @@
+project: Cardano Gold
+
+categories:
+  - DAO
+  - NFT
+  - Other
+
+socialLinks:
+  website: https://www.cardanogoldcoin.com
+  twitter: https://twitter.com/CardanoGoldCoin
+  coinMarketCap: https://coinmarketcap.com/currencies/cardano-gold/
+
+decimals: 6
+
+verified: false
+

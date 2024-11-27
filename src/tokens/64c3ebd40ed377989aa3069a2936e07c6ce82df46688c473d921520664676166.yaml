@@ -1,0 +1,22 @@
+project: DGAF
+
+categories:
+  - DeFi
+  - Meme
+
+socialLinks:
+  twitter: https://twitter.com/dgafcoin
+  discord: https://discord.com/invite/nXyHp8jAXu
+
+verified: true
+
+maxSupply: '100000000000'
+
+decimals: 0
+
+treasury:
+  - stake1u9k7mcf6zvun9wlfrkwsg2w8sy95302gpnj73ly0l6tqhks997y0t
+
+burn:
+  - addr1w88w37rdprvqrjn77vuj3mzral6dh6cex0m7smc9p2uqvlct6vp8a
+

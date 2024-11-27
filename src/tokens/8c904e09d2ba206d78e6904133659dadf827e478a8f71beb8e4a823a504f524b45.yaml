@@ -1,0 +1,17 @@
+project: PORKE
+
+categories:
+  - Meme
+
+socialLinks:
+  discord: https://discord.com/invite/8XYPfDPg
+  twitter: https://twitter.com/porkecoin
+
+verified: true
+
+maxSupply: 1000000001
+
+decimals: 0
+
+circulatingOnChain:
+  - 1000000001

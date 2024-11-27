@@ -1,0 +1,18 @@
+project: Paribus
+
+categories:
+  - DeFi
+  - NFT
+
+socialLinks:
+  website: https://paribus.io
+  twitter: https://twitter.com/paribus_io
+  discord: https://discord.gg/paribus
+  telegram: https://t.me/paribus_io
+  coinMarketCap: https://coinmarketcap.com/currencies/paribus
+  coinGecko: https://www.coingecko.com/en/coins/paribus
+
+decimals: 6
+
+verified: true
+
