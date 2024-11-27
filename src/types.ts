@@ -1,14 +1,8 @@
-import { DEFAULT_FETCH_TIMEOUT } from "./const";
-
 export type FetcherOptions = {
   /**
    * Fetch timeout in milliseconds. Default to 20 seconds.
    */
   timeout?: number;
-};
-
-export const DefaultFetcherOptions: FetcherOptions = {
-  timeout: DEFAULT_FETCH_TIMEOUT,
 };
 
 export type Category =
@@ -32,7 +26,7 @@ export type Category =
   | "DePIN"
   | "Other";
 
-interface TokenMetadata {
+export type TokenMetadata = {
   tokenId: string;
   project: string;
   categories: Category[];
@@ -51,7 +45,7 @@ interface TokenMetadata {
   burn?: (string | number)[];
   circulatingOnChain?: (string | number)[];
   treasuryNft?: string;
-}
+};
 
 export type GetTokenOptions = {
   verifiedOnly?: boolean;
@@ -62,5 +56,3 @@ export type MarketCapInfoResponse = {
   total?: string;
   circulating?: string;
 };
-
-export type { TokenMetadata };

@@ -2,7 +2,7 @@ import { load } from "js-yaml";
 
 import fs from "node:fs";
 import path from "node:path";
-import { DEFAULT_TOKEN_DIR } from "@/const";
+import { TOKENS_DIR } from "@/consts";
 import type { GetTokenOptions, TokenMetadata } from "@/types";
 
 export class TokenAPI {
@@ -14,7 +14,7 @@ export class TokenAPI {
   public async getToken(tokenId: string) {
     try {
       const __dirname = import.meta.dirname;
-      const filePath = path.join(__dirname, `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`);
+      const filePath = path.join(__dirname, `${TOKENS_DIR}/${tokenId}.yaml`);
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
         tokenId,
@@ -34,7 +34,7 @@ export class TokenAPI {
    */
   public async getTokens(options?: GetTokenOptions) {
     const __dirname = import.meta.dirname;
-    const directory = path.join(__dirname, `${DEFAULT_TOKEN_DIR}`);
+    const directory = path.join(__dirname, TOKENS_DIR);
     const tokenList: TokenMetadata[] = [];
     const files = fs.readdirSync(directory);
     for (const file of files) {

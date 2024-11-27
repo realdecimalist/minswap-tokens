@@ -1,13 +1,3 @@
-import { BlockFrostAPI } from "@blockfrost/blockfrost-js";
-import { DefaultFetcherOptions } from "./types";
-
-export function getBlockFrostInstance(options = DefaultFetcherOptions): BlockFrostAPI {
-  return new BlockFrostAPI({
-    projectId: process.env["BLOCKFROST_PROJECT_ID"] ?? "",
-    requestTimeout: options.timeout,
-  });
-}
-
 export function tryParseBigInt(value: string | number): bigint | null {
   try {
     return BigInt(value);

@@ -42,7 +42,9 @@
         "noEnum": "error"
       },
       "performance": {
-        "all": true
+        "all": true,
+        "noBarrelFile": "off",
+        "noReExportAll": "off"
       },
       "recommended": true,
       "style": {

@@ -3,13 +3,13 @@ import path from "node:path";
 import Ajv from "ajv";
 import { load } from "js-yaml";
 
-import { DEFAULT_TOKEN_DIR } from "@/const";
+import { TOKENS_DIR } from "@/consts";
 import { tokenSchema } from "@/tokenSchema";
 import type { TokenMetadata } from "@/types";
 
 const ajv = new Ajv();
 const __dirname = import.meta.dirname;
-const TOKEN_DIR = path.join(__dirname, `../src/${DEFAULT_TOKEN_DIR}`);
+const TOKEN_DIR = path.join(__dirname, `../src/${TOKENS_DIR}`);
 
 async function validateTokenFiles() {
   fs.readdir(TOKEN_DIR, (error, files) => {

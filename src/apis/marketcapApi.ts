@@ -1,4 +1,4 @@
-import type { Adapter } from "../adapter";
+import type { Adapter } from "@/adapters";
 import type { MarketCapInfoResponse, TokenMetadata } from "../types";
 import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } from "../utils";
 
