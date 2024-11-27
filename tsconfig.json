@@ -11,9 +11,6 @@
     "moduleResolution": "node",
     "noEmit": true,
     "baseUrl": "./src",
-    "paths": {
-      "@/*": ["*"]
-    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

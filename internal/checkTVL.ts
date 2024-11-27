@@ -4,7 +4,7 @@ import { BlockFrostAPI } from "@blockfrost/blockfrost-js";
 import * as SDK from "@minswap/sdk";
 import { dump, load } from "js-yaml";
 
-import type { TokenMetadata } from "@/types";
+import type { TokenMetadata } from "../src/types";
 
 const MINIMUM_TVL = 1000_000000n; // 1000 ADA
 const LIMIT_PAGINATION = 100;

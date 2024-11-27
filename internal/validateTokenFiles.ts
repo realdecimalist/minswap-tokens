@@ -3,9 +3,9 @@ import path from "node:path";
 import Ajv from "ajv";
 import { load } from "js-yaml";
 
-import { TOKENS_DIR } from "@/consts";
-import { tokenSchema } from "@/tokenSchema";
-import type { TokenMetadata } from "@/types";
+import { TOKENS_DIR } from "../src/consts";
+import { tokenSchema } from "../src/tokenSchema";
+import type { TokenMetadata } from "../src/types";
 
 const ajv = new Ajv();
 const __dirname = import.meta.dirname;

@@ -2,8 +2,8 @@ import { load } from "js-yaml";
 
 import fs from "node:fs";
 import path from "node:path";
-import { TOKENS_DIR } from "@/consts";
-import type { GetTokenOptions, TokenMetadata } from "@/types";
+import { TOKENS_DIR } from "../consts";
+import type { GetTokenOptions, TokenMetadata } from "../types";
 
 export class TokenAPI {
   /**
