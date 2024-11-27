@@ -17,8 +17,10 @@ export function tryParseBigInt(value: string | number): bigint | null {
 }
 
 export function formatNumber(value: bigint, decimals: number): string {
+  if (value === 0n) {
+    return '0';
+  }
   const numberString = value.toString();
-
   if (numberString.length <= decimals) {
     return `0.${numberString.padStart(decimals, '0')}`;
   }
