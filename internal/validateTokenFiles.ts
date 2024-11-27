@@ -14,7 +14,8 @@ const TOKEN_DIR = path.join(__dirname, `../src/${DEFAULT_TOKEN_DIR}`);
 async function validateTokenFiles() {
   fs.readdir(TOKEN_DIR, (error, files) => {
     if (error) {
-      console.log(error);
+      console.error(error);
+      throw error;
     }
     for (const file of files) {
       const filePath = path.join(TOKEN_DIR, `${file}`);
