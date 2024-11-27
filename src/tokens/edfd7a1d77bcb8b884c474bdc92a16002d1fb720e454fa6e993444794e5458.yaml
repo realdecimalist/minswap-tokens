@@ -12,4 +12,9 @@ socialLinks:
 
 verified: true
 
+maxSupply: https://tokensupply.singularitynet.io/tokensupply?tokensymbol=ntx&q=totalsupply
+
 decimals: 6
+
+circulatingOnChain:
+  - https://tokensupply.singularitynet.io/tokensupply?tokensymbol=ntx&q=circulatingsupply

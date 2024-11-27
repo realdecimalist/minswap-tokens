@@ -39,7 +39,7 @@ async function verifyTVL() {
     for (const file of files) {
       const filePath = path.join(TOKEN_DIR, file);
       const tokenData = <TokenMetadata>load(fs.readFileSync(filePath, "utf8"));
-      const tokenId = file.split('.')[0];
+      const tokenId = file.split(".")[0];
       const newVerified = await checkTVL(v1Pools, v2Pools, tokenId);
       if (newVerified === tokenData.verified) {
         continue;

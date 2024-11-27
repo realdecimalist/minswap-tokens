@@ -1,9 +1,9 @@
 import { load } from "js-yaml";
 
+import fs from "node:fs";
+import path from "node:path";
 import { DEFAULT_TOKEN_DIR } from "@/const";
 import type { GetTokenOptions, TokenMetadata } from "@/types";
-import path from "node:path";
-import fs from "node:fs";
 
 export class TokenAPI {
   /**
@@ -14,10 +14,7 @@ export class TokenAPI {
   public async getToken(tokenId: string) {
     try {
       const __dirname = import.meta.dirname;
-      const filePath = path.join(
-        __dirname,
-        `${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`
-      );
+      const filePath = path.join(__dirname, `../${DEFAULT_TOKEN_DIR}/${tokenId}.yaml`);
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
         tokenId,
@@ -37,7 +34,7 @@ export class TokenAPI {
    */
   public async getTokens(options?: GetTokenOptions) {
     const __dirname = import.meta.dirname;
-    const directory = path.join(__dirname, `${DEFAULT_TOKEN_DIR}`);
+    const directory = path.join(__dirname, `../${DEFAULT_TOKEN_DIR}`);
     const tokenList: TokenMetadata[] = [];
     const files = fs.readdirSync(directory);
     for (const file of files) {
@@ -46,11 +43,8 @@ export class TokenAPI {
       if (!token) {
         continue;
       }
-      const matchedVerify =
-        !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
-      const matchedMarketCap =
-        !options?.hasMarketCapOnly ||
-        (options?.hasMarketCapOnly && !!token.maxSupply);
+      const matchedVerify = !options?.verifiedOnly || (options?.verifiedOnly && token.verified);
+      const matchedMarketCap = !options?.hasMarketCapOnly || (options?.hasMarketCapOnly && !!token.maxSupply);
       if (matchedVerify && matchedMarketCap) {
         tokenList.push(token);
       }

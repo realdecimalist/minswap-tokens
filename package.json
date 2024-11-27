@@ -13,9 +13,7 @@
     "check-tvl": "tsx --env-file=.env ./internal/checkTVL.ts",
     "lint": "biome check --no-errors-on-unmatched --fix ."
   },
-  "files": [
-    "build"
-  ],
+  "files": ["build"],
   "exports": {
     ".": {
       "types": "./build/index.d.ts",

@@ -1,12 +1,7 @@
+import { MarketCapNullResponse } from "@/const";
 import type { Adapter } from "../adapter";
 import type { MarketCapInfoResponse, TokenMetadata } from "../types";
-import {
-  formatNumber,
-  getAmountFromURL,
-  isAPIEndPoint,
-  isAddress,
-  isBigInt,
-} from "../utils";
+import { formatNumber, getAmountFromURL, isAPIEndPoint, isAddress, isBigInt } from "../utils";
 
 export class MarketCapAPI {
   private readonly adapter: Adapter;
@@ -38,7 +33,10 @@ export class MarketCapAPI {
       maxSupply = [tokenInfo.maxSupply];
     }
 
-    const total = await this.getAmountFromArray(tokenId, maxSupply);
+    const total = await this.getAmountFromArray(tokenId, maxSupply, decimals);
+    if (total === null) {
+      return MarketCapNullResponse;
+    }
 
     if (
       !tokenInfo.circulatingOnChain &&
@@ -65,15 +63,25 @@ export class MarketCapAPI {
     }
 
     const [treasury, burn] = await Promise.all([
-      this.getAmountFromArray(tokenId, tokenInfo.treasury ?? []),
-      this.getAmountFromArray(tokenId, tokenInfo.burn ?? []),
+      this.getAmountFromArray(tokenId, tokenInfo.treasury ?? [], decimals),
+      this.getAmountFromArray(tokenId, tokenInfo.burn ?? [], decimals),
     ]);
+
+    if (burn === null || treasury === null) {
+      return MarketCapNullResponse;
+    }
 
     if (tokenInfo.circulatingOnChain) {
       const circulatingOnChain = await this.getAmountFromArray(
         tokenId,
-        tokenInfo.circulatingOnChain
+        tokenInfo.circulatingOnChain,
+        decimals
       );
+
+      if (circulatingOnChain === null) {
+        return MarketCapNullResponse;
+      }
+
       return {
         total: formatNumber(total - burn, decimals),
         circulating: formatNumber(circulatingOnChain - treasury, decimals),
@@ -88,8 +96,9 @@ export class MarketCapAPI {
 
   private async getAmountFromArray(
     token: string,
-    values: (string | number)[]
-  ): Promise<bigint> {
+    values: (string | number)[],
+    decimals: number
+  ): Promise<bigint | null> {
     const amounts = await Promise.all(
       values.map((value) => {
         if (isBigInt(value)) {
@@ -99,11 +108,18 @@ export class MarketCapAPI {
           return this.adapter.getAmountInAddress(value.toString(), token);
         }
         if (isAPIEndPoint(value)) {
-          return getAmountFromURL(value.toString());
+          return getAmountFromURL(value.toString(), decimals);
         }
         return this.adapter.getOnchainAmountOfAsset(value.toString());
       })
     );
-    return amounts.reduce((sum, x) => sum + x, 0n);
+    let amount = 0n;
+    for (const value of amounts) {
+      if (value === null) {
+        return null;
+      }
+      amount += value;
+    }
+    return amount;
   }
 }

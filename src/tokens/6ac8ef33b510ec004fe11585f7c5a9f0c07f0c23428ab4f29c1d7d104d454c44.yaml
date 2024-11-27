@@ -13,4 +13,9 @@ socialLinks:
 
 verified: true
 
+maxSupply: 4000000000000000
+
 decimals: 6
+
+circulatingOnChain:
+  - https://app-backend.meld.com/api/market/meld/supply

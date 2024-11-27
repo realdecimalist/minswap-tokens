@@ -12,4 +12,9 @@ socialLinks:
 
 verified: true
 
-decimals: 6
+maxSupply: https://tokensupply.singularitynet.io/tokensupply?tokensymbol=agix&q=totalsupply
+
+decimals: 8
+
+circulatingOnChain:
+  - https://tokensupply.singularitynet.io/tokensupply?tokensymbol=agix&q=circulatingsupply

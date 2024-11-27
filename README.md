@@ -1,11 +1,23 @@
 # Minswap tokens
+
+## Overview
+
 The merge of deprecated verified-tokens and market cap repositories, which contains a list of tokens, exposes APIs for transparent access to circulating supply and total supply.
 
+As of latest update, we consider `circulating = maxSupply - treasury - burn` and `total = maxSupply - burn` as standard formulas for calculating marketcap information.
+
+In cases where `circulatingOnChain` is provided directly according to the asset's quantity on-chain or through external APIs, the `circulating` is the value of `circulatingOnChain`.
+
+For tokens providing with `treasuryNft`, the `circulating` is the quantity of the asset in the latest address containing it.
+
 ## Requirements
+
 For tokens to be verified, ensure your token has a pool with at least **1000 ADA TVL** and follow the structures stated in the instructions below. Any token that has been verified does not meet the requirements in the future would still be unverified.
 
 ## How to add my token
+
 Create a pull request adding yaml file according to the following structure in the `src/tokens`:
+
 ```yaml
 # 1 token = 1 yaml file
 # filename/assetId: policyId + hex-coded token name
@@ -46,4 +58,38 @@ circulatingOnChain:
   - stake...
   - https://...
   - assetId
+
+treasuryNft: assetId
+```
+
+## Usage
+
+```ts
+import {
+  BlockFrostAdapter,
+  MarketCapAPI,
+  TokenAPI,
+} from "@minswap/minswap-tokens";
+
+const MIN_TOKEN =
+  "29d222ce763455e3d7a09a665ce554f00ac89d2e99a1a83d267170c64d494e";
+
+// getting token info
+const tokenApi = new TokenAPI();
+
+const minTokenInfo = await tokenApi.getToken(MIN_TOKEN);
+
+console.log(minTokenInfo);
+
+// getting Market Cap info
+const blockFrostAdapter = new BlockFrostAdapter({
+  projectId: "<your_project_id_here>",
+  requestTimeout: 20_000,
+});
+
+const marketCapApi = new MarketCapAPI(blockFrostAdapter);
+
+const minMarketCapInfo = await marketCapApi.getMarketCapInfo(minTokenInfo);
+console.log(minMarketCapInfo);
+// { circulating: '240813714.66121483', total: '5000000000' }
 ```

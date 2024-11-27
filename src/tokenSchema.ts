@@ -1,11 +1,10 @@
 import { Ajv, type JSONSchemaType } from "ajv";
 
+import { ADDRESS_REGEX, ASSET_ID_REGEX, URL_REGEX } from "./const";
 import type { TokenMetadata } from "./types";
-import { ADDRESS_REGEX, URL_REGEX, ASSET_ID_REGEX } from "./const";
 
 const ajv = new Ajv();
 ajv.addKeyword("resource");
-
 
 export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   type: "object",
@@ -89,28 +88,28 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
     //   },
     // },
     treasury: {
-        type: "array",
-        items: {
-          oneOf: [
-            {
-              type: "string",
-              pattern: ADDRESS_REGEX,
-            },
-            {
-              type: "string",
-              pattern: URL_REGEX,
-            },
-            {
-              type: "string",
-              pattern: ASSET_ID_REGEX,
-            },
-            {
-              type: "number",
-            },
-          ],
-        },
-        nullable: true,
+      type: "array",
+      items: {
+        oneOf: [
+          {
+            type: "string",
+            pattern: ADDRESS_REGEX,
+          },
+          {
+            type: "string",
+            pattern: URL_REGEX,
+          },
+          {
+            type: "string",
+            pattern: ASSET_ID_REGEX,
+          },
+          {
+            type: "number",
+          },
+        ],
       },
+      nullable: true,
+    },
     burn: {
       type: "array",
       items: {
@@ -165,4 +164,3 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
   additionalProperties: false,
   required: ["tokenId", "project", "categories", "decimals", "verified"],
 };
-

@@ -59,8 +59,8 @@ export type GetTokenOptions = {
 };
 
 export type MarketCapInfoResponse = {
-  total?: string;
-  circulating?: string;
+  total?: string | null;
+  circulating?: string | null;
 };
 
 export type { TokenMetadata };
