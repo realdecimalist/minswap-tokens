@@ -14,7 +14,6 @@ export class TokenAPI {
   public async getToken(tokenId: string) {
     try {
       const __dirname = import.meta.dirname;
-      console.log(__dirname, TOKENS_DIR, tokenId);
       const filePath = path.join(__dirname, `${TOKENS_DIR}/${tokenId}.yaml`);
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
@@ -35,7 +34,7 @@ export class TokenAPI {
    */
   public async getTokens(options?: GetTokenOptions) {
     const __dirname = import.meta.dirname;
-    const directory = path.join(__dirname, `${TOKENS_DIR}`);
+    const directory = path.join(__dirname, TOKENS_DIR);
     const tokenList: TokenMetadata[] = [];
     const files = fs.readdirSync(directory);
     for (const file of files) {
