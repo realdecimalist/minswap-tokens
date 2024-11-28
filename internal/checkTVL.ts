@@ -32,7 +32,7 @@ const blockfrostAdapter = new SDK.BlockfrostAdapter({
 async function verifyTVL() {
   const [v1Pools, { pools: v2Pools }] = await Promise.all([getAllV1Pools(), blockfrostAdapter.getAllV2Pools()]);
 
-  fs.readdir(TOKEN_DIR, async function (error, files) {
+  fs.readdir(TOKEN_DIR, async (error, files) => {
     if (error) {
       throw error;
     }
