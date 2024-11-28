@@ -32,7 +32,7 @@ const blockfrostAdapter = new SDK.BlockfrostAdapter({
 async function verifyTVL() {
   const [v1Pools, { pools: v2Pools }] = await Promise.all([getAllV1Pools(), blockfrostAdapter.getAllV2Pools()]);
 
-  fs.readdir(TOKEN_DIR, async function (error, files) {
+  fs.readdir(TOKEN_DIR, async (error, files) => {
     if (error) {
       throw error;
     }
@@ -44,7 +44,9 @@ async function verifyTVL() {
       if (newVerified === tokenData.verified) {
         continue;
       }
-
+      console.log(
+        `TVL check failed, changing verification information from ${tokenData.verified} to ${newVerified}...`,
+      );
       const tokenInfo = {
         ...tokenData,
         verified: newVerified,
@@ -85,6 +87,7 @@ async function getAllV1Pools() {
 
   let page = 1;
   while (true) {
+    console.log(`Fetching V1 Pools on page: ${page}...`);
     const paginatedPools = await blockfrostAdapter.getV1Pools({
       page,
       count: LIMIT_PAGINATION,

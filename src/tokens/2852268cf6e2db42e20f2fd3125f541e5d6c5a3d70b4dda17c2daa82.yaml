@@ -14,3 +14,8 @@ decimals: 6
 
 verified: true
 
+maxSupply: 25000000000000
+
+treasury:
+  - stake178j4fcxw7pwgxw92yu28c2zqmjxnumumj52hxr9jtr6qwngf2ve5n # O Vesting Multisig
+

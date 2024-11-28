@@ -18,6 +18,6 @@ maxSupply: '100000000000000'
 decimals: 6
 
 treasury:
-  - addr1v9urht2tqg7ncs7r545qdj2wn5tpam5l04t7eyermpmyvmg5xf2mt
-  - addr1w9p9akyhpqsy0xq79g8hspy90xl9htxfrd3mama6py42jjgtvfgn8
+  - addr1v9urht2tqg7ncs7r545qdj2wn5tpam5l04t7eyermpmyvmg5xf2mt # FISO
+  - addr1w9p9akyhpqsy0xq79g8hspy90xl9htxfrd3mama6py42jjgtvfgn8 # DripDropz
 

@@ -12,4 +12,9 @@ socialLinks:
 
 verified: true
 
+maxSupply: 1000000000000000
+
 decimals: 6
+
+circulatingOnChain:
+  - https://universe.pxlz.org/circulating

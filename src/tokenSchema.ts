@@ -59,31 +59,6 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       },
       nullable: true,
     },
-    // $defs: {
-    //   resource: {
-    //     type: "array",
-    //     items: {
-    //       oneOf: [
-    //         {
-    //           type: "string",
-    //           pattern: ADDRESS_REGEX,
-    //         },
-    //         {
-    //           type: "string",
-    //           pattern: URL_REGEX,
-    //         },
-    //         {
-    //           type: "string",
-    //           pattern: ASSET_ID_REGEX,
-    //         },
-    //         {
-    //           type: "number",
-    //         },
-    //       ],
-    //     },
-    //     nullable: true,
-    //   },
-    // },
     treasury: {
       type: "array",
       items: {

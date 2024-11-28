@@ -10,4 +10,9 @@ socialLinks:
 
 verified: true
 
+maxSupply: https://api.axo.trade/axo/total
+
 decimals: 9
+
+circulatingOnChain:
+  - https://api.axo.trade/axo/circulating

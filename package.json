@@ -1,6 +1,6 @@
 {
   "name": "@minswap/minswap-tokens",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The merge of deprecated verified-tokens and market-cap repositories, which contains a list of tokens, exposes APIs for transparent access to circulating supply and total supply.",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -16,9 +16,14 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*": ["pnpm lint", "pnpm check-format"]
+    "*": [
+      "pnpm lint",
+      "pnpm check-format"
+    ]
   },
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
@@ -26,7 +31,12 @@
       "require": "./build/index.js"
     }
   },
-  "keywords": ["minswap", "cardano", "dex", "blockchain"],
+  "keywords": [
+    "minswap",
+    "cardano",
+    "dex",
+    "blockchain"
+  ],
   "author": "Minswap Labs",
   "license": "ISC",
   "repository": {

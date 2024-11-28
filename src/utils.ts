@@ -33,8 +33,17 @@ export function isAddress(str: string | number): boolean {
   return typeof str === "string" && (str.startsWith("addr") || str.startsWith("stake"));
 }
 
-export async function getAmountFromURL(url: string): Promise<bigint> {
+export async function getAmountFromURL(url: string, decimals: number): Promise<bigint | null> {
   const response = await fetch(url);
-  const data = await response.text();
-  return BigInt(data);
+  let amount = await response.text();
+  // format to support APIs which return amount with decimal places
+  if (amount.includes(".")) {
+    const [prefix, postfix] = amount.split(".");
+    if (postfix.length > decimals) {
+      return null;
+    }
+    amount = prefix + postfix.padEnd(decimals, "0");
+  }
+
+  return tryParseBigInt(amount);
 }

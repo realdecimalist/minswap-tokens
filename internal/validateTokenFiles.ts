@@ -3,7 +3,7 @@ import path from "node:path";
 import Ajv from "ajv";
 import { load } from "js-yaml";
 
-import { TOKENS_DIR } from "../src/consts";
+import { ASSET_ID_REGEX, TOKENS_DIR } from "../src/consts";
 import { tokenSchema } from "../src/tokenSchema";
 import type { TokenMetadata } from "../src/types";
 
@@ -18,6 +18,10 @@ async function validateTokenFiles() {
       throw error;
     }
     for (const file of files) {
+      const fileName = file.split(".")[0];
+      if (!fileName.match(ASSET_ID_REGEX)) {
+        throw new Error(`Invalid filename: ${fileName}`);
+      }
       const filePath = path.join(TOKEN_DIR, `${file}`);
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
@@ -26,7 +30,7 @@ async function validateTokenFiles() {
       };
       const validate = ajv.validate(tokenSchema, tokenData);
       if (!validate) {
-        throw new Error(`Error validating token, token file: ${file}`);
+        throw new Error(`Validating failed token file: ${file}`);
       }
     }
   });
