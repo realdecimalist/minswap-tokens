@@ -47,7 +47,7 @@ socialLinks:
   website: https://
   discord: ...
 
-verified: false # default false, if a token violate verification policy then switch to false
+verified: true # default true, if a token violate verification policy then switch to false
 
 # the following fields are not required
 # for URIs, currently only URI which returns a (big) integer in lovelace unit are supported
