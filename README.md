@@ -13,10 +13,9 @@ For tokens providing with `treasuryNft`, the `circulating` is the quantity of th
 ## How to add my token
 ### Requirements
 As token verification prerequisites, ensure your token has:
-- A pool with at least **1000 ADA TVL**
-- A logo added in the [Cardano Token Registry](https://github.com/cardano-foundation/cardano-token-registry) or CIP-68 metadata
-and follow the structure stated in the instructions below.
-- A post of your policy ID on Twitter or your policy ID displayed on your landing page.
+- A pool with at least **1000 ADA TVL**,
+- A post of your policy ID on Twitter or your policy ID displayed on your landing page,
+- A logo added in the [Cardano Token Registry](https://github.com/cardano-foundation/cardano-token-registry) or CIP-68 metadata.
 
 For tokens to be verified:
 1. Create a transaction transfer **100 ADA** to Minswap wallet receiving token verification fee below. This fee appears as the cost for lifetime maintain this repository.
@@ -26,11 +25,11 @@ For tokens to be verified:
 
 Minswap wallet receiving token verification fee: `addr1q85g6fkwzr2cf984qdmntqthl3yxnw4pst4mpgeyygdlnehqlcgwvr6c9vmajz96vnmmset3earqt5wl0keg0kw60eysdgwnej`
 
-Any token that has been verified does not meet the requirements in the future would still be unverified.
+Any token that has been verified does **not** meet the requirements in the future would still be unverified.
 
 ### Create pull request
 
-1. Create a pull request adding yaml file according to the following structure in the `src/tokens`:
+Create a pull request adding yaml file according to the following structure in the `src/tokens`:
 
 ```yaml
 # 1 token = 1 yaml file
@@ -43,7 +42,7 @@ categories:
   - DAO
 
 decimals: 0
-# not required, among website, twitter, discord, telegram, coinMarketCap, coinGecko
+# not required, among website, twitter, discord, telegram, coinMarketCap, coinGecko, only endpoints with SSL (HTTPs) are approved
 socialLinks:
   website: https://
   discord: ...
@@ -51,6 +50,7 @@ socialLinks:
 verified: true # default true, if a token violate verification policy then switch to false
 
 # the following fields are not required
+# for URIs, currently only URI which returns a (big) integer in lovelace unit are supported
 maxSupply: 500000000 # either number or string
 # or
 maxSupply: https://...
