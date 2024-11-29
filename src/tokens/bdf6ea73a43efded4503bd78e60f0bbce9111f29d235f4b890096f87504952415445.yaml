@@ -7,7 +7,12 @@ socialLinks:
   twitter: https://twitter.com/pirateadacoin
   discord: https://discord.gg/f2U6uR4B
 
+verified: true
+
+maxSupply: '3000000000'
+
 decimals: 0
 
-verified: true
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
 

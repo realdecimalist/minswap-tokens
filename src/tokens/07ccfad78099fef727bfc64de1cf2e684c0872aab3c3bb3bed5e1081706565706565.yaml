@@ -7,7 +7,16 @@ socialLinks:
   twitter: https://twitter.com/Peepee_token
   discord: https://discord.gg/FHYWvS5HeD
 
+verified: true
+
+maxSupply: '3000000000'
+
 decimals: 0
 
-verified: true
+treasury:
+  - stake1uxr3vlnzt085c0nyyv4yl7v2zcdewv02x4gslxmdc4cys3scy64vu
+  - stake1799ryumz9g7a6xg8n899lt5g49ru9ccv5v0hhm6856ju54qauwms3
+
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
 
