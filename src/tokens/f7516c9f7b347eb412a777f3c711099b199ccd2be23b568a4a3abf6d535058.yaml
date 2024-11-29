@@ -11,3 +11,8 @@ socialLinks:
 verified: true
 
 decimals: 6
+
+maxSupply: 30000000000000000
+
+circulatingOnChain:
+  - https://map.smart-places.io/api/token/supply
