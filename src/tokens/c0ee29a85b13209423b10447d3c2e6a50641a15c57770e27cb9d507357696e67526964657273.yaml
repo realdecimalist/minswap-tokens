@@ -16,3 +16,7 @@ verified: false
 
 decimals: 6
 
+maxSupply: 100000000000000
+
+circulatingOnChain:
+  - https://api.mainnet.wingriders.com/wrt-circulating-supply
