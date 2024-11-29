@@ -45,7 +45,7 @@ async function verifyTVL() {
         continue;
       }
       console.log(
-        `TVL check failed, changing verification information from ${tokenData.verified} to ${newVerified}...`,
+        `TVL check failed, changing ${file} verification information from ${tokenData.verified} to ${newVerified}...`,
       );
       const tokenInfo = {
         ...tokenData,

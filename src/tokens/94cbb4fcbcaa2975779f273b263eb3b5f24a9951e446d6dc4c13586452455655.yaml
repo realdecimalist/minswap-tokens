@@ -18,3 +18,6 @@ socialLinks:
 verified: true
 
 decimals: 8
+
+circulatingOnChain:
+  - https://production.revuto.com/api/v1/wallet/circulating_supply
