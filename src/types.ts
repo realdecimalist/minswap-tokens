@@ -44,7 +44,7 @@ export type TokenMetadata = {
   treasury?: (string | number)[];
   burn?: (string | number)[];
   circulatingOnChain?: (string | number)[];
-  treasuryNft?: string;
+  treasuryOnChain?: string;
 };
 
 export type GetTokenOptions = {

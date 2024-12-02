@@ -128,7 +128,7 @@ export const tokenSchema: JSONSchemaType<TokenMetadata> = {
       },
       nullable: true,
     },
-    treasuryNft: {
+    treasuryOnChain: {
       type: "string",
       nullable: true,
     },

@@ -8,20 +8,23 @@ As of latest update, we consider `circulating = maxSupply - treasury - burn` and
 
 In cases where `circulatingOnChain` is provided directly according to the asset's quantity on-chain or through external APIs, the `circulating` is the value of `circulatingOnChain`.
 
-For tokens providing with `treasuryNft`, the `circulating` is the quantity of the address containing the assets. In default, the amount is retrieved from the oldest address from the blockchain's point of view.
+For tokens providing with `treasuryOnChain`, the `circulating` is the quantity of the address containing the assets. In default, the amount is retrieved from the oldest address from the blockchain's point of view.
 
 ## How to add my token
+
 ### Requirements
+
 As token verification prerequisites, ensure your token has:
+
 - A pool with at least **1000 ADA TVL**,
 - A post of your policy ID on Twitter or your policy ID displayed on your landing page,
 - A logo added in the [Cardano Token Registry](https://github.com/cardano-foundation/cardano-token-registry) or CIP-68 metadata.
 
 For tokens to be verified:
+
 1. Create a transaction transfer **100 ADA** to Minswap wallet receiving token verification fee below. This fee appears as the cost for lifetime maintain this repository.
 2. Metadata includes: **the last 4 numbers of asset's policyId and asset's ticker** (for example, Verify 70c6 MIN).
 3. Attach the transaction hash to a comment in the yaml file pull request (instructions below).
-
 
 Minswap wallet receiving token verification fee: `addr1q85g6fkwzr2cf984qdmntqthl3yxnw4pst4mpgeyygdlnehqlcgwvr6c9vmajz96vnmmset3earqt5wl0keg0kw60eysdgwnej`
 
@@ -77,7 +80,7 @@ circulatingOnChain:
   - https://...
   - assetId
 
-treasuryNft: addr...
+treasuryOnChain: addr...
 ```
 
 Alternatively, create an issue with above information and our team will update accordingly. However, please note that the pull request will be processed faster.

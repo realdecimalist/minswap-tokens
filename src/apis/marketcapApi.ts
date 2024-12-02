@@ -40,16 +40,16 @@ export class MarketCapAPI {
       return nullResponse;
     }
 
-    if (!tokenInfo.circulatingOnChain && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryNft) {
+    if (!tokenInfo.circulatingOnChain && !tokenInfo.burn && !tokenInfo.treasury && !tokenInfo.treasuryOnChain) {
       return {
         total: formatNumber(total, decimals),
       };
     }
 
-    if (tokenInfo.treasuryNft) {
-      const treasuryRaw = tokenInfo.treasuryNft;
+    if (tokenInfo.treasuryOnChain) {
+      const treasuryRaw = tokenInfo.treasuryOnChain;
 
-      const treasury = await this.adapter.getAmountInFirstAddressHoldingAsset(treasuryRaw, tokenId);
+      const treasury = await this.adapter.getAmountInAddress(treasuryRaw, tokenId);
       return {
         total: formatNumber(total - treasury, decimals),
         circulating: formatNumber(total - treasury, decimals),
