@@ -16,7 +16,7 @@ npm publish
 
 echo "commit new version"
 git add package.json
-git commit -m "publish version v$version"
+git commit -s -m "publish version v$version"
 
 echo "tag version"
 git tag v"$version"
