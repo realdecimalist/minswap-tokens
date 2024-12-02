@@ -8,7 +8,7 @@ As of latest update, we consider `circulating = maxSupply - treasury - burn` and
 
 In cases where `circulatingOnChain` is provided directly according to the asset's quantity on-chain or through external APIs, the `circulating` is the value of `circulatingOnChain`.
 
-For tokens providing with `treasuryOnChain`, the `circulating` is the quantity of the address containing the assets. In default, the amount is retrieved from the oldest address from the blockchain's point of view.
+For tokens providing with `treasuryOnChain`, `total = maxSupply - treasuryOnChain` and `circulating = maxSupply - treasuryOnChain` formulas will be applied.
 
 ## How to add my token
 
