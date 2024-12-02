@@ -14,7 +14,7 @@ export class TokenAPI {
   public async getToken(tokenId: string) {
     try {
       const __dirname = import.meta.dirname;
-      const filePath = path.join(__dirname, `${TOKENS_DIR}/${tokenId}.yaml`);
+      const filePath = path.join(__dirname, `../${TOKENS_DIR}/${tokenId}.yaml`);
       const tokenFileData = fs.readFileSync(filePath, "utf-8");
       const tokenData: TokenMetadata = {
         tokenId,

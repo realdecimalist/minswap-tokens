@@ -49,7 +49,7 @@ export class MarketCapAPI {
     if (tokenInfo.treasuryNft) {
       const treasuryRaw = tokenInfo.treasuryNft;
 
-      const treasury = await this.adapter.getAmountInFirstAddressHoldingAsset(tokenId, treasuryRaw);
+      const treasury = await this.adapter.getAmountInFirstAddressHoldingAsset(treasuryRaw, tokenId);
       return {
         total: formatNumber(total - treasury, decimals),
         circulating: formatNumber(total - treasury, decimals),

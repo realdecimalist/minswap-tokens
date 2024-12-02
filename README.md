@@ -50,7 +50,7 @@ socialLinks:
 verified: true # default true, if a token violate verification policy then switch to false
 
 # the following fields are not required
-# for `big number`, it's a big number with no decimals. For example, if your token has a max supply of 50,000,000 tokens and 6 decimals, the value needs to be 50000000 × 10^6 = 50000000000000
+# for `big number`, it's a big number with no decimals. For example, if your token has a max supply of 50,000,000 tokens with 6 decimals, the value needs to be 50000000 × 10^6 = 50000000000000
 # for `URIs`, currently only URI which returns a big number (no decimals) are supported
 maxSupply: big number
 # or
@@ -77,10 +77,10 @@ circulatingOnChain:
   - https://...
   - assetId
 
-treasuryNft: assetId
+treasuryNft: addr...
 ```
 
-Alternatively, create an issue with above information and our team will update accordingly. The pull request will be processed faster.
+Alternatively, create an issue with above information and our team will update accordingly. However, please note that the pull request will be processed faster.
 Our team will verify and approve in first-in-first-out order.
 
 ## Usage

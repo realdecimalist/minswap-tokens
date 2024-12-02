@@ -26,8 +26,7 @@ export class BlockFrostAdapter implements Adapter {
     return BigInt(assetInfo?.quantity);
   }
 
-  async getAmountInFirstAddressHoldingAsset(tokenId: string, nftId: string): Promise<bigint> {
-    const addresses = await this.blockFrost.assetsAddresses(nftId);
-    return await this.getAmountInAddress(addresses[0]["address"], tokenId);
+  async getAmountInFirstAddressHoldingAsset(address: string, tokenId: string): Promise<bigint> {
+    return await this.getAmountInAddress(address, tokenId);
   }
 }
