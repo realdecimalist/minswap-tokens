@@ -9,9 +9,8 @@ socialLinks:
 
 verified: true
 
-maxSupply: '1000000000000000000'
+maxSupply: "1000000000000000000"
 
 decimals: 6
 
-treasuryNft: 8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61446a6564537461626c65436f696e4e4654
-
+treasuryOnChain: addr1zx82ru5f7p8ewhhdvahueg2s4gxs3gxl66fkygdekkjs74sm5kjdmrpmng059yellupyvwgay2v0lz6663swmds7hp0q4vpw0l

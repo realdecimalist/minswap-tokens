@@ -13,3 +13,7 @@ decimals: 6
 
 verified: true
 
+maxSupply: 2000000000000000
+
+circulatingOnChain:
+  - https://worldmobile.net/api/wmtx/supply/circulating?unit=wmtx
