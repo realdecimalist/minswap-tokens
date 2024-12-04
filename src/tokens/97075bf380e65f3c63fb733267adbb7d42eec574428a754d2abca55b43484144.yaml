@@ -1,5 +1,4 @@
-#TXHash for verification bf385bda26a33237c2b76f7ba44fb58577aa64ad5658f5236db01a2db46048a1
-Project: Chad
+project: Chad
 
 categories:
   - Meme
@@ -14,7 +13,7 @@ socialLinks:
 
 verified: true
 
-maxSupply: '1000000000'
+maxSupply: 1000000000
 
 treasury:
   - stake1uy0sgxfm8pzrkru97rg8pteu4j05c6dgwuwzemhg6k8te3g6h5due
