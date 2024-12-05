@@ -1,0 +1,36 @@
+project: The Giraffe
+
+categories:
+  - Meme
+
+decimals: 0
+
+socialLinks:
+  website: https://x.com/ChipsCardano
+  discord: https://discord.com/invite/9QfUcsKum3
+
+verified: true 
+
+maxSupply: 1000000000
+
+metadata:
+  message: "Verify 907c CHIPS"   transactionHash: <3d61864b8bd1f92fa85eb2915bf74f657a2018bae13dbbddf075b7a48cabd383> 
+
+treasury:
+  - 47349370
+  - addr1qx2h4cyuuh7gjregwplnxhp0r5znede0ljehaq0ltdsqr45kgqk5p3vthsdnd5wcpkgf7gtf6t0a8upd27sdjyrrcveq7yp6y4
+  - stake1uxtyqt2qck9mcxek68vqmyyly95a9h7n7qk40gxezp3uxvs9cmtjr
+  - https://cardanoscan.io/address/addr1qx2h4cyuuh7gjregwplnxhp0r5znede0ljehaq0ltdsqr45kgqk5p3vthsdnd5wcpkgf7gtf6t0a8upd27sdjyrrcveq7yp6y4
+  - 5df9a1b9af5172602cbf8e4ba9c2a608c3820fc6e5d8c5e48f2d907c
+
+burn:
+  - 10956077
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+  - https://cardanoscan.io/address/addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+  - 5df9a1b9af5172602cbf8e4ba9c2a608c3820fc6e5d8c5e48f2d907c
+
+circulatingOnChain:
+  - 1000000000
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+  
+
