@@ -14,7 +14,6 @@ verified: true
 maxSupply: 1000000000
 
 treasury:
-  - addr1qx2h4cyuuh7gjregwplnxhp0r5znede0ljehaq0ltdsqr45kgqk5p3vthsdnd5wcpkgf7gtf6t0a8upd27sdjyrrcveq7yp6y4
   - stake1uxtyqt2qck9mcxek68vqmyyly95a9h7n7qk40gxezp3uxvs9cmtjr
 
 burn:
