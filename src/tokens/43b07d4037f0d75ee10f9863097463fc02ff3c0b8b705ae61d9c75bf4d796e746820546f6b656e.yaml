@@ -18,5 +18,7 @@ socialLinks:
 
 verified: true
 
-maxSupply: https://www.mynth.ai/api/total-supply
-circulatingOnChain: https://www.mynth.ai/api/current-supply
+maxSupply:
+  - https://www.mynth.ai/api/total-supply
+circulatingOnChain:
+  - https://www.mynth.ai/api/current-supply
