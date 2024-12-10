@@ -16,11 +16,8 @@ maxSupply: '2500000000000'
 decimals: 0
 
 treasury:
-  - stake1uxq7mehxxywwzf0cczf7tq4surcphjdd53ngw5ev6qxf7hstnt9qf
-  - addr1v9csf66n345hu6gua6uj4q59eq6a40fsm2kj08yg348k4fs2z0jeu
-  - addr1qyqajz9679h6jlzfgn8u3ct7dch3u7wdcjx8f4ysreuzd9nadwf2dysvmd0069sl3p73nvucp4wkvd06ry8g4p8f762qm96ee2
-  - addr1qxag9x49vtazage2lf6zgx98kkvdx92epppfj8g4fc4kxn5qvlajnzcseh89c5ce9wta9nuzern8tarn23a7v80ctudsvpau9k
+  - addr1qx2ay3syek8nyfgvxjtmh226ksmqs889plskjgp8wj8vpltvsfw366ru85uwlyrs7nxk9cjyl3ds5g8fjyn78h4ckqfqu3542u
 
 burn:
-  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+  - addr1q8lfmg4v0nk9v6en5s4fv5pgvd3zhd8xd7lsfe8gtgew3kyzcqxx64ppncsvwzemnwwn5wysaqjp5623ljrzrxlsfwnq50ay0s
 
