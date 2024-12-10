@@ -15,6 +15,9 @@ maxSupply: '2500000000000'
 
 decimals: 0
 
+treasury:
+  - addr1qx2ay3syek8nyfgvxjtmh226ksmqs889plskjgp8wj8vpltvsfw366ru85uwlyrs7nxk9cjyl3ds5g8fjyn78h4ckqfqu3542u
+
 burn:
   - addr1q8lfmg4v0nk9v6en5s4fv5pgvd3zhd8xd7lsfe8gtgew3kyzcqxx64ppncsvwzemnwwn5wysaqjp5623ljrzrxlsfwnq50ay0s
 
