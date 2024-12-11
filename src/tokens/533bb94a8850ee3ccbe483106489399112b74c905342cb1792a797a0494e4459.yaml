@@ -14,3 +14,8 @@ socialLinks:
 verified: true
 
 decimals: 6
+
+maxSupply: 35000000000000
+
+circulatingOnChain:
+  - https://analytics.indigoprotocol.io/api/stats/indy-circulating-supply/raw
