@@ -11,7 +11,7 @@ total = maxSupply - burn
 circulating = maxSupply - burn - treasury
 ```
 
-In special cases where your want to get circulating supply from API or you consider all minted tokens are circulating supply, you can use `circulatingOnChain` (example: Indigo, Butane).
+In special cases where you want to get circulating supply from API or you consider all minted tokens are circulating supply, you can use `circulatingOnChain` (example: Indigo, Butane).
 
 ## How to add my token
 
@@ -27,16 +27,14 @@ As token verification prerequisites, ensure your token has:
 
 #### Pay one-time verification fee
 
-1. Create a transaction transfer **100 ADA** lifetime fee to Minswap wallet below. If your token is minted from [Minswap Mint Token](https://minswap.org/launch-bowl/mint-token) service, you won't be charged fee.
+1. Create a transaction transfer **100 ADA** lifetime fee to Minswap address: `addr1q85g6fkwzr2cf984qdmntqthl3yxnw4pst4mpgeyygdlnehqlcgwvr6c9vmajz96vnmmset3earqt5wl0keg0kw60eysdgwnej`. If your token is minted from [Minswap Mint Token](https://minswap.org/launch-bowl/mint-token) service, you won't be charged fee.
 2. Transaction metadata includes: **the last 4 characters of asset's policyId and asset's ticker** (for example, Verify 70c6 MIN).
 3. Attach the transaction hash to the pull request.
 
-**Why is there a one-time fee?**
+_Why is there a one-time fee?_
 
 The one time fee is collected for maintaining the token verification repository and plays a crucial role in ensuring the repository remains a trusted and reliable resource for verifying tokens.
 The fee also helps fund contributors, who carefully review and verify tokens, to ensure that only legitimate projects are verified, preventing scams and protecting users from malicious actors.
-
-Minswap wallet receiving token verification fee: `addr1q85g6fkwzr2cf984qdmntqthl3yxnw4pst4mpgeyygdlnehqlcgwvr6c9vmajz96vnmmset3earqt5wl0keg0kw60eysdgwnej`
 
 Any token that has been verified and fail to meet the requirements in the future will be **unverified**.
 
