@@ -13,7 +13,10 @@ socialLinks:
 
 verified: true
 
-maxSupply: '3000000000000000'
+maxSupply: 5_000_000_000_000000
+
+burn:
+  - 2_000_000_000_000000
 
 decimals: 6
 
