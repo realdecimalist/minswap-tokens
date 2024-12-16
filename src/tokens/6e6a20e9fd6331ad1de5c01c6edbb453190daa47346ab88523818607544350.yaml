@@ -1,0 +1,21 @@
+# verify hash: 1b856c7026dae586c5abfe0c45e9c64819cae407d77772e29d7704b9b4e6fd34
+# policy id: 6e6a20e9fd6331ad1de5c01c6edbb453190daa47346ab88523818607
+# tokenName: 544350
+
+project: Terrible Cake Party
+
+categories:
+  - GameFi
+  - Meme
+  
+socialLinks:
+  website: https://terriblecakeparty.com
+  twitter: https://twitter.com/terriblecake
+  discord: https://bit.ly/terriblecakediscord
+  telegram: https://t.me/+toLNNG7lwr5hOTYx
+
+verified: true
+
+maxSupply: 10000000000
+
+decimals: 0
