@@ -49,12 +49,15 @@ Create a pull request adding YAML file according to the following structure in t
 # all URL needs to be HTTPS
 
 project: Minswap
+
 # among: DeFi, RealFi, GameFi, Meme, Bridge, Metaverse, Wallet, NFT, Oracle, AI, Launchpad, DAO, Stablecoin, Social, Media, Risk Ratings, Index Vaults, DePIN, Other
 categories:
   - DeFi
   - DAO
 
+# needs to be the same as decimals in Cardano Token Registry or CIP-68
 decimals: 0
+
 # optional, among: website, twitter, discord, telegram, coinMarketCap, coinGecko
 socialLinks:
   website: https://
