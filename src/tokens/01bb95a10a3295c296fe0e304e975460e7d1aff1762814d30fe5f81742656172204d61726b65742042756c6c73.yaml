@@ -1,0 +1,20 @@
+# tx fee: 700558458bd12b1a9ab839be1689bed2d09612d0520cae31c08d38480a9fafbb
+
+project: Bear Market Bulls
+
+categories:
+  - Meme
+
+decimals: 1
+
+socialLinks:
+  twitter: https://x.com/BareMarketBull
+  website: https://www.bearmarketbulls.xyz
+  discord: https://discord.com/invite/rt76S6XUKp
+
+verified: true
+
+maxSupply: '69000000000'
+
+treasury:
+  - addr1qxazugk3dgql78tr9tlmwhmhfq54l9uwqt0nth28xtn60dtzfk4t9zmjs8u5shr3sjlz5y3rl4a54xpv0j0c8usve8dq8pypnx
