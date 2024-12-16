@@ -2,17 +2,20 @@
 
 ## Overview
 
-This repository is a merge of now deprecated verified-tokens and market-cap repositories, it contains a list of tokens and exposes APIs for transparent access to circulating supply and total supply.
+This repository is a merge of now deprecated verified-tokens and market-cap repositories, it contains a list of tokens and exposes NPM package for transparent access to circulating supply and total supply.
 
-As of the latest update, we consider `circulating = maxSupply - treasury - burn` and `total = maxSupply - burn` as standard formulas for calculating marketcap information.
+Each token is an YAML file in `src/tokens` and the file name is token currencySymbol + assetName. The file contains basic information about token like project name, categories, social links and information about max supply, treasury addresses and burn addresses. We calculate total supply and circulating supply using these formulas:
 
-In cases where `circulatingOnChain` is provided directly according to the asset's quantity on-chain or through external APIs, the `circulating` is the value of `circulatingOnChain`.
+```
+total = maxSupply - burn
+circulating = maxSupply - burn - treasury
+```
 
-For tokens providing `treasuryOnChain`, `total = maxSupply - treasuryOnChain` and `circulating = maxSupply - treasuryOnChain` formulas will be applied.
+In special cases where you want to get circulating supply from API or you consider all minted tokens are circulating supply, you can use `circulatingOnChain` (example: Indigo, Butane).
 
 ## How to add my token
 
-### Requirements
+### Prerequisites
 
 As token verification prerequisites, ensure your token has:
 
@@ -20,36 +23,42 @@ As token verification prerequisites, ensure your token has:
 - A post of your policy ID on Twitter (can also be in bio) or your policy ID displayed on your website's landing page,
 - A logo added in the [Cardano Token Registry](https://github.com/cardano-foundation/cardano-token-registry) or CIP-68 metadata.
 
-For tokens to be verified:
+### Process
 
-1. Create a transaction transfer **100 ADA** to Minswap wallet receiving token verification fee below. This fee appears as the cost for lifetime maintain this repository.
-2. Transaction metadata includes: **the last 4 numbers of asset's policyId and asset's ticker** (for example, Verify 70c6 MIN).
-3. Attach the transaction hash to a comment in the yaml file pull request (instructions below).
+#### Pay one-time verification fee
 
-Why is there a one-time fee?
+1. Create a transaction transfer **100 ADA** lifetime fee to Minswap address: `addr1q85g6fkwzr2cf984qdmntqthl3yxnw4pst4mpgeyygdlnehqlcgwvr6c9vmajz96vnmmset3earqt5wl0keg0kw60eysdgwnej`. If your token is minted from [Minswap Mint Token](https://minswap.org/launch-bowl/mint-token) service, you won't be charged fee.
+2. Transaction metadata includes: **the last 4 characters of asset's policyId and asset's ticker** (for example, Verify 70c6 MIN).
+3. Attach the transaction hash to the pull request.
+
+_Why is there a one-time fee?_
+
 The one time fee is collected for maintaining the token verification repository and plays a crucial role in ensuring the repository remains a trusted and reliable resource for verifying tokens.
 The fee also helps fund contributors, who carefully review and verify tokens, to ensure that only legitimate projects are verified, preventing scams and protecting users from malicious actors.
 
-Minswap wallet receiving token verification fee: `addr1q85g6fkwzr2cf984qdmntqthl3yxnw4pst4mpgeyygdlnehqlcgwvr6c9vmajz96vnmmset3earqt5wl0keg0kw60eysdgwnej`
+Any token that has been verified and fail to meet the requirements in the future will be **unverified**.
 
-Any token that has been verified and does **not** meet the requirements in the future will be unverified.
+#### Create a pull request
 
-### Creating a pull request
-
-Create a pull request adding yaml file according to the following structure in the `src/tokens`:
+Create a pull request adding YAML file according to the following structure in the `src/tokens`:
 
 ```yaml
 # 1 token = 1 yaml file
-# filename/assetId: policyId + hex-coded token name
+# assetId: policyId + hex-coded token name
+# file name: assetId of the token that want to be verified
+# all URL needs to be HTTPS
 
 project: Minswap
-# among DeFi, RealFi, GameFi, Meme, Bridge, Metaverse, Wallet, NFT, Oracle, AI, Launchpad, DAO, Stablecoin, Social, Media, Risk Ratings, Index Vaults, DePIN, Other
+
+# among: DeFi, RealFi, GameFi, Meme, Bridge, Metaverse, Wallet, NFT, Oracle, AI, Launchpad, DAO, Stablecoin, Social, Media, Risk Ratings, Index Vaults, DePIN, Other
 categories:
   - DeFi
   - DAO
 
+# needs to be the same as decimals in Cardano Token Registry or CIP-68
 decimals: 0
-# not required, among website, twitter, discord, telegram, coinMarketCap, coinGecko, only endpoints with SSL (HTTPs) are approved
+
+# optional, among: website, twitter, discord, telegram, coinMarketCap, coinGecko
 socialLinks:
   website: https://
   discord: ...
@@ -57,40 +66,41 @@ socialLinks:
 verified: true # default true, if a token violate verification policy then switch to false
 
 # the following fields are not required
-# for `big number`, it's a big number with no decimals. For example, if your token has a max supply of 50,000,000 tokens with 6 decimals, the value needs to be 50000000 × 10^6 = 50000000000000
-# for `URIs`, currently only URI which returns a big number (no decimals) are supported
-maxSupply: big number
+# for `number`, it's token number with no decimals. For example, if your token has a max supply of 50,000,000 tokens with 6 decimals, the value needs to be 50000000 × 10^6 = 50000000000000
+# for URL, it must also return the token number without decimals
+maxSupply: number
 # or
 maxSupply: https://...
 
 treasury:
-  - big number
+  - number
   - addr...
   - stake...
   - https://...
   - assetId
 
 burn:
-  - big number
+  - number
   - addr...
   - stake...
   - https://...
   - assetId
 
 circulatingOnChain:
-  - big number
+  - number
   - addr...
   - stake...
   - https://...
   - assetId
-
-treasuryOnChain: addr...
 ```
 
 Alternatively, create an issue with above information and our team will update accordingly. However, please note that the pull requests will be processed much faster.
-Our team will verify and approve on first-in-first-out basis.
+Our team will verify and approve on a first-come-first-serve basis.
 
 ## Usage
+
+- Option 1: Clone the repository, parse YAML files and use your favorite tools to query (eg. Ogmios, Kupo,...)
+- Option 2: Use the NPM package:
 
 ```ts
 import {
