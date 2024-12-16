@@ -4,7 +4,7 @@
 
 This repository is a merge of now deprecated verified-tokens and market-cap repositories, it contains a list of tokens and exposes NPM package for transparent access to circulating supply and total supply.
 
-Each token is an YAML file in `src/tokens` and the file name is token currencySymbol + assetName. The file contains basic information about token like project name, categories, social links and information about max supply, treasury addresses and burn addresses (more details below). We calculate total supply and circulating supply using these formulas:
+Each token is an YAML file in `src/tokens` and the file name is token currencySymbol + assetName. The file contains basic information about token like project name, categories, social links and information about max supply, treasury addresses and burn addresses. We calculate total supply and circulating supply using these formulas:
 
 ```
 total = maxSupply - burn
