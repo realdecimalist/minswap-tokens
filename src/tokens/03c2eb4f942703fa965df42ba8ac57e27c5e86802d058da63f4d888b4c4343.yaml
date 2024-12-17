@@ -1,9 +1,11 @@
-project: NotFound
+project: Lazy Cat Coin
 
 categories:
-  - Other
+  - DAO
 
 socialLinks:
+  website: https://www.biglazycat.com/token/lcc/
+  discord: https://discord.com/invite/ptUnDQ6TUE
 
 verified: true
 
