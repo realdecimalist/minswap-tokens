@@ -131,3 +131,10 @@ const minMarketCapInfo = await marketCapApi.getMarketCapInfo(minTokenInfo);
 console.log(minMarketCapInfo);
 // { circulating: '240813714.66121483', total: '5000000000' }
 ```
+
+## Suspicious Tokens
+There are lots of fake tokens on Cardano, and sometimes it's too late for those tokens to be taken down from Cardano Token Registry. That's why Minswap Labs will add those tokens in here as soon as possible to prevent abuses.
+
+We keep a list of suspecious tokens policy IDs in suspicious-tokens/tokens.txt file, one policy ID is one line.
+
+Cardano applications and DEXes are free to use this list to warn or block users from interacting with suspicious tokens.
