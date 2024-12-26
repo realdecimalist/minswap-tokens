@@ -1,0 +1,21 @@
+project: GLITCH
+categories:
+  - AI
+decimals: 0
+socialLinks:
+  website: 'https://aidacardano.com/'
+  discord: 'https://discord.com/invite/6UGM7mtWmw'
+  telegram: 'https://t.me/aidacardano'
+  twitter: 'https://x.com/aidacardano'
+verified: true
+maxSupply: 1000000000
+metadata:
+  message: Verify 25ba GLITCH
+  transactionHash: <4f7a7a444be3c23d340ba76f0a36a0e7f78533ac1bfefb203971de63b9280022>
+treasury:
+  - stake1uxnjssfsw5p8ryssrae76v270ad3qwvknzm8u4cf4mxu57c5u3dnc
+burn:
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
+circulatingOnChain:
+  - 1000000000
+  - addr1w8qmxkacjdffxah0l3qg8hq2pmvs58q8lcy42zy9kda2ylc6dy5r4
